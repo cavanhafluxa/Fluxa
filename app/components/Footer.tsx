@@ -1,58 +1,44 @@
-import { TapeMarquee } from "./TapeMarquee";
-
 export function Footer() {
   return (
-    <footer className="bg-carvao text-massa-cream">
-      <TapeMarquee
-        variant="red"
-        tilt={1}
-        items={[
-          "Fluxa",
-          "Aquisição",
-          "Conversão",
-          "Retenção",
-          "Comunidade",
-          "Restaurantes donos do próprio jogo",
-        ]}
-      />
-
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
+    <footer className="border-t border-carvao/8 bg-massa-cream">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
-          <p className="font-display text-4xl uppercase leading-none">
-            fluxa<span className="text-fluxa-red">.</span>
-          </p>
-          <p
-            className="mt-4 max-w-sm text-sm text-massa-cream/65"
-            style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
-          >
-            O canal onde seu restaurante precisa estar. Marketing, tecnologia
-            e comunidade para restaurantes donos do próprio negócio.
+          <div className="flex items-center gap-2">
+            <img src="/logo-mark.svg" alt="" width={26} height={26} />
+            <p className="font-display text-lg font-bold text-carvao">fluxa</p>
+          </div>
+          <p className="mt-4 max-w-sm text-sm text-carvao/60">
+            O canal onde seu restaurante precisa estar. Marketing, tecnologia e
+            comunidade.
           </p>
         </div>
 
         <div>
-          <p
-            className="text-xs uppercase tracking-[0.22em] text-brasa"
-            style={{ fontFamily: "var(--font-sans)", fontWeight: 600 }}
-          >
+          <p className="text-xs uppercase tracking-[0.16em] text-carvao/40">
             Ecossistema
           </p>
-          <ul
-            className="mt-4 space-y-2 text-sm"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
+          <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href="#pilares" className="text-massa-cream/70 hover:text-massa-cream">
+              <a
+                href="#pilares"
+                className="text-carvao/70 transition hover:text-carvao"
+              >
                 Fluxa Kitchen
               </a>
             </li>
             <li>
-              <a href="#pilares" className="text-massa-cream/70 hover:text-massa-cream">
+              <a
+                href="#pilares"
+                className="text-carvao/70 transition hover:text-carvao"
+              >
                 Fluxa Cardápio
               </a>
             </li>
             <li>
-              <a href="#pilares" className="text-massa-cream/70 hover:text-massa-cream">
+              <a
+                href="#pilares"
+                className="text-carvao/70 transition hover:text-carvao"
+              >
                 Fluxa Points
               </a>
             </li>
@@ -61,7 +47,7 @@ export function Footer() {
                 href="https://flxa.space/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-massa-cream/70 hover:text-massa-cream"
+                className="text-carvao/70 transition hover:text-carvao"
               >
                 Fluxa Foods ↗
               </a>
@@ -70,36 +56,33 @@ export function Footer() {
         </div>
 
         <div>
-          <p
-            className="text-xs uppercase tracking-[0.22em] text-brasa"
-            style={{ fontFamily: "var(--font-sans)", fontWeight: 600 }}
-          >
+          <p className="text-xs uppercase tracking-[0.16em] text-carvao/40">
             Vamos conversar
           </p>
-          <ul
-            className="mt-4 space-y-2 text-sm"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
+          <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href="#parceria" className="text-massa-cream/70 hover:text-massa-cream">
+              <a
+                href="#parceria"
+                className="text-carvao/70 transition hover:text-carvao"
+              >
                 Ser parceiro
               </a>
             </li>
             <li>
-              <a href="#case" className="text-massa-cream/70 hover:text-massa-cream">
+              <a
+                href="#case"
+                className="text-carvao/70 transition hover:text-carvao"
+              >
                 Ver o case
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-massa-cream/10">
-        <div
-          className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-5 py-6 text-xs text-massa-cream/50 md:flex-row md:items-center md:px-8"
-          style={{ fontFamily: "var(--font-sans)" }}
-        >
+      <div className="border-t border-carvao/8">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-6 text-xs text-carvao/40 md:flex-row md:items-center md:px-8">
           <p>© {new Date().getFullYear()} Fluxa. Todos os direitos reservados.</p>
-          <p>Feito para restaurantes que querem ser donos do próprio jogo.</p>
+          <p>Feito para restaurantes donos do próprio jogo.</p>
         </div>
       </div>
     </footer>

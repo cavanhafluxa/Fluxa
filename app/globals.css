@@ -14,8 +14,6 @@
   --font-display: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
 }
 
 @layer base {
@@ -31,6 +29,8 @@
     color: var(--color-carvao);
     font-family: var(--font-sans);
     font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   ::selection {
@@ -42,115 +42,23 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 0.92;
-  }
-
-  .font-display-tight {
-    font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  .font-body {
-    font-family: var(--font-sans);
-    font-weight: 400;
+    letter-spacing: -0.025em;
   }
 
   .eyebrow {
-    font-family: var(--font-display);
-    font-weight: 700;
+    font-family: var(--font-sans);
+    font-weight: 500;
     font-size: 0.72rem;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: var(--color-fluxa-red);
   }
 
-  /* Padrão xadrez tipo piso de lanchonete */
-  .checker-cream {
-    background-color: var(--color-fluxa-red);
-    background-image:
-      linear-gradient(45deg, var(--color-massa-cream) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--color-massa-cream) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--color-massa-cream) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--color-massa-cream) 75%);
-    background-size: 44px 44px;
-    background-position: 0 0, 0 22px, 22px -22px, -22px 0;
-  }
-  .checker-carvao {
-    background-color: var(--color-carvao);
-    background-image:
-      linear-gradient(45deg, var(--color-massa-cream) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--color-massa-cream) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--color-massa-cream) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--color-massa-cream) 75%);
-    background-size: 32px 32px;
-    background-position: 0 0, 0 16px, 16px -16px, -16px 0;
-  }
-
-  /* Fita/tape marquee */
-  .tape-strip {
-    background-color: var(--color-carvao);
-    color: var(--color-massa-cream);
-    border-top: 2px solid var(--color-massa-cream);
-    border-bottom: 2px solid var(--color-massa-cream);
-  }
-
-  @keyframes fluxa-marquee {
-    from { transform: translate3d(0, 0, 0); }
-    to   { transform: translate3d(-50%, 0, 0); }
-  }
-  .marquee {
-    display: flex;
-    gap: 3rem;
-    animation: fluxa-marquee 28s linear infinite;
-    will-change: transform;
-  }
-  .marquee-fast { animation-duration: 18s; }
-
-  @keyframes fluxa-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-  .spin-slow { animation: fluxa-spin 22s linear infinite; }
-
-  /* Sticker circular */
-  .sticker {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 9999px;
-    background-color: var(--color-brasa);
-    color: var(--color-carvao);
-    font-family: var(--font-display);
-    font-weight: 900;
-    letter-spacing: -0.01em;
-    box-shadow: 0 12px 30px -12px rgba(26, 14, 14, 0.35);
-  }
-  .sticker-red {
-    background-color: var(--color-fluxa-red);
-    color: var(--color-massa-cream);
-  }
-
-  /* Sombra tipo pack shot */
-  .food-shadow {
-    filter: drop-shadow(0 30px 25px rgba(26, 14, 14, 0.35))
-      drop-shadow(0 8px 10px rgba(26, 14, 14, 0.2));
-  }
-
-  /* Placeholder de imagem enquanto não plugam */
+  /* Slot pra imagem enquanto o usuário não plugou o arquivo */
   .asset-slot {
     position: relative;
     isolation: isolate;
-    background:
-      repeating-linear-gradient(
-        45deg,
-        rgba(26, 14, 14, 0.06) 0 8px,
-        transparent 8px 16px
-      );
-    color: var(--color-carvao);
+    background-color: var(--color-massa-cream-2);
   }
   .asset-slot > img {
     position: relative;
@@ -158,6 +66,7 @@
     width: 100%;
     height: 100%;
     display: block;
+    object-fit: cover;
   }
   .asset-slot > .asset-slot-label {
     position: absolute;
@@ -168,29 +77,12 @@
     justify-content: center;
     padding: 1rem;
     text-align: center;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.7rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-carvao);
-    opacity: 0.4;
-  }
-
-  .grain {
-    position: relative;
-  }
-  .grain::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(
-      rgba(26, 14, 14, 0.05) 1px,
-      transparent 1px
-    );
-    background-size: 3px 3px;
-    mix-blend-mode: multiply;
-    opacity: 0.4;
+    opacity: 0.3;
   }
 }

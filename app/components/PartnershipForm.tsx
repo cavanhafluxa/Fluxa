@@ -35,35 +35,23 @@ export function PartnershipForm() {
   }
 
   return (
-    <section id="parceria" className="relative bg-fluxa-red text-massa-cream">
-      <div
-        aria-hidden="true"
-        className="checker-cream absolute inset-x-0 top-0 h-6 opacity-40"
-      />
-
-      <div className="relative mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
-        <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:items-start">
-          <div className="lg:sticky lg:top-28">
-            <p className="eyebrow mb-6 text-brasa">Parceria</p>
-            <h2 className="font-display text-4xl uppercase leading-[0.95] md:text-7xl">
-              Vamos fechar a <span className="text-brasa">parceria?</span>
+    <section
+      id="parceria"
+      className="border-t border-carvao/8 bg-massa-cream"
+    >
+      <div className="mx-auto max-w-5xl px-6 py-24 md:px-8 md:py-32">
+        <div className="grid gap-14 md:grid-cols-[1fr_1.1fr] md:items-start">
+          <div className="md:sticky md:top-28">
+            <p className="eyebrow">Parceria</p>
+            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.1] text-carvao md:text-5xl">
+              Vamos fechar a parceria?
             </h2>
-            <p
-              className="mt-6 max-w-md text-lg text-massa-cream/85"
-              style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
-            >
-              A gente busca parceiros de crescimento. Preenche o form e um
-              especialista te chama em até{" "}
-              <strong className="font-semibold text-massa-cream">
-                5 minutos
-              </strong>
-              .
+            <p className="mt-5 max-w-md text-base text-carvao/60 md:text-lg">
+              Preencha o formulário. Um especialista te chama em até 5 minutos
+              no WhatsApp.
             </p>
 
-            <ul
-              className="mt-10 space-y-4 text-massa-cream/90"
-              style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
-            >
+            <ul className="mt-8 space-y-3 text-sm text-carvao/70">
               <Feat>Diagnóstico gratuito do canal atual</Feat>
               <Feat>Plano de aquisição e retenção sob medida</Feat>
               <Feat>Sem fee de agência — parceria de crescimento</Feat>
@@ -75,7 +63,7 @@ export function PartnershipForm() {
           ) : (
             <form
               onSubmit={onSubmit}
-              className="rounded-[2rem] bg-massa-cream p-8 text-carvao shadow-[0_30px_80px_-30px_rgba(26,14,14,0.6)] md:p-10"
+              className="rounded-2xl border border-carvao/10 bg-massa-cream-2/40 p-8 md:p-10"
               noValidate
             >
               <div className="grid gap-5 md:grid-cols-2">
@@ -134,8 +122,7 @@ export function PartnershipForm() {
               {status === "error" && errorMsg && (
                 <p
                   role="alert"
-                  className="mt-5 rounded-xl border border-fluxa-red/40 bg-fluxa-red/10 px-4 py-3 text-sm text-fluxa-red"
-                  style={{ fontFamily: "var(--font-sans)" }}
+                  className="mt-5 rounded-lg border border-fluxa-red/30 bg-fluxa-red/10 px-4 py-3 text-sm text-fluxa-red"
                 >
                   {errorMsg}
                 </p>
@@ -144,23 +131,14 @@ export function PartnershipForm() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-fluxa-red px-8 py-4 text-base font-semibold text-massa-cream shadow-[0_10px_30px_-10px_rgba(214,32,31,0.55)] transition hover:bg-fluxa-red-hover disabled:cursor-not-allowed disabled:opacity-70"
-                style={{ fontFamily: "var(--font-sans)" }}
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-fluxa-red px-6 py-3 text-sm font-medium text-massa-cream transition hover:bg-fluxa-red-hover disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {status === "loading" ? (
-                  "Enviando..."
-                ) : (
-                  <>
-                    Quero falar com um especialista
-                    <span aria-hidden="true">→</span>
-                  </>
-                )}
+                {status === "loading"
+                  ? "Enviando..."
+                  : "Quero falar com um especialista"}
               </button>
 
-              <p
-                className="mt-4 text-center text-xs text-carvao/50"
-                style={{ fontFamily: "var(--font-sans)" }}
-              >
+              <p className="mt-4 text-center text-xs text-carvao/40">
                 Ao enviar, você concorda em receber contato da equipe Fluxa.
               </p>
             </form>
@@ -173,13 +151,11 @@ export function PartnershipForm() {
 
 function Feat({ children }: { children: React.ReactNode }) {
   return (
-    <li className="flex items-start gap-3">
+    <li className="flex items-start gap-2.5">
       <span
         aria-hidden="true"
-        className="mt-0.5 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brasa text-[0.7rem] font-bold text-carvao"
-      >
-        ✓
-      </span>
+        className="mt-2 inline-flex h-1 w-1 flex-none rounded-full bg-fluxa-red"
+      />
       <span>{children}</span>
     </li>
   );
@@ -201,18 +177,15 @@ function Field({
   autoComplete?: string;
 }) {
   return (
-    <label className="block" style={{ fontFamily: "var(--font-sans)" }}>
-      <span className="mb-2 block text-sm font-medium text-carvao">
-        {label}
-        {required && <span className="text-fluxa-red"> *</span>}
-      </span>
+    <label className="block">
+      <span className="mb-2 block text-sm text-carvao">{label}</span>
       <input
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
         autoComplete={autoComplete}
-        className="w-full rounded-xl border-2 border-carvao/15 bg-massa-cream-2/40 px-4 py-3 text-carvao outline-none transition placeholder:text-carvao/30 focus:border-fluxa-red focus:bg-massa-cream focus:ring-2 focus:ring-fluxa-red/20"
+        className="w-full rounded-lg border border-carvao/15 bg-massa-cream px-4 py-3 text-sm text-carvao outline-none transition placeholder:text-carvao/30 focus:border-fluxa-red focus:ring-2 focus:ring-fluxa-red/15"
       />
     </label>
   );
@@ -230,16 +203,13 @@ function Select({
   options: string[];
 }) {
   return (
-    <label className="block" style={{ fontFamily: "var(--font-sans)" }}>
-      <span className="mb-2 block text-sm font-medium text-carvao">
-        {label}
-        {required && <span className="text-fluxa-red"> *</span>}
-      </span>
+    <label className="block">
+      <span className="mb-2 block text-sm text-carvao">{label}</span>
       <select
         name={name}
         required={required}
         defaultValue=""
-        className="w-full appearance-none rounded-xl border-2 border-carvao/15 bg-massa-cream-2/40 px-4 py-3 text-carvao outline-none transition focus:border-fluxa-red focus:bg-massa-cream focus:ring-2 focus:ring-fluxa-red/20"
+        className="w-full appearance-none rounded-lg border border-carvao/15 bg-massa-cream px-4 py-3 text-sm text-carvao outline-none transition focus:border-fluxa-red focus:ring-2 focus:ring-fluxa-red/15"
       >
         <option value="" disabled>
           Selecione…
@@ -256,24 +226,23 @@ function Select({
 
 function SuccessCard({ onReset }: { onReset: () => void }) {
   return (
-    <div className="flex flex-col items-start rounded-[2rem] bg-massa-cream p-10 text-carvao md:p-12">
-      <span className="sticker sticker-red h-14 w-14 rotate-[-6deg] text-xl">
+    <div className="flex flex-col items-start rounded-2xl border border-carvao/10 bg-massa-cream-2/40 p-10 md:p-12">
+      <span
+        aria-hidden="true"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-fluxa-red text-sm text-massa-cream"
+      >
         ✓
       </span>
-      <h3 className="mt-6 font-display text-3xl uppercase leading-[0.95] md:text-5xl">
-        Recebemos! Já estamos te ligando.
+      <h3 className="font-display mt-6 text-2xl font-bold leading-tight text-carvao md:text-3xl">
+        Recebemos. Já estamos te ligando.
       </h3>
-      <p
-        className="mt-4 max-w-md text-base text-carvao/70"
-        style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
-      >
+      <p className="mt-3 max-w-md text-sm text-carvao/60">
         Um especialista da Fluxa vai entrar em contato pelo WhatsApp em até 5
-        minutos. Deixa o celular por perto.
+        minutos.
       </p>
       <button
         onClick={onReset}
-        className="mt-8 text-sm font-medium text-fluxa-red underline underline-offset-4 hover:text-fluxa-red-hover"
-        style={{ fontFamily: "var(--font-sans)" }}
+        className="mt-6 text-sm font-medium text-fluxa-red underline underline-offset-4"
       >
         Enviar outro contato
       </button>
