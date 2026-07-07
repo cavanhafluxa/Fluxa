@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Fluxa */
+  --color-fluxa-red: #d6201f;
+  --color-fluxa-red-hover: #b81a19;
+  --color-massa-cream: #f5efe6;
+  --color-massa-cream-2: #ede5d7;
+  --color-carvao: #1a0e0e;
+  --color-carvao-soft: #2a1c1c;
+  --color-borgonha: #7a0f0f;
+  --color-brasa: #f2a03d;
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-massa-cream);
+    color: var(--color-carvao);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: var(--color-fluxa-red);
+    color: var(--color-massa-cream);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.02em;
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+      rgba(26, 14, 14, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+    opacity: 0.6;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-borgonha);
+  }
+}
