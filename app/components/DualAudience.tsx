@@ -1,6 +1,6 @@
 export function DualAudience() {
   return (
-    <section className="relative overflow-hidden bg-massa-cream">
+    <section id="diferencial" className="relative overflow-hidden bg-massa-cream">
       {/* Faixa xadrez topo */}
       <div
         aria-hidden="true"

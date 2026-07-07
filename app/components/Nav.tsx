@@ -1,59 +1,50 @@
 import Link from "next/link";
 
+const links = [
+  { href: "#problema", label: "Dinheiro perdido" },
+  { href: "#pilares", label: "Pilares" },
+  { href: "#diferencial", label: "Diferencial" },
+  { href: "#case", label: "Lanas" },
+];
+
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 bg-fluxa-red text-massa-cream shadow-[0_10px_30px_-20px_rgba(26,14,14,0.5)]">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 md:px-8">
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">
+      <header className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full bg-massa-cream px-4 py-2.5 shadow-[0_18px_50px_-20px_rgba(214,32,31,0.35)] md:px-5 md:py-3">
         <Link
           href="/"
           aria-label="Fluxa — página inicial"
-          className="flex items-center gap-2"
+          className="flex shrink-0 items-center gap-2"
         >
-          <span className="asset-slot inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-massa-cream text-fluxa-red">
-            <img src="/logo-mark.svg" alt="" />
-            <span className="asset-slot-label !text-fluxa-red !opacity-100 font-display text-lg">
-              F
-            </span>
+          <span className="inline-flex h-8 w-8 items-center justify-center">
+            <img src="/logo-mark.svg" alt="" width={32} height={32} />
           </span>
-          <span className="font-display text-2xl tracking-tight text-massa-cream">
-            fluxa<span className="text-brasa">.</span>
+          <span className="font-display text-xl uppercase tracking-tight text-carvao">
+            fluxa
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
-          <NavLink href="#problema">Diagnóstico</NavLink>
-          <NavLink href="#pilares">Ecossistema</NavLink>
-          <NavLink href="#case">Case</NavLink>
-          <NavLink href="#fluxa-foods">Fluxa Foods</NavLink>
+        <nav className="hidden items-center gap-1.5 md:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="rounded-full bg-fluxa-red px-3.5 py-1.5 text-[0.78rem] font-medium text-massa-cream transition hover:bg-carvao"
+              style={{ fontFamily: "var(--font-sans)" }}
+            >
+              {l.label}
+            </a>
+          ))}
         </nav>
 
         <a
           href="#parceria"
-          className="inline-flex items-center gap-2 rounded-full bg-carvao px-4 py-2.5 text-sm font-medium text-massa-cream transition hover:bg-massa-cream hover:text-carvao"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-fluxa-red px-4 py-2 text-sm font-semibold text-massa-cream shadow-[0_10px_25px_-10px_rgba(214,32,31,0.6)] transition hover:bg-carvao"
           style={{ fontFamily: "var(--font-sans)" }}
         >
-          Ser parceiro
-          <span aria-hidden="true">→</span>
+          Quero ser parceiro
         </a>
-      </div>
-    </header>
-  );
-}
-
-function NavLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      className="text-sm font-medium text-massa-cream/85 transition hover:text-massa-cream"
-      style={{ fontFamily: "var(--font-sans)" }}
-    >
-      {children}
-    </a>
+      </header>
+    </div>
   );
 }

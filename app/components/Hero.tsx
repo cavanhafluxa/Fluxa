@@ -2,104 +2,112 @@ import { TapeMarquee } from "./TapeMarquee";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-fluxa-red text-massa-cream">
-      {/* piso xadrez no rodapé */}
+    <section className="relative isolate overflow-hidden bg-carvao pt-24 text-massa-cream md:pt-28">
+      {/* Gradient escuro → borgonha → red */}
       <div
         aria-hidden="true"
-        className="checker-cream absolute bottom-0 left-0 right-0 h-40 md:h-56"
+        className="absolute inset-0 -z-10"
         style={{
-          maskImage:
-            "linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
+          background:
+            "radial-gradient(120% 90% at 50% 0%, #1a0e0e 0%, #2a1010 35%, #4a1010 60%, #7a0f0f 82%, #a11615 100%)",
+        }}
+      />
+      {/* Vinheta radial pra dar profundidade */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(70% 60% at 30% 40%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 60%)",
         }}
       />
 
-      {/* sticker girando */}
-      <div className="pointer-events-none absolute right-6 top-24 z-20 md:right-16 md:top-32">
-        <div className="relative">
-          <div className="sticker sticker-red h-32 w-32 rotate-[-12deg] md:h-40 md:w-40">
-            <div className="text-center leading-tight">
-              <div className="text-xs uppercase tracking-widest">Especialista</div>
-              <div className="font-display text-3xl md:text-4xl">5min</div>
-              <div className="text-xs uppercase tracking-widest">no WhatsApp</div>
-            </div>
-          </div>
-        </div>
+      {/* Letra "f" gigante translúcida no fundo (lado direito) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 top-10 select-none md:-right-24 md:top-16"
+      >
+        <span
+          className="font-display block text-[26rem] leading-none text-massa-cream/[0.06] md:text-[42rem]"
+          style={{ transform: "rotate(-8deg)" }}
+        >
+          f
+        </span>
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-8 px-5 pb-28 pt-14 md:grid-cols-[1.15fr_1fr] md:gap-12 md:px-8 md:pb-40 md:pt-24">
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-massa-cream/25 bg-massa-cream/10 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.22em]">
-            <span className="h-1.5 w-1.5 rounded-full bg-brasa" />
-            Para restaurantes
-          </div>
+      {/* Ruído sutil */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "3px 3px",
+        }}
+      />
 
-          <h1 className="mt-6 font-display text-[2.9rem] uppercase leading-[0.92] md:text-[5.75rem] lg:text-[6.75rem]">
-            Não só uma
-            <br />
-            <span className="text-brasa">assessoria.</span>
-            <br />
-            O canal.
-          </h1>
+      <div className="relative mx-auto flex min-h-[calc(100vh-6rem)] max-w-7xl flex-col justify-center px-6 pb-24 pt-8 md:px-10 md:pb-32">
+        <p
+          className="text-2xl font-light text-massa-cream/90 md:text-4xl"
+          style={{ fontFamily: "var(--font-sans)", fontWeight: 300 }}
+        >
+          Não apenas uma
+        </p>
 
-          <p
-            className="mt-8 max-w-xl text-base leading-relaxed text-massa-cream/85 md:text-lg"
-            style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
+        <h1 className="font-display mt-2 text-[5.5rem] uppercase leading-[0.85] text-massa-cream md:text-[11rem] lg:text-[13rem]">
+          Assessoria
+        </h1>
+
+        <p
+          className="mt-4 max-w-3xl text-2xl font-light leading-tight text-massa-cream/90 md:text-4xl"
+          style={{ fontFamily: "var(--font-sans)", fontWeight: 300 }}
+        >
+          o canal que o seu restaurante precisa estar.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="#parceria"
+            className="group inline-flex items-center gap-3 rounded-2xl bg-brasa px-7 py-4 text-base font-semibold text-carvao shadow-[0_20px_50px_-15px_rgba(242,160,61,0.6)] transition hover:-translate-y-0.5 hover:bg-massa-cream md:text-lg"
+            style={{ fontFamily: "var(--font-sans)" }}
           >
-            Pare de pagar aluguel por clientes que deveriam ser seus. Unimos{" "}
-            <strong className="font-semibold text-massa-cream">Marketing</strong>,{" "}
-            <strong className="font-semibold text-massa-cream">Tecnologia</strong>{" "}
-            e uma{" "}
-            <strong className="font-semibold text-massa-cream">
-              Comunidade ativa
-            </strong>{" "}
-            para construir uma base própria de clientes que volta sempre.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#parceria"
-              className="group inline-flex items-center gap-3 rounded-full bg-massa-cream px-7 py-4 text-base font-semibold text-carvao shadow-[0_16px_40px_-15px_rgba(26,14,14,0.55)] transition hover:bg-brasa hover:text-carvao"
-            >
-              Quero a Fluxa como parceira
-              <span aria-hidden="true" className="transition group-hover:translate-x-0.5">
-                →
-              </span>
-            </a>
-            <a
-              href="#pilares"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-massa-cream/50 px-6 py-4 text-base font-semibold text-massa-cream transition hover:bg-massa-cream/10"
-            >
-              Ver o ecossistema
-            </a>
-          </div>
-        </div>
-
-        {/* Slot pra imagem do combo */}
-        <div className="relative z-10 flex items-center justify-center">
-          <div className="relative">
-            <div
+            Quero a Fluxa como parceira!
+            <span
               aria-hidden="true"
-              className="absolute inset-0 -m-6 rounded-full bg-brasa/30 blur-3xl"
-            />
-            <div className="asset-slot food-shadow relative aspect-square w-[280px] overflow-hidden rounded-full bg-fluxa-red-hover md:w-[420px] lg:w-[500px]">
-              <img
-                src="/hero-burger.png"
-                alt="Combo Fluxa: burger, batata e refrigerante"
-                width={720}
-                height={720}
-              />
-              <span className="asset-slot-label">/public/hero-burger.png</span>
-            </div>
-          </div>
+              className="transition group-hover:translate-x-0.5"
+            >
+              →
+            </span>
+          </a>
+          <a
+            href="#pilares"
+            className="inline-flex items-center gap-2 rounded-2xl border-2 border-massa-cream/25 px-6 py-4 text-base font-medium text-massa-cream/90 transition hover:bg-massa-cream/10 md:text-lg"
+            style={{ fontFamily: "var(--font-sans)" }}
+          >
+            Ver o ecossistema
+          </a>
         </div>
+
+        {/* Sub-linha explicativa */}
+        <p
+          className="mt-14 max-w-2xl text-sm leading-relaxed text-massa-cream/60 md:text-base"
+          style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
+        >
+          Pare de pagar aluguel por clientes que deveriam ser seus. Unimos{" "}
+          <strong className="font-semibold text-massa-cream">Marketing</strong>,{" "}
+          <strong className="font-semibold text-massa-cream">Tecnologia</strong>{" "}
+          e uma{" "}
+          <strong className="font-semibold text-massa-cream">
+            Comunidade ativa
+          </strong>{" "}
+          para construir sua própria base de clientes que volta sempre.
+        </p>
       </div>
 
-      {/* Fita de encerramento do hero */}
-      <div className="relative z-20 -mt-6 md:-mt-4">
+      {/* Fita conectora entre hero e resto */}
+      <div className="relative z-20">
         <TapeMarquee
-          variant="carvao"
+          variant="cream"
           tilt={-2}
           items={[
             "Aquisição",
