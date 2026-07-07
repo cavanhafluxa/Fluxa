@@ -59,14 +59,14 @@ function Card({
     <article
       className={
         highlight
-          ? "flex flex-col rounded-2xl bg-carvao p-8 text-massa-cream"
+          ? "flex flex-col rounded-2xl bg-fluxa-red p-8 text-massa-cream shadow-[0_20px_50px_-25px_rgba(214,32,31,0.55)]"
           : "flex flex-col rounded-2xl border border-carvao/10 bg-massa-cream p-8"
       }
     >
       <p
         className={
           "text-xs uppercase tracking-[0.16em] " +
-          (highlight ? "text-brasa" : "text-fluxa-red")
+          (highlight ? "text-massa-cream/80" : "text-fluxa-red")
         }
       >
         {tag}
@@ -82,11 +82,23 @@ function Card({
       <p
         className={
           "mt-3 text-[0.95rem] leading-relaxed " +
-          (highlight ? "text-massa-cream/70" : "text-carvao/60")
+          (highlight ? "text-massa-cream/85" : "text-carvao/60")
         }
       >
         {body}
       </p>
+      {highlight && (
+        <div className="mt-6 flex flex-wrap gap-1.5">
+          {["Aquisição", "Conversão", "Retenção"].map((t) => (
+            <span
+              key={t}
+              className="rounded-full bg-carvao/25 px-2.5 py-1 text-xs text-massa-cream"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      )}
     </article>
   );
 }

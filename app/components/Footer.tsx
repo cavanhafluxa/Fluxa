@@ -3,8 +3,16 @@ export function Footer() {
     <footer className="border-t border-carvao/8 bg-massa-cream">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
-          <div className="flex items-center gap-2">
-            <img src="/logo-mark.svg" alt="" width={26} height={26} />
+          <div className="flex items-center gap-2.5">
+            <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-massa-cream ring-2 ring-fluxa-red">
+              <img
+                src="/logo-mark.svg"
+                alt=""
+                width={26}
+                height={26}
+                className="h-6 w-6 object-contain"
+              />
+            </span>
             <p className="font-display text-lg font-bold text-carvao">fluxa</p>
           </div>
           <p className="mt-4 max-w-sm text-sm text-carvao/60">

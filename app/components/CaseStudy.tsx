@@ -17,7 +17,7 @@ export function CaseStudy() {
             </p>
 
             <dl className="mt-10 grid max-w-md grid-cols-2 gap-6">
-              <Metric label="Ticket médio" value="↑" />
+              <Metric label="Ticket médio" value="↑" accent />
               <Metric label="Cardápio no ar" value="100%" />
               <Metric label="Base de dados" value="Própria" />
               <Metric label="Fidelidade" value="Automática" />
@@ -39,13 +39,26 @@ export function CaseStudy() {
   );
 }
 
-function Metric({ label, value }: { label: string; value: string }) {
+function Metric({
+  label,
+  value,
+  accent,
+}: {
+  label: string;
+  value: string;
+  accent?: boolean;
+}) {
   return (
     <div>
       <dt className="text-xs uppercase tracking-[0.14em] text-carvao/40">
         {label}
       </dt>
-      <dd className="font-display mt-1 text-2xl font-bold text-carvao">
+      <dd
+        className={
+          "font-display mt-1 text-2xl font-bold " +
+          (accent ? "text-fluxa-red" : "text-carvao")
+        }
+      >
         {value}
       </dd>
     </div>

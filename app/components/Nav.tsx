@@ -14,9 +14,17 @@ export function Nav() {
         <Link
           href="/"
           aria-label="Fluxa — página inicial"
-          className="flex shrink-0 items-center gap-2"
+          className="flex shrink-0 items-center gap-2.5"
         >
-          <img src="/logo-mark.svg" alt="" width={26} height={26} />
+          <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-massa-cream ring-2 ring-fluxa-red ring-offset-2 ring-offset-massa-cream/0">
+            <img
+              src="/logo-mark.svg"
+              alt=""
+              width={26}
+              height={26}
+              className="h-6 w-6 object-contain"
+            />
+          </span>
           <span className="font-display text-lg font-bold tracking-tight text-carvao">
             fluxa
           </span>
