@@ -2,78 +2,137 @@ const pillars = [
   {
     n: "01",
     title: "Aquisição",
-    tag: "Meta Ads + Google",
-    body: "Meta Ads para atenção e desejo na hora da fome. Google para capturar quem já está com fome e quer pedir agora.",
+    body: "Tráfego pago inteligente em Meta e Google Ads focado em quem realmente tem fome agora.",
+    icon: "/food-pizza.png",
+    wide: true,
+    dark: false,
   },
   {
     n: "02",
-    title: "Operação",
-    tag: "Fluxa Kitchen",
-    body: "App de gestão em tempo real integrado com o marketing — pico organizado, zero caos.",
+    title: "Fluxa Kitchen",
+    body: "Gestão operacional simplificada para máxima eficiência da sua cozinha.",
+    icon: "/food-burger.png",
+    wide: false,
+    dark: false,
   },
   {
     n: "03",
     title: "Conversão",
-    tag: "Fluxa Cardápio",
-    body: "Cardápio com engenharia de conversão para subir ticket médio e facilitar o checkout. Sem taxa de app terceiro.",
+    body: "Cardápios digitais otimizados para aumentar o ticket médio automaticamente.",
+    icon: "/food-fries.png",
+    wide: false,
+    dark: false,
   },
   {
     n: "04",
-    title: "Retenção",
-    tag: "Fluxa Points",
-    body: "Clientes anônimos viram indivíduos conhecidos. Fidelidade automática que constrói uma base de dados sua.",
+    title: "Fluxa Points & Database",
+    body: "Retenção ativa. Sua base de dados é sua maior riqueza. Fidelize e venda novamente.",
+    icon: "/food-donut.png",
+    wide: true,
+    dark: true,
   },
   {
     n: "05",
     title: "Comunidade",
-    tag: "O mais importante",
-    body: "Uma comunidade que engaja com a marca e vira embaixadora do restaurante. Efeito bola de neve.",
+    body: "Engajamento real com consumidores apaixonados pela sua marca.",
+    icon: "/food-drink.png",
+    wide: false,
+    dark: false,
   },
 ];
 
 export function Pillars() {
   return (
-    <section id="pilares" className="border-t border-carvao/8 bg-massa-cream-2/40">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
+    <section
+      id="pilares"
+      className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-40"
+    >
+      <div className="mb-16 flex flex-col justify-between gap-8 md:mb-24 md:flex-row md:items-end">
         <div className="max-w-2xl">
-          <p className="eyebrow">Ecossistema</p>
-          <h2 className="font-display mt-4 text-3xl font-bold leading-[1.1] text-carvao md:text-5xl">
-            Os 5 pilares do ecossistema Fluxa.
+          <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+            Estrutura 360º
+          </span>
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-on-surface md:text-6xl">
+            Os 5 Pilares do Ecossistema
           </h2>
         </div>
+        <p className="max-w-md text-lg font-medium italic text-on-surface-variant md:text-right md:text-xl">
+          &ldquo;O Marketing saiu da Maximização do Lucro em cada transação
+          para Maximização do Lucro em cada Relacionamento.&rdquo;
+        </p>
+      </div>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((p) => (
-            <article
-              key={p.n}
-              className="flex flex-col rounded-2xl border border-carvao/10 bg-massa-cream p-8"
-            >
-              <div className="flex items-baseline justify-between">
-                <span className="font-display text-xs font-medium tracking-[0.16em] text-fluxa-red">
-                  {p.n}
-                </span>
-                <span className="text-xs text-carvao/50">{p.tag}</span>
-              </div>
-              <h3 className="font-display mt-6 text-2xl font-bold leading-tight text-carvao">
-                {p.title}
-              </h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-carvao/60">
-                {p.body}
-              </p>
-            </article>
-          ))}
-        </div>
-
-        {/* Pull quote discreto */}
-        <div className="mt-16 max-w-4xl border-l border-fluxa-red/40 pl-6">
-          <p className="font-display text-2xl font-medium leading-snug text-carvao md:text-3xl">
-            Do lucro em cada transação para o lucro em cada relacionamento.
-          </p>
-          <p className="mt-3 text-sm text-carvao/50">
-            Em vez de um cliente em cada indivíduo, um indivíduo em cada cliente.
-          </p>
-        </div>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {pillars.map((p) => (
+          <PillarCard key={p.n} {...p} />
+        ))}
       </div>
     </section>
+  );
+}
+
+function PillarCard({
+  n,
+  title,
+  body,
+  icon,
+  wide,
+  dark,
+}: {
+  n: string;
+  title: string;
+  body: string;
+  icon: string;
+  wide: boolean;
+  dark: boolean;
+}) {
+  const wideCls = wide ? "md:col-span-2 lg:col-span-2" : "";
+
+  if (dark) {
+    return (
+      <div
+        className={`${wideCls} flex flex-col items-start rounded-[2.5rem] bg-on-surface p-10 text-white shadow-2xl`}
+      >
+        <div className="icon-3d-slot mb-8 h-32 w-32 rounded-full">
+          <img src={icon} alt="" width={128} height={128} />
+        </div>
+        <span className="mb-2 text-sm font-bold text-white/50">{n}</span>
+        <h4 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
+          {title}
+        </h4>
+        <p className="max-w-lg text-lg leading-relaxed text-white/70">
+          {body}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`${wideCls} glass-card flex flex-col items-start rounded-[2.5rem] p-10`}
+    >
+      <div className="icon-3d-slot mb-8 h-32 w-32 rounded-full">
+        <img src={icon} alt="" width={128} height={128} />
+      </div>
+      <span className="mb-2 text-sm font-bold text-on-surface-variant">
+        {n}
+      </span>
+      <h4
+        className={
+          "mb-4 font-bold tracking-tight text-on-surface " +
+          (wide ? "text-3xl" : "text-2xl")
+        }
+      >
+        {title}
+      </h4>
+      <p
+        className={
+          "leading-relaxed text-on-surface-variant " +
+          (wide ? "max-w-lg text-lg" : "")
+        }
+      >
+        {body}
+      </p>
+    </div>
   );
 }

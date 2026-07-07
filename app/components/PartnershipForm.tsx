@@ -37,127 +37,93 @@ export function PartnershipForm() {
   return (
     <section
       id="parceria"
-      className="border-t border-carvao/8 bg-massa-cream"
+      className="border-t border-outline/30 bg-surface px-6 py-24 md:px-8 md:py-40"
     >
-      <div className="mx-auto max-w-5xl px-6 py-24 md:px-8 md:py-32">
-        <div className="grid gap-14 md:grid-cols-[1fr_1.1fr] md:items-start">
-          <div className="md:sticky md:top-28">
-            <p className="eyebrow">Parceria</p>
-            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.1] text-carvao md:text-5xl">
-              Vamos fechar a parceria?
-            </h2>
-            <p className="mt-5 max-w-md text-base text-carvao/60 md:text-lg">
-              Preencha o formulário. Um especialista te chama em até 5 minutos
-              no WhatsApp.
-            </p>
+      <div className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
+        <h2 className="font-display mb-4 text-3xl font-bold tracking-tight text-on-surface md:text-5xl">
+          Vamos Fechar a Parceria?
+        </h2>
+        <p className="text-lg font-medium text-on-surface-variant md:text-xl">
+          Preencha os dados e receba uma análise estratégica gratuita do seu
+          negócio.
+        </p>
+      </div>
 
-            <ul className="mt-8 space-y-3 text-sm text-carvao/70">
-              <Feat>Diagnóstico gratuito do canal atual</Feat>
-              <Feat>Plano de aquisição e retenção sob medida</Feat>
-              <Feat>Sem fee de agência — parceria de crescimento</Feat>
-            </ul>
+      {status === "success" ? (
+        <SuccessCard onReset={() => setStatus("idle")} />
+      ) : (
+        <form
+          onSubmit={onSubmit}
+          className="mx-auto max-w-2xl space-y-6"
+          noValidate
+        >
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <Field
+              label="Nome Completo"
+              name="nome"
+              type="text"
+              required
+              autoComplete="name"
+              full
+            />
+            <Field
+              label="Nome do Restaurante"
+              name="restaurante"
+              type="text"
+              required
+              autoComplete="organization"
+            />
+            <Field
+              label="WhatsApp / Número"
+              name="telefone"
+              type="tel"
+              required
+              autoComplete="tel"
+              placeholder="(11) 90000-0000"
+            />
+            <Select
+              label="Faturamento Mensal"
+              name="faturamento"
+              required
+              options={[
+                "Até R$ 20k",
+                "R$ 20k – R$ 50k",
+                "R$ 50k – R$ 100k",
+                "Acima de R$ 100k",
+              ]}
+            />
+            <Field
+              label="Tipo de Negócio"
+              name="tipo"
+              type="text"
+              required
+              placeholder="Ex.: Hamburgueria"
+            />
           </div>
 
-          {status === "success" ? (
-            <SuccessCard onReset={() => setStatus("idle")} />
-          ) : (
-            <form
-              onSubmit={onSubmit}
-              className="rounded-2xl border border-carvao/10 bg-massa-cream-2/40 p-8 md:p-10"
-              noValidate
+          {status === "error" && errorMsg && (
+            <p
+              role="alert"
+              className="rounded-2xl border border-fluxa-red/30 bg-fluxa-red/10 px-4 py-3 text-sm text-fluxa-red"
             >
-              <div className="grid gap-5 md:grid-cols-2">
-                <Field
-                  label="Seu nome"
-                  name="nome"
-                  type="text"
-                  required
-                  autoComplete="name"
-                />
-                <Field
-                  label="Nome do restaurante"
-                  name="restaurante"
-                  type="text"
-                  required
-                  autoComplete="organization"
-                />
-                <Field
-                  label="WhatsApp"
-                  name="telefone"
-                  type="tel"
-                  required
-                  autoComplete="tel"
-                  placeholder="(11) 90000-0000"
-                />
-                <Select
-                  label="Faturamento mensal"
-                  name="faturamento"
-                  required
-                  options={[
-                    "Até R$ 30 mil",
-                    "R$ 30 mil – R$ 80 mil",
-                    "R$ 80 mil – R$ 200 mil",
-                    "R$ 200 mil – R$ 500 mil",
-                    "Acima de R$ 500 mil",
-                  ]}
-                />
-                <div className="md:col-span-2">
-                  <Select
-                    label="Tipo de negócio"
-                    name="tipo"
-                    required
-                    options={[
-                      "Hamburgueria",
-                      "Pizzaria",
-                      "Restaurante à la carte",
-                      "Comida japonesa",
-                      "Dark kitchen",
-                      "Rede / franquia",
-                      "Outro",
-                    ]}
-                  />
-                </div>
-              </div>
-
-              {status === "error" && errorMsg && (
-                <p
-                  role="alert"
-                  className="mt-5 rounded-lg border border-fluxa-red/30 bg-fluxa-red/10 px-4 py-3 text-sm text-fluxa-red"
-                >
-                  {errorMsg}
-                </p>
-              )}
-
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-fluxa-red px-6 py-3 text-sm font-medium text-massa-cream transition hover:bg-fluxa-red-hover disabled:cursor-not-allowed disabled:opacity-70"
-              >
-                {status === "loading"
-                  ? "Enviando..."
-                  : "Quero falar com um especialista"}
-              </button>
-
-              <p className="mt-4 text-center text-xs text-carvao/40">
-                Ao enviar, você concorda em receber contato da equipe Fluxa.
-              </p>
-            </form>
+              {errorMsg}
+            </p>
           )}
-        </div>
-      </div>
-    </section>
-  );
-}
 
-function Feat({ children }: { children: React.ReactNode }) {
-  return (
-    <li className="flex items-start gap-2.5">
-      <span
-        aria-hidden="true"
-        className="mt-2 inline-flex h-1 w-1 flex-none rounded-full bg-fluxa-red"
-      />
-      <span>{children}</span>
-    </li>
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full rounded-full bg-fluxa-red py-5 text-base font-bold text-white shadow-lg transition-colors hover:bg-fluxa-red-hover disabled:cursor-not-allowed disabled:opacity-70 md:text-lg"
+            >
+              {status === "loading"
+                ? "Enviando..."
+                : "Enviar e Solicitar Análise"}
+            </button>
+          </div>
+        </form>
+      )}
+    </section>
   );
 }
 
@@ -168,6 +134,7 @@ function Field({
   required,
   placeholder,
   autoComplete,
+  full,
 }: {
   label: string;
   name: string;
@@ -175,17 +142,19 @@ function Field({
   required?: boolean;
   placeholder?: string;
   autoComplete?: string;
+  full?: boolean;
 }) {
   return (
-    <label className="block">
-      <span className="mb-2 block text-sm text-carvao">{label}</span>
+    <label className={full ? "block md:col-span-2" : "block"}>
+      <span className="sr-only">{label}</span>
       <input
         name={name}
         type={type}
         required={required}
-        placeholder={placeholder}
+        placeholder={placeholder ?? label}
         autoComplete={autoComplete}
-        className="w-full rounded-lg border border-carvao/15 bg-massa-cream px-4 py-3 text-sm text-carvao outline-none transition placeholder:text-carvao/30 focus:border-fluxa-red focus:ring-2 focus:ring-fluxa-red/15"
+        aria-label={label}
+        className="w-full rounded-2xl border-none bg-surface-variant/70 p-5 font-medium text-on-surface outline-none transition-shadow placeholder:text-on-surface-variant/70 focus:ring-2 focus:ring-fluxa-red"
       />
     </label>
   );
@@ -204,15 +173,16 @@ function Select({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-sm text-carvao">{label}</span>
+      <span className="sr-only">{label}</span>
       <select
         name={name}
         required={required}
         defaultValue=""
-        className="w-full appearance-none rounded-lg border border-carvao/15 bg-massa-cream px-4 py-3 text-sm text-carvao outline-none transition focus:border-fluxa-red focus:ring-2 focus:ring-fluxa-red/15"
+        aria-label={label}
+        className="w-full appearance-none rounded-2xl border-none bg-surface-variant/70 p-5 font-medium text-on-surface outline-none transition-shadow focus:ring-2 focus:ring-fluxa-red"
       >
         <option value="" disabled>
-          Selecione…
+          {label}
         </option>
         {options.map((o) => (
           <option key={o} value={o}>
@@ -226,23 +196,23 @@ function Select({
 
 function SuccessCard({ onReset }: { onReset: () => void }) {
   return (
-    <div className="flex flex-col items-start rounded-2xl border border-carvao/10 bg-massa-cream-2/40 p-10 md:p-12">
+    <div className="mx-auto max-w-2xl rounded-[2.5rem] border border-outline/40 bg-surface-variant/50 p-10 text-center md:p-14">
       <span
         aria-hidden="true"
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-fluxa-red text-sm text-massa-cream"
+        className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-fluxa-red text-white"
       >
         ✓
       </span>
-      <h3 className="font-display mt-6 text-2xl font-bold leading-tight text-carvao md:text-3xl">
+      <h3 className="font-display mt-6 text-3xl font-bold tracking-tight text-on-surface md:text-4xl">
         Recebemos. Já estamos te ligando.
       </h3>
-      <p className="mt-3 max-w-md text-sm text-carvao/60">
+      <p className="mx-auto mt-4 max-w-md text-lg font-medium text-on-surface-variant">
         Um especialista da Fluxa vai entrar em contato pelo WhatsApp em até 5
         minutos.
       </p>
       <button
         onClick={onReset}
-        className="mt-6 text-sm font-medium text-fluxa-red underline underline-offset-4"
+        className="mt-8 text-sm font-semibold text-fluxa-red underline underline-offset-4 hover:text-fluxa-red-hover"
       >
         Enviar outro contato
       </button>

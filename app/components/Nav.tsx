@@ -1,54 +1,56 @@
 import Link from "next/link";
 
 const links = [
-  { href: "#problema", label: "Diagnóstico" },
+  { href: "#problema", label: "Soluções" },
   { href: "#pilares", label: "Ecossistema" },
-  { href: "#diferencial", label: "Diferencial" },
-  { href: "#case", label: "Case" },
+  { href: "#diferencial", label: "Diferenciais" },
+  { href: "#case", label: "Case Lanas" },
+  { href: "#fluxa-foods", label: "Fluxa Foods" },
 ];
 
 export function Nav() {
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-6">
-      <header className="pointer-events-auto mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-full border border-carvao/8 bg-massa-cream/80 px-4 py-2.5 backdrop-blur-xl md:px-5 md:py-3">
+    <header className="glass-nav sticky top-0 z-50">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 tracking-tight md:px-8">
         <Link
           href="/"
           aria-label="Fluxa — página inicial"
-          className="flex shrink-0 items-center gap-2.5"
+          className="flex items-center gap-2.5"
         >
-          <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-massa-cream ring-2 ring-fluxa-red ring-offset-2 ring-offset-massa-cream/0">
+          <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-surface ring-2 ring-fluxa-red">
             <img
               src="/logo-mark.svg"
               alt=""
-              width={26}
-              height={26}
-              className="h-6 w-6 object-contain"
+              width={22}
+              height={22}
+              className="h-5 w-5 object-contain"
             />
           </span>
-          <span className="font-display text-lg font-bold tracking-tight text-carvao">
-            fluxa
+          <span className="font-display text-2xl font-black tracking-tightest text-on-surface">
+            Fluxa.
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <ul className="hidden gap-8 text-sm font-medium text-on-surface-variant md:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-carvao/70 transition hover:text-carvao"
-            >
-              {l.label}
-            </a>
+            <li key={l.href}>
+              <a
+                href={l.href}
+                className="transition-colors hover:text-on-surface"
+              >
+                {l.label}
+              </a>
+            </li>
           ))}
-        </nav>
+        </ul>
 
         <a
           href="#parceria"
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-carvao px-4 py-2 text-sm font-medium text-massa-cream transition hover:bg-fluxa-red"
+          className="rounded-full bg-fluxa-red px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-fluxa-red-hover"
         >
-          Ser parceiro
+          Seja Parceiro
         </a>
-      </header>
-    </div>
+      </nav>
+    </header>
   );
 }

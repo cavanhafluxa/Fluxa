@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta Fluxa */
+  /* Fluxa accent */
   --color-fluxa-red: #d6201f;
-  --color-fluxa-red-hover: #b81a19;
-  --color-massa-cream: #f5efe6;
-  --color-massa-cream-2: #ede5d7;
-  --color-carvao: #1a0e0e;
-  --color-carvao-soft: #2a1c1c;
-  --color-borgonha: #7a0f0f;
-  --color-brasa: #f2a03d;
+  --color-fluxa-red-hover: #b01817;
 
-  --font-display: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Apple-inspired neutrals */
+  --color-surface: #ffffff;
+  --color-on-surface: #1d1d1f;
+  --color-surface-variant: #f5f5f7;
+  --color-on-surface-variant: #86868b;
+  --color-outline: #d2d2d7;
+
+  --font-sans:
+    var(--font-inter), -apple-system, BlinkMacSystemFont, "San Francisco",
+    "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display:
+    var(--font-inter), -apple-system, BlinkMacSystemFont, "San Francisco",
+    "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 @layer base {
@@ -25,8 +29,8 @@
   }
 
   body {
-    background-color: var(--color-massa-cream);
-    color: var(--color-carvao);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
     font-family: var(--font-sans);
     font-weight: 400;
     font-size: 16px;
@@ -34,58 +38,40 @@
   }
 
   ::selection {
-    background-color: var(--color-fluxa-red);
-    color: var(--color-massa-cream);
+    background-color: rgba(214, 32, 31, 0.2);
+    color: var(--color-fluxa-red);
   }
 }
 
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
+  }
+  .tracking-tightest {
+    letter-spacing: -0.04em;
   }
 
-  .eyebrow {
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-fluxa-red);
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  /* Sombra suave para PNGs de comida 3D (drop-shadow no formato do PNG) */
-  .food-3d {
-    filter:
-      drop-shadow(0 25px 30px rgba(26, 14, 14, 0.28))
-      drop-shadow(0 8px 12px rgba(26, 14, 14, 0.18));
-  }
-  .food-3d-soft {
-    filter:
-      drop-shadow(0 15px 20px rgba(26, 14, 14, 0.2))
-      drop-shadow(0 4px 8px rgba(26, 14, 14, 0.12));
+  .glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(40px) saturate(160%);
+    -webkit-backdrop-filter: blur(40px) saturate(160%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
   }
 
-  /* Flutuação sutil (respeita prefers-reduced-motion) */
-  @keyframes fluxa-float {
-    0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
-    50%      { transform: translateY(-8px) rotate(var(--rot, 0deg)); }
-  }
-  .float-3d {
-    animation: fluxa-float 6s ease-in-out infinite;
-    will-change: transform;
-  }
-  .float-3d-slow { animation-duration: 8s; }
-  .float-3d-slower { animation-duration: 10s; }
-  @media (prefers-reduced-motion: reduce) {
-    .float-3d, .float-3d-slow, .float-3d-slower { animation: none; }
-  }
-
-  /* Slot pra foto retangular (Lanas, mockups) — bg cream + label discreto */
+  /* Slot pra imagens que virão do usuário */
   .asset-slot {
     position: relative;
     isolation: isolate;
-    background-color: var(--color-massa-cream-2);
+    background-color: var(--color-surface-variant);
   }
   .asset-slot > img {
     position: relative;
@@ -105,28 +91,25 @@
     padding: 1rem;
     text-align: center;
     font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 0.7rem;
+    font-weight: 600;
+    font-size: 0.68rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-carvao);
-    opacity: 0.3;
+    color: var(--color-on-surface-variant);
+    opacity: 0.55;
   }
 
-  /* Slot pra PNG 3D de comida — glow morna atrás; quando o PNG chega,
-     a glow vira spotlight; quando não chega, é um placeholder discreto */
-  .food-slot {
+  /* Slot pra PNG 3D transparente (comidas) — sem bg, spotlight morno */
+  .icon-3d-slot {
     position: relative;
     isolation: isolate;
-    border-radius: 9999px;
     background: radial-gradient(
-      circle at 50% 40%,
-      rgba(242, 160, 61, 0.28) 0%,
-      rgba(214, 32, 31, 0.08) 40%,
-      transparent 70%
+      circle at 50% 45%,
+      rgba(242, 160, 61, 0.16) 0%,
+      transparent 65%
     );
   }
-  .food-slot > img {
+  .icon-3d-slot > img {
     position: relative;
     z-index: 1;
     width: 100%;

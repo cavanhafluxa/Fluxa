@@ -1,97 +1,99 @@
 export function Footer() {
   return (
-    <footer className="border-t border-carvao/8 bg-massa-cream">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
-        <div>
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-massa-cream ring-2 ring-fluxa-red">
+    <footer className="border-t border-outline/30 bg-surface-variant/50 py-16">
+      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-12 px-6 md:flex-row md:px-8">
+        <div className="max-w-xs">
+          <div className="mb-4 flex items-center gap-2.5">
+            <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-surface ring-2 ring-fluxa-red">
               <img
                 src="/logo-mark.svg"
                 alt=""
-                width={26}
-                height={26}
-                className="h-6 w-6 object-contain"
+                width={22}
+                height={22}
+                className="h-5 w-5 object-contain"
               />
             </span>
-            <p className="font-display text-lg font-bold text-carvao">fluxa</p>
+            <span className="font-display text-2xl font-black tracking-tightest text-on-surface">
+              Fluxa.
+            </span>
           </div>
-          <p className="mt-4 max-w-sm text-sm text-carvao/60">
-            O canal onde seu restaurante precisa estar. Marketing, tecnologia e
-            comunidade.
+          <p className="text-sm font-medium text-on-surface-variant">
+            Tecnologia e estratégia unidas pelo seu lucro.
           </p>
         </div>
 
-        <div>
-          <p className="text-xs uppercase tracking-[0.16em] text-carvao/40">
-            Ecossistema
-          </p>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <a
-                href="#pilares"
-                className="text-carvao/70 transition hover:text-carvao"
-              >
-                Fluxa Kitchen
-              </a>
-            </li>
-            <li>
-              <a
-                href="#pilares"
-                className="text-carvao/70 transition hover:text-carvao"
-              >
-                Fluxa Cardápio
-              </a>
-            </li>
-            <li>
-              <a
-                href="#pilares"
-                className="text-carvao/70 transition hover:text-carvao"
-              >
-                Fluxa Points
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://flxa.space/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-carvao/70 transition hover:text-carvao"
-              >
-                Fluxa Foods ↗
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <p className="text-xs uppercase tracking-[0.16em] text-carvao/40">
-            Vamos conversar
-          </p>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <a
-                href="#parceria"
-                className="text-carvao/70 transition hover:text-carvao"
-              >
-                Ser parceiro
-              </a>
-            </li>
-            <li>
-              <a
-                href="#case"
-                className="text-carvao/70 transition hover:text-carvao"
-              >
-                Ver o case
-              </a>
-            </li>
-          </ul>
+        <div className="flex flex-wrap gap-16">
+          <div>
+            <h6 className="mb-6 text-xs font-bold uppercase tracking-widest text-on-surface">
+              Produtos
+            </h6>
+            <ul className="space-y-4 text-sm font-medium text-on-surface-variant">
+              <li>
+                <a
+                  href="#pilares"
+                  className="transition-colors hover:text-on-surface"
+                >
+                  Fluxa Kitchen
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#pilares"
+                  className="transition-colors hover:text-on-surface"
+                >
+                  Fluxa Cardápio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#pilares"
+                  className="transition-colors hover:text-on-surface"
+                >
+                  Fluxa Points
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://flxa.space/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-on-surface"
+                >
+                  Fluxa Foods ↗
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h6 className="mb-6 text-xs font-bold uppercase tracking-widest text-on-surface">
+              Institucional
+            </h6>
+            <ul className="space-y-4 text-sm font-medium text-on-surface-variant">
+              <li>
+                <a
+                  href="#parceria"
+                  className="transition-colors hover:text-on-surface"
+                >
+                  Seja Parceiro
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition-colors hover:text-on-surface">
+                  Termos de Uso
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition-colors hover:text-on-surface">
+                  Privacidade
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="border-t border-carvao/8">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-6 text-xs text-carvao/40 md:flex-row md:items-center md:px-8">
-          <p>© {new Date().getFullYear()} Fluxa. Todos os direitos reservados.</p>
-          <p>Feito para restaurantes donos do próprio jogo.</p>
-        </div>
+
+      <div className="mx-auto mt-16 max-w-7xl border-t border-outline/30 px-6 pt-8 text-xs font-medium text-on-surface-variant md:px-8">
+        <p>© {new Date().getFullYear()} Fluxa. Todos os direitos reservados.</p>
       </div>
     </footer>
   );

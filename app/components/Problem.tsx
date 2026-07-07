@@ -1,56 +1,52 @@
 const cards = [
   {
-    tag: "Delivery",
+    icon: "/food-burger.png",
     title: "Apps de Delivery",
-    body: "Cobram altas taxas, sequestram os dados dos seus clientes e você nunca sabe quem realmente comprou de você.",
+    body: "Altas taxas que corroem sua margem e o 'sequestro' de dados: você vende, mas não conhece seu cliente.",
     highlight: false,
   },
   {
-    tag: "Agência",
+    icon: "/food-fries.png",
     title: "Agências de Marketing",
-    body: "Fees fixos altos para postar fotos que não garantem pedidos. Focam na fama da própria agência, não no seu lucro.",
+    body: "Fees fixos altos e posts bonitos que não convertem em pedidos reais. Sem garantia de lucro ou dados estratégicos.",
     highlight: false,
   },
   {
-    tag: "Fluxa",
-    title: "A Fluxa",
-    body: "“O problema não é o seu restaurante. É o canal que você usa.” A gente traz a demanda — mas devolve o cliente para você.",
+    icon: "/food-drink.png",
+    title: "A FLUXA",
+    body: "O problema não é o seu restaurante. É o canal que você usa. Nós criamos a ponte direta entre seu produto e o consumidor.",
     highlight: true,
   },
 ];
 
 export function Problem() {
   return (
-    <section id="problema" className="border-t border-carvao/8 bg-massa-cream">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-        <div className="max-w-2xl">
-          <p className="eyebrow">Diagnóstico</p>
-          <h2 className="font-display mt-4 text-3xl font-bold leading-[1.1] text-carvao md:text-5xl">
-            O caminho onde seu lucro escapa todos os meses.
-          </h2>
-          <p className="mt-5 text-base text-carvao/60 md:text-lg">
-            Você trabalha, entrega, atende. Mas no fim do mês boa parte do
-            lucro fica com quem nunca cozinhou um prato.
-          </p>
-        </div>
+    <section
+      id="problema"
+      className="bg-surface-variant/30 px-6 py-24 md:px-8 md:py-40"
+    >
+      <div className="mx-auto mb-16 max-w-7xl text-center md:mb-24">
+        <h2 className="font-display text-3xl font-bold tracking-tight text-on-surface md:text-5xl">
+          O caminho por onde seu lucro escapa todos os meses.
+        </h2>
+      </div>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-3">
-          {cards.map((c) => (
-            <Card key={c.title} {...c} />
-          ))}
-        </div>
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+        {cards.map((c) => (
+          <Card key={c.title} {...c} />
+        ))}
       </div>
     </section>
   );
 }
 
 function Card({
-  tag,
+  icon,
   title,
   body,
   highlight,
 }: {
-  tag: string;
+  icon: string;
   title: string;
   body: string;
   highlight: boolean;
@@ -59,46 +55,29 @@ function Card({
     <article
       className={
         highlight
-          ? "flex flex-col rounded-2xl bg-fluxa-red p-8 text-massa-cream shadow-[0_20px_50px_-25px_rgba(214,32,31,0.55)]"
-          : "flex flex-col rounded-2xl border border-carvao/10 bg-massa-cream p-8"
+          ? "rounded-[2.5rem] bg-on-surface p-10 text-white shadow-2xl md:-translate-y-4 md:p-12"
+          : "rounded-[2.5rem] border border-black/[0.02] bg-surface p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] md:p-12"
       }
     >
-      <p
-        className={
-          "text-xs uppercase tracking-[0.16em] " +
-          (highlight ? "text-massa-cream/80" : "text-fluxa-red")
-        }
-      >
-        {tag}
-      </p>
+      <div className="icon-3d-slot mb-8 h-24 w-24 rounded-full">
+        <img src={icon} alt="" width={96} height={96} />
+      </div>
       <h3
         className={
-          "font-display mt-4 text-2xl font-bold leading-tight " +
-          (highlight ? "text-massa-cream" : "text-carvao")
+          "mb-4 text-2xl font-bold tracking-tight " +
+          (highlight ? "text-white" : "text-on-surface")
         }
       >
         {title}
       </h3>
       <p
         className={
-          "mt-3 text-[0.95rem] leading-relaxed " +
-          (highlight ? "text-massa-cream/85" : "text-carvao/60")
+          "leading-relaxed " +
+          (highlight ? "text-white/70" : "text-on-surface-variant")
         }
       >
         {body}
       </p>
-      {highlight && (
-        <div className="mt-6 flex flex-wrap gap-1.5">
-          {["Aquisição", "Conversão", "Retenção"].map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-carvao/25 px-2.5 py-1 text-xs text-massa-cream"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-      )}
     </article>
   );
 }
