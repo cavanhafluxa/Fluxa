@@ -1,45 +1,62 @@
+import { TapeMarquee } from "./TapeMarquee";
+
 const pillars = [
   {
     n: "01",
     title: "Aquisição",
     tag: "Meta Ads + Google",
-    body: "Usamos Meta Ads para gerar atenção e desejo bem na hora da fome, e dominamos o Google para capturar quem já está com fome e quer pedir agora.",
+    body: "Meta Ads pra atenção e desejo na hora da fome. Google pra capturar quem já tá com fome e quer pedir agora.",
   },
   {
     n: "02",
     title: "Operação",
     tag: "Fluxa Kitchen",
-    body: "Acabamos com o “Pesadelo na Cozinha”. Um app de gestão em tempo real integrado com seu Marketing que organiza os pedidos e elimina o caos nos dias de pico.",
+    body: "Acabou o “Pesadelo na Cozinha”. App de gestão em tempo real integrado com o marketing — pico organizado, zero caos.",
   },
   {
     n: "03",
     title: "Conversão",
     tag: "Fluxa Cardápio",
-    body: "Um sistema desenhado com engenharia de conversão para aumentar seu ticket médio e facilitar o checkout — sem as taxas dos apps terceiros.",
+    body: "Cardápio com engenharia de conversão pra subir ticket médio e facilitar o checkout. Sem taxa de app terceiro.",
   },
   {
     n: "04",
     title: "Retenção",
-    tag: "Fluxa Points & Database",
-    body: "Transformamos clientes anônimos em indivíduos conhecidos. Com o sistema de fidelidade automático, seus clientes acumulam benefícios e você constrói uma base de dados valiosa.",
+    tag: "Fluxa Points + Database",
+    body: "Clientes anônimos viram indivíduos conhecidos. Fidelidade automática que constrói uma base de dados sua.",
   },
   {
     n: "05",
     title: "Comunidade",
     tag: "O mais importante",
-    body: "A construção de uma comunidade que engaja com a marca e torna-se embaixadora do restaurante. Efeito bola de neve.",
+    body: "Uma comunidade que engaja com a marca e vira embaixadora do restaurante. Efeito bola de neve.",
   },
 ];
 
 export function Pillars() {
   return (
-    <section id="pilares" className="relative border-t border-carvao/10">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+    <section id="pilares" className="relative bg-carvao text-massa-cream">
+      <TapeMarquee
+        variant="brasa"
+        tilt={1.5}
+        fast
+        items={[
+          "Aquisição",
+          "Operação",
+          "Conversão",
+          "Retenção",
+          "Comunidade",
+          "Ecossistema Fluxa",
+        ]}
+        className="-mt-2"
+      />
+
+      <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
         <div className="max-w-3xl">
-          <p className="eyebrow mb-6">O ecossistema</p>
-          <h2 className="font-display text-4xl font-black leading-tight tracking-tight text-carvao md:text-6xl">
-            Os <em className="not-italic text-fluxa-red">5 Pilares</em> do
-            Ecossistema Fluxa
+          <p className="eyebrow mb-6 text-brasa">O ecossistema</p>
+          <h2 className="font-display text-4xl uppercase leading-[0.95] md:text-7xl">
+            Os <span className="text-brasa">5 pilares</span> do ecossistema
+            Fluxa.
           </h2>
         </div>
 
@@ -47,44 +64,49 @@ export function Pillars() {
           {pillars.map((p) => (
             <article
               key={p.n}
-              className="group relative overflow-hidden rounded-3xl border border-carvao/10 bg-massa-cream p-8 transition hover:-translate-y-1 hover:border-fluxa-red/30 hover:shadow-[0_20px_50px_-25px_rgba(122,15,15,0.35)] md:p-10"
+              className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-massa-cream/10 bg-carvao-soft p-8 transition hover:-translate-y-1 hover:border-brasa/40 hover:shadow-[0_20px_50px_-25px_rgba(242,160,61,0.35)] md:p-10"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-[0.18em] text-borgonha">
+                <span className="sticker h-14 w-14 rotate-[-8deg] text-base">
                   {p.n}
                 </span>
-                <span className="rounded-full border border-carvao/15 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-wider text-carvao/60">
+                <span
+                  className="rounded-full border border-massa-cream/20 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.18em] text-massa-cream/70"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
                   {p.tag}
                 </span>
               </div>
-              <h3 className="mt-6 font-display text-3xl font-bold text-carvao">
+              <h3 className="mt-8 font-display text-4xl uppercase leading-[0.95] text-massa-cream md:text-5xl">
                 {p.title}
               </h3>
-              <p className="mt-4 text-base leading-relaxed text-carvao/70">
+              <p
+                className="mt-5 text-base leading-relaxed text-massa-cream/70"
+                style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
+              >
                 {p.body}
               </p>
             </article>
           ))}
         </div>
 
-        {/* Pull quote */}
-        <figure className="mx-auto mt-24 max-w-4xl border-l-4 border-fluxa-red pl-8">
-          <blockquote className="font-display text-2xl font-medium leading-snug text-carvao md:text-4xl">
-            O marketing saiu da{" "}
-            <em className="not-italic text-carvao/50">
-              “maximização do lucro em cada transação”
-            </em>{" "}
-            para a{" "}
-            <em className="not-italic text-fluxa-red">
-              maximização do lucro em cada relacionamento
-            </em>
-            .
+        {/* Pull quote — Fluxa Red destaque */}
+        <div className="mt-20 rounded-[2rem] bg-fluxa-red p-8 md:p-14">
+          <p className="eyebrow mb-4 text-brasa">Mudança de eixo</p>
+          <blockquote className="font-display text-3xl uppercase leading-[0.98] text-massa-cream md:text-5xl">
+            Do lucro máximo em cada{" "}
+            <span className="text-carvao">transação</span>
+            <br />
+            pro lucro máximo em cada{" "}
+            <span className="text-brasa">relacionamento</span>.
           </blockquote>
-          <figcaption className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-borgonha">
-            Em vez de um cliente em cada indivíduo — um indivíduo em cada
-            cliente.
-          </figcaption>
-        </figure>
+          <p
+            className="mt-6 max-w-2xl text-base text-massa-cream/80"
+            style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
+          >
+            Em vez de um cliente em cada indivíduo — um indivíduo em cada cliente.
+          </p>
+        </div>
       </div>
     </section>
   );
