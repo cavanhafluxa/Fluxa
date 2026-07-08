@@ -1,52 +1,56 @@
 import Link from "next/link";
 
+const links = [
+  { href: "#problema", label: "Soluções" },
+  { href: "#pilares", label: "Ecossistema" },
+  { href: "#diferencial", label: "Diferenciais" },
+  { href: "#case", label: "Case Lanas" },
+  { href: "#fluxa-foods", label: "Fluxa Foods" },
+];
+
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-carvao/10 bg-massa-cream/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+    <header className="glass-nav sticky top-0 z-50">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 tracking-tight md:px-8">
         <Link
           href="/"
-          className="font-display text-2xl font-black tracking-tight text-carvao"
           aria-label="Fluxa — página inicial"
+          className="flex items-center gap-2.5"
         >
-          Fluxa<span className="text-fluxa-red">.</span>
+          <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-surface ring-2 ring-fluxa-red">
+            <img
+              src="/logo-mark.svg"
+              alt=""
+              width={22}
+              height={22}
+              className="h-5 w-5 object-contain"
+            />
+          </span>
+          <span className="font-display text-2xl font-black tracking-tightest text-on-surface">
+            Fluxa.
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          <a
-            href="#problema"
-            className="text-sm text-carvao/70 transition hover:text-carvao"
-          >
-            O problema
-          </a>
-          <a
-            href="#pilares"
-            className="text-sm text-carvao/70 transition hover:text-carvao"
-          >
-            Ecossistema
-          </a>
-          <a
-            href="#case"
-            className="text-sm text-carvao/70 transition hover:text-carvao"
-          >
-            Case
-          </a>
-          <a
-            href="#fluxa-foods"
-            className="text-sm text-carvao/70 transition hover:text-carvao"
-          >
-            Fluxa Foods
-          </a>
-        </nav>
+        <ul className="hidden gap-8 text-sm font-medium text-on-surface-variant md:flex">
+          {links.map((l) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                className="transition-colors hover:text-on-surface"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
         <a
           href="#parceria"
-          className="inline-flex items-center gap-2 rounded-full bg-carvao px-5 py-2.5 text-sm font-medium text-massa-cream transition hover:bg-fluxa-red"
+          className="rounded-full bg-fluxa-red px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-fluxa-red-hover"
         >
-          Ser parceiro
-          <span aria-hidden="true">→</span>
+          Seja Parceiro
         </a>
-      </div>
+      </nav>
     </header>
   );
 }

@@ -1,114 +1,53 @@
 export function CaseStudy() {
   return (
-    <section id="case" className="relative border-t border-carvao/10">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.15fr] lg:items-center">
-          <div>
-            <p className="eyebrow mb-6">Case Fluxa</p>
-            <h2 className="font-display text-4xl font-black leading-[1.05] tracking-tight text-carvao md:text-6xl">
-              Lanas Burguer decidiu{" "}
-              <em className="not-italic text-fluxa-red">mudar o jogo</em>.
-            </h2>
-            <p className="mt-6 text-lg text-carvao/70">
-              O cardápio parou de fechar a loja “do nada”, o ticket médio subiu
-              e os dados dos clientes agora são deles.
-            </p>
-            <p className="mt-6 font-display text-2xl italic leading-snug text-carvao md:text-3xl">
-              O Lanas decidiu ser dono do seu próprio negócio.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Pill>Ticket médio ↑</Pill>
-              <Pill>Cardápio 100% no ar</Pill>
-              <Pill>Base de dados própria</Pill>
-              <Pill>Fidelidade automática</Pill>
+    <section
+      id="case"
+      className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32"
+    >
+      <div className="relative flex flex-col items-center gap-12 overflow-hidden rounded-[3rem] bg-surface-variant/50 p-10 md:flex-row md:gap-16 md:p-16 lg:p-24">
+        {/* Conteúdo */}
+        <div className="flex-1">
+          <h2 className="font-display mb-8 text-3xl font-bold leading-tight tracking-tight text-on-surface md:text-5xl">
+            Lanas Burguer decidiu{" "}
+            <span className="text-fluxa-red">MUDAR O JOGO</span>.
+          </h2>
+          <p className="mb-10 text-lg font-medium leading-relaxed text-on-surface-variant md:mb-12 md:text-xl">
+            &ldquo;Com a implementação do ecossistema Fluxa, não apenas
+            digitalizamos nosso atendimento, mas passamos a entender exatamente
+            quem é nosso cliente. O faturamento em canais próprios cresceu 3x
+            em menos de 6 meses, reduzindo nossa dependência de marketplaces
+            externos.&rdquo;
+          </p>
+          <div className="flex items-center gap-4">
+            <div className="asset-slot h-14 w-14 overflow-hidden rounded-full">
+              <img
+                src="/lanas-owner.jpg"
+                alt=""
+                className="h-full w-full object-cover"
+              />
+              <span className="asset-slot-label !text-[0.5rem]">owner</span>
             </div>
-          </div>
-
-          {/* Painel visual */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-[2rem] border border-carvao/10 bg-carvao p-10 text-massa-cream shadow-[0_30px_80px_-40px_rgba(26,14,14,0.6)] md:p-14">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-fluxa-red/30 blur-3xl"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-brasa/20 blur-3xl"
-              />
-
-              <div className="relative">
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-brasa">
-                  Antes → Depois
-                </span>
-
-                <div className="mt-8 space-y-6">
-                  <Row
-                    label="Cardápio online"
-                    before="Fechava sozinho no rush"
-                    after="Estável, com push de upsell"
-                  />
-                  <Row
-                    label="Ticket médio"
-                    before="Estagnado"
-                    after="Subindo mês a mês"
-                  />
-                  <Row
-                    label="Base de clientes"
-                    before="Anônima, no app terceiro"
-                    after="Identificada e recorrente"
-                  />
-                  <Row
-                    label="Custo de aquisição"
-                    before="Taxas fixas de agência"
-                    after="Investimento com ROI medido"
-                  />
-                </div>
-
-                <div className="mt-10 rounded-2xl border border-massa-cream/15 bg-massa-cream/5 p-5">
-                  <p className="font-display text-lg text-massa-cream">
-                    “Agora o cliente é meu — e volta.”
-                  </p>
-                  <p className="mt-1 text-xs text-massa-cream/60">
-                    — Lanas Burguer, parceiro Fluxa
-                  </p>
-                </div>
-              </div>
+            <div>
+              <p className="font-bold text-on-surface">
+                Fundador Lanas Burguer
+              </p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-on-surface-variant">
+                Case de Sucesso
+              </p>
             </div>
           </div>
         </div>
+
+        {/* Foto do burger */}
+        <div className="asset-slot aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl md:w-2/5">
+          <img
+            src="/lanas.jpg"
+            alt="Lanas Burguer"
+            className="h-full w-full object-cover"
+          />
+          <span className="asset-slot-label">/public/lanas.jpg</span>
+        </div>
       </div>
     </section>
-  );
-}
-
-function Row({
-  label,
-  before,
-  after,
-}: {
-  label: string;
-  before: string;
-  after: string;
-}) {
-  return (
-    <div className="grid grid-cols-[1fr] gap-1 border-b border-massa-cream/10 pb-4 md:grid-cols-[1fr_2fr] md:items-center md:gap-6">
-      <p className="text-sm text-massa-cream/60">{label}</p>
-      <div className="flex flex-wrap items-center gap-2 text-sm">
-        <span className="text-massa-cream/50 line-through">{before}</span>
-        <span aria-hidden="true" className="text-brasa">
-          →
-        </span>
-        <span className="font-medium text-massa-cream">{after}</span>
-      </div>
-    </div>
-  );
-}
-
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-carvao/15 bg-massa-cream px-4 py-2 text-sm font-medium text-carvao">
-      {children}
-    </span>
   );
 }

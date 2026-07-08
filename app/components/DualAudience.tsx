@@ -1,67 +1,52 @@
 export function DualAudience() {
   return (
-    <section className="relative overflow-hidden border-t border-carvao/10 bg-carvao text-massa-cream">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-20 h-[420px] w-[420px] rounded-full bg-fluxa-red/25 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-40 bottom-0 h-[420px] w-[420px] rounded-full bg-brasa/20 blur-3xl"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
-        <div className="max-w-3xl">
-          <p className="eyebrow mb-6 text-brasa">O diferencial estrutural</p>
-          <h2 className="font-display text-4xl font-black leading-tight tracking-tight md:text-6xl">
-            O poder da{" "}
-            <em className="not-italic text-fluxa-red">Dupla Audiência</em> e do
-            efeito bola de neve.
-          </h2>
-          <p className="mt-6 text-lg text-massa-cream/70">
-            Não fazemos conteúdo só para o restaurante. Trabalhamos os dois
-            lados do balcão ao mesmo tempo — e é aí que a rede começa a girar.
-          </p>
+    <section id="diferencial" className="bg-surface-variant/30 py-24 md:py-40">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2 md:px-8">
+        {/* Imagem */}
+        <div className="asset-slot relative order-2 h-[520px] overflow-hidden rounded-[3rem] shadow-2xl md:order-1 md:h-[600px]">
+          <img
+            src="/dual-audience.jpg"
+            alt="Consumidor satisfeito e dono do restaurante"
+            className="h-full w-full object-cover"
+          />
+          <span className="asset-slot-label">/public/dual-audience.jpg</span>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          <article className="group relative overflow-hidden rounded-3xl border border-massa-cream/10 bg-carvao-soft p-10">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-fluxa-red/15 font-display text-lg font-bold text-fluxa-red">
-                01
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-massa-cream/60">
-                Para o consumidor
-              </span>
-            </div>
-            <h3 className="mt-6 font-display text-3xl font-bold text-massa-cream md:text-4xl">
-              Fluxa-Lovers
-            </h3>
-            <p className="mt-4 text-base leading-relaxed text-massa-cream/70">
-              Educamos o público sobre os benefícios de pedir em parceiros
-              Fluxa. Cada consumidor que entra na comunidade vira demanda
-              qualificada para todos os parceiros.
-            </p>
-          </article>
+        {/* Conteúdo */}
+        <div className="order-1 space-y-10 md:order-2 md:space-y-12">
+          <h2 className="font-display tracking-tightest text-4xl font-bold leading-tight text-on-surface md:text-6xl">
+            O Poder da Dupla Audiência
+          </h2>
 
-          <article className="group relative overflow-hidden rounded-3xl border border-massa-cream/10 bg-carvao-soft p-10">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brasa/20 font-display text-lg font-bold text-brasa">
-                02
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-massa-cream/60">
-                Para o restaurante
-              </span>
+          <div className="space-y-8">
+            <div>
+              <div className="icon-3d-slot mb-4 h-16 w-16 rounded-full">
+                <img src="/food-drink.png" alt="" width={64} height={64} />
+              </div>
+              <h5 className="mb-2 text-xl font-bold text-on-surface">
+                Para o Consumidor (Fluxa-Lovers)
+              </h5>
+              <p className="text-lg leading-relaxed text-on-surface-variant">
+                Uma experiência de pedido fluida, recompensas reais e conexão
+                com as melhores marcas locais.
+              </p>
             </div>
-            <h3 className="mt-6 font-display text-3xl font-bold text-massa-cream md:text-4xl">
-              Preferência & Exclusividade
-            </h3>
-            <p className="mt-4 text-base leading-relaxed text-massa-cream/70">
-              Trabalhamos com poucos parceiros por praça. Isso significa
-              posicionamento único, sem competir com o vizinho pelo mesmo
-              atendimento e a mesma verba.
-            </p>
-          </article>
+
+            <div className="h-px w-full bg-outline/40" />
+
+            <div>
+              <div className="icon-3d-slot mb-4 h-16 w-16 rounded-full">
+                <img src="/food-burger.png" alt="" width={64} height={64} />
+              </div>
+              <h5 className="mb-2 text-xl font-bold text-on-surface">
+                Para o Restaurante
+              </h5>
+              <p className="text-lg leading-relaxed text-on-surface-variant">
+                Dados proprietários, autonomia total, custos reduzidos e
+                crescimento escalável.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
