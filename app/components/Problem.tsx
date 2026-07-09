@@ -15,11 +15,11 @@ export function Problem() {
   return (
     <section
       id="problema"
-      className="relative z-10 min-h-[100svh] bg-surface-warm px-6 py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:px-8 md:py-28"
+      className="relative z-10 bg-surface-warm px-6 py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:px-8 md:py-24"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-4xl md:mb-20">
-          <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-5xl lg:text-[3.5rem]">
+          <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-4xl lg:text-[2.75rem]">
             O custo de não fazer nada.
           </h2>
           <p className="mt-5 max-w-2xl text-[1rem] leading-relaxed text-on-surface-variant md:text-[1.1rem]">
@@ -103,7 +103,7 @@ function WinnerCard() {
           A Fluxa
         </span>
 
-        <h3 className="mt-3 font-display text-2xl font-bold leading-tight tracking-tight md:text-3xl lg:text-[2.35rem]">
+        <h3 className="mt-3 font-display text-2xl font-bold leading-tight tracking-tight md:text-3xl lg:text-[2rem]">
           O problema não é sua comida.{" "}
           <span className="text-fluxa-red">É o canal.</span>
         </h3>

@@ -53,10 +53,10 @@ export function Pillars() {
   return (
     <section
       id="pilares"
-      className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32"
+      className="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24"
     >
-      <div className="mb-14 max-w-4xl md:mb-20">
-        <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-5xl lg:text-[3.25rem]">
+      <div className="mb-12 max-w-4xl md:mb-16">
+        <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-4xl lg:text-[2.75rem]">
           A infraestrutura que grandes restaurantes levam anos para construir,
           disponível <span className="text-fluxa-red">hoje</span>.
         </h2>
@@ -98,7 +98,7 @@ function StackCard({
 }) {
   if (dark) {
     return (
-      <div className="reveal-on-view relative flex flex-col items-start overflow-hidden rounded-2xl bg-ink p-8 text-white shadow-lift md:p-10">
+      <div className="reveal-on-view relative flex flex-col items-start overflow-hidden rounded-2xl bg-ink p-8 text-white shadow-lift md:p-8">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-fluxa-red/25 blur-3xl"
@@ -133,7 +133,7 @@ function StackCard({
   }
 
   return (
-    <div className="reveal-on-view flex flex-col items-start rounded-2xl border border-black/[0.06] bg-surface p-8 shadow-soft transition-transform duration-500 hover:-translate-y-0.5 md:p-10">
+    <div className="reveal-on-view flex flex-col items-start rounded-2xl border border-black/[0.06] bg-surface p-8 shadow-soft transition-transform duration-500 hover:-translate-y-0.5 md:p-8">
       <div className="flex w-full items-baseline gap-3">
         <span className="font-display text-4xl font-bold leading-none tracking-tight text-ink/15 md:text-5xl">
           {n}

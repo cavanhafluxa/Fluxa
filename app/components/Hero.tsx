@@ -10,8 +10,8 @@
 export function Hero() {
   return (
     <section
-      className="relative flex w-full items-center overflow-hidden bg-radial-warm pt-[5.5rem]"
-      style={{ minHeight: "100svh" }}
+      className="relative flex w-full items-center overflow-hidden bg-radial-warm pt-24 pb-10 md:pt-[5.5rem] md:pb-0"
+      style={{ minHeight: "min(100svh, 860px)" }}
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
@@ -82,7 +82,7 @@ export function Hero() {
             crescer em direção ao centro sem sangrar pela direita.
             min-w-0 impede que a imagem gigante (overflow) expanda a coluna
             e roube largura do texto (grid item tem min-width:auto por padrão). */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-64 lg:-ml-[28rem]">
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-24 lg:-ml-40 xl:-ml-56">
           {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
@@ -91,7 +91,7 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg w-[150%] max-w-[1000px] select-none object-contain md:w-[88vw] md:max-w-[1500px]"
+            className="hero-pizza-bg w-[130%] max-w-[520px] select-none object-contain md:w-[55vw] md:max-w-[720px] lg:w-[52vw] lg:max-w-[820px] xl:w-[50vw] xl:max-w-[960px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"

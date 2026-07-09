@@ -73,27 +73,29 @@
     letter-spacing: -0.045em;
   }
 
-  /* Fluid display type — Apple-scale, mobile-first */
+  /* Fluid display type — Apple-scale, mobile-first.
+     Escala com vw E vh (min) pra evitar títulos gigantes em notebooks
+     de tela larga porém baixa (1366×768, 1440×900). */
   .text-display-1 {
-    font-size: clamp(2.25rem, 5vw + 0.4rem, 4.5rem);
-    line-height: 1.03;
+    font-size: clamp(2rem, min(3.4vw + 0.6rem, 7.5vh + 0.5rem), 3.75rem);
+    line-height: 1.05;
     letter-spacing: -0.04em;
     font-weight: 700;
   }
   .text-display-2 {
-    font-size: clamp(2.25rem, 5.5vw + 0.5rem, 4.5rem);
-    line-height: 1.02;
+    font-size: clamp(2rem, min(3.6vw + 0.6rem, 7.5vh + 0.5rem), 3.75rem);
+    line-height: 1.04;
     letter-spacing: -0.04em;
     font-weight: 700;
   }
   .text-display-3 {
-    font-size: clamp(1.75rem, 3vw + 0.75rem, 3rem);
-    line-height: 1.08;
+    font-size: clamp(1.6rem, min(2.2vw + 0.7rem, 5.5vh + 0.4rem), 2.5rem);
+    line-height: 1.1;
     letter-spacing: -0.03em;
     font-weight: 700;
   }
   .text-lead {
-    font-size: clamp(1.05rem, 0.9vw + 0.85rem, 1.35rem);
+    font-size: clamp(1rem, 0.7vw + 0.85rem, 1.2rem);
     line-height: 1.55;
     font-weight: 400;
   }

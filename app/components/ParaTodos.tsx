@@ -27,7 +27,7 @@ export function ParaTodos() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-radial-warm px-6 py-24 md:px-8 md:py-32">
+    <section className="relative overflow-hidden bg-radial-warm px-6 py-20 md:px-8 md:py-24">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,black,transparent_75%)]" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 md:grid-cols-[0.9fr_1.15fr] md:gap-4">
@@ -71,7 +71,7 @@ export function ParaTodos() {
         {/* Coluna direita — showcase que alterna. Os SVGs têm bastante respiro
             interno à esquerda, então a arte precisa crescer e ser puxada para
             o centro visual da coluna. */}
-        <div className="relative order-first h-[520px] w-full md:order-last md:h-[820px]">
+        <div className="relative order-first h-[380px] w-full md:order-last md:h-[520px] lg:h-[620px]">
           {/* Halo dourado atrás */}
           <div
             aria-hidden="true"

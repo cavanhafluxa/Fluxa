@@ -32,10 +32,10 @@ export function PartnershipForm() {
   return (
     <section
       id="parceria"
-      className="border-t border-outline/30 bg-surface px-6 py-24 md:px-8 md:py-32"
+      className="border-t border-outline/30 bg-surface px-6 py-20 md:px-8 md:py-24"
     >
-      <div className="mx-auto mb-12 max-w-3xl text-center md:mb-14">
-        <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-[2.75rem]">
+      <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
+        <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-[2.25rem] lg:text-[2.5rem]">
           “Isso é incrível, mas é caro demais para a minha realidade agora.”
         </h2>
         <p className="mt-5 text-[1rem] leading-relaxed text-on-surface-variant md:text-[1.1rem]">
