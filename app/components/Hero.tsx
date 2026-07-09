@@ -1,10 +1,11 @@
 "use client";
 
 /**
- * Hero estático — split editorial:
- *   - Esquerda: chip + headline + subhead + CTAs (texto escuro, tema Fluxa white)
- *   - Direita:  pizza SVG flutuando com halo suave e leve rotação/parallax
- * Sem sticky, sem vídeo, sem scrub. Cabe em 100svh, respeita a nav sticky.
+ * Hero — split editorial 2 colunas:
+ *   - Esquerda: copy (chip + headline + subhead + CTAs), centralizada vertical
+ *   - Direita:  pizza flutuando, centralizada na coluna e puxada pra dentro
+ *               (não sangra pra fora da tela)
+ * Cabe em 100svh, respeita a nav sticky.
  */
 export function Hero() {
   return (
@@ -13,16 +14,12 @@ export function Hero() {
       style={{ minHeight: "100svh" }}
       aria-label="Fluxa, hero"
     >
-      {/* Fundo — grade de pontos suave + halo vermelho no canto direito */}
+      {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-fluxa-red/[0.07] blur-3xl md:-right-16 md:h-[680px] md:w-[680px]"
-      />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center gap-10 px-6 py-24 md:grid-cols-[1.05fr_1fr] md:gap-8 md:px-8 md:py-16">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center gap-8 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:gap-4 md:px-8 md:py-16">
         {/* Coluna esquerda — copy */}
-        <div className="anim-fade-up max-w-[34rem] md:max-w-[42rem]">
+        <div className="anim-fade-up order-2 max-w-[36rem] md:order-1 md:max-w-[40rem]">
           <span className="chip-live">
             <span className="dot" />
             <span>Te entendemos</span>
@@ -50,13 +47,13 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p className="mt-4 max-w-xl text-[1rem] leading-relaxed text-on-surface-variant md:text-[1.1rem]">
+          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-on-surface-variant md:text-[1.2rem]">
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
-          <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
             <a href="#parceria" className="btn-primary">
               Quero recuperar o controle
               <svg
@@ -81,19 +78,17 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Coluna direita — pizza */}
-        <div className="relative flex justify-center md:justify-end">
-          {/* Halo dourado atrás da pizza pra dar depth */}
+        {/* Coluna direita — pizza maior, centralizada e puxada bem pra esquerda */}
+        <div className="relative order-1 flex items-center justify-center md:order-2 md:-ml-16 lg:-ml-28">
+          {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto h-full w-full max-w-[620px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.2),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[90%] w-[90%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
           />
           <img
-            src="/hero-pizza.png"
+            src="/pizza-bg.svg"
             alt=""
-            width={1366}
-            height={768}
-            className="hero-pizza h-auto w-full max-w-[620px] select-none object-contain mix-blend-multiply md:max-w-[680px]"
+            className="hero-pizza-bg w-[82%] max-w-[480px] select-none object-contain md:w-full md:max-w-[620px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
@@ -105,12 +100,17 @@ export function Hero() {
 }
 
 /**
- * OQueMuda — seção do dashboard/mockup.
- * Renderiza sticky top-0 pra ficar travada enquanto a próxima seção sobe por cima.
+ * OQueMuda — seção do dashboard/mockup (o painel "pinado" da sobreposição).
+ *
+ * É `sticky top-0 z-0` com altura EXATA de 100svh: o conteúdo inteiro
+ * (chip + headline + mockup do Kitchens) sempre cabe na tela, centralizado,
+ * sem cortar. Fica pinado enquanto a seção Problem (sibling seguinte, z-10,
+ * bg opaco) sobe por cima. O timing de "quanto tempo o mockup aparece sozinho
+ * antes de ser coberto" é controlado pelo espaçador em page.tsx.
  */
 export function OQueMuda() {
   return (
-    <section className="sticky top-0 z-0 flex min-h-[130svh] w-full flex-col items-center justify-center bg-surface px-6 py-32 md:px-8 md:py-48">
+    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-surface px-6 py-8 md:px-8 md:py-12">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_35%,black,transparent_75%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center">
@@ -119,12 +119,12 @@ export function OQueMuda() {
           <span>Dashboard real do Kitchens</span>
         </span>
 
-        <h3 className="font-display mt-10 max-w-3xl text-center text-display-3 text-ink md:mt-12">
+        <h3 className="font-display mt-5 max-w-3xl text-center text-display-3 text-ink md:mt-7">
           O que muda quando o cliente é{" "}
           <em className="not-italic text-fluxa-red">seu</em>.
         </h3>
 
-        <div className="relative mt-16 w-full max-w-5xl md:mt-24">
+        <div className="relative mt-7 w-full max-w-5xl md:mt-9">
           <div className="pointer-events-none absolute inset-x-8 -top-4 bottom-0 rounded-[2rem] bg-gradient-to-b from-black/5 to-transparent blur-2xl" />
           <ProductPreview />
         </div>

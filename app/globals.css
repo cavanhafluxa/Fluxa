@@ -75,8 +75,8 @@
 
   /* Fluid display type — Apple-scale, mobile-first */
   .text-display-1 {
-    font-size: clamp(1.85rem, 4.4vw + 0.35rem, 3.75rem);
-    line-height: 1.02;
+    font-size: clamp(2.25rem, 5vw + 0.4rem, 4.5rem);
+    line-height: 1.03;
     letter-spacing: -0.04em;
     font-weight: 700;
   }
@@ -415,15 +415,43 @@
     transform: translateY(-16px) rotate(2deg);
   }
 }
-.hero-pizza {
-  animation: hero-pizza-float 7s ease-in-out infinite;
-  transform-origin: center;
-  filter: drop-shadow(0 24px 40px rgba(10, 10, 11, 0.18));
+/* Pizza como background do hero — bleed suave, não um card isolado */
+@keyframes hero-pizza-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.015);
+  }
+}
+.hero-pizza-bg {
+  animation: hero-pizza-drift 10s ease-in-out infinite;
   will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-pizza {
+  .hero-pizza-bg {
     animation: none !important;
+  }
+}
+
+/* Orbiting circles — usado no OrbitingCircles primitive */
+@keyframes orbit {
+  0% {
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px))
+      rotate(calc(var(--angle) * -1deg));
+  }
+  100% {
+    transform: rotate(calc(var(--angle) * 1deg + 360deg))
+      translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
+  }
+}
+.animate-orbit {
+  animation: orbit calc(var(--duration) * 1s) linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit {
+    animation-play-state: paused;
   }
 }
 

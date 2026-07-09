@@ -15,7 +15,7 @@ export function Problem() {
   return (
     <section
       id="problema"
-      className="sticky top-0 z-10 min-h-[100svh] bg-surface-warm px-6 py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:px-8 md:py-28"
+      className="relative z-10 min-h-[100svh] bg-surface-warm px-6 py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:px-8 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-4xl md:mb-20">

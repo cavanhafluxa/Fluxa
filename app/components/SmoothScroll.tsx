@@ -28,6 +28,9 @@ export function SmoothScroll() {
       smoothWheel: true,
     });
 
+    // expõe a instância pra debugging / âncoras (window.__lenis)
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     let raf = 0;
     const loop = (time: number) => {
       lenis.raf(time);
@@ -38,6 +41,7 @@ export function SmoothScroll() {
     return () => {
       cancelAnimationFrame(raf);
       lenis.destroy();
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
   }, []);
 
