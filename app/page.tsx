@@ -28,7 +28,7 @@ export default function Page() {
         */}
         <div className="relative">
           <OQueMuda />
-          <div aria-hidden className="h-[55svh] bg-surface" />
+          <div aria-hidden className="h-[25svh] bg-surface md:h-[35svh] lg:h-[45svh]" />
           <Problem />
         </div>
         <Pillars />

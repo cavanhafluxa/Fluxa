@@ -1,7 +1,7 @@
 export function CaseStudy() {
   return (
-    <section id="case" className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-      <div className="reveal-on-view relative grid grid-cols-1 gap-12 overflow-hidden rounded-2xl bg-surface-warm p-10 shadow-soft md:grid-cols-[1.15fr_1fr] md:items-center md:gap-16 md:p-14 lg:p-20">
+    <section id="case" className="container-fluxa py-16 md:py-20 xl:py-24 2xl:py-28">
+      <div className="reveal-on-view relative grid grid-cols-1 gap-10 overflow-hidden rounded-2xl bg-surface-warm p-8 shadow-soft md:grid-cols-[1.15fr_1fr] md:items-center md:gap-12 md:p-10 lg:p-14">
         {/* Conteúdo */}
         <div>
           <div className="flex items-center gap-4">
@@ -24,7 +24,7 @@ export function CaseStudy() {
             </div>
           </div>
 
-          <h2 className="font-display mt-8 text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-5xl">
+          <h2 className="font-display mt-8 text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-4xl lg:text-5xl xl:text-[3.25rem] 2xl:text-[3.5rem]">
             Histórias de quem{" "}
             <span className="text-fluxa-red">já passou por isso</span>.
           </h2>

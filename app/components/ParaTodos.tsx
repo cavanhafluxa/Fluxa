@@ -27,10 +27,10 @@ export function ParaTodos() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-radial-warm px-6 py-24 md:px-8 md:py-32">
+    <section className="relative overflow-hidden bg-radial-warm py-16 md:py-20 xl:py-24 2xl:py-28">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 md:grid-cols-[0.9fr_1.15fr] md:gap-4">
+      <div className="container-fluxa relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-6">
         {/* Coluna esquerda — texto */}
         <div className="reveal-on-view max-w-[36rem]">
           <span className="chip-live">
@@ -71,18 +71,19 @@ export function ParaTodos() {
         {/* Coluna direita — showcase que alterna. Os SVGs têm bastante respiro
             interno à esquerda, então a arte precisa crescer e ser puxada para
             o centro visual da coluna. */}
-        <div className="relative order-first h-[520px] w-full md:order-last md:h-[820px]">
+        {/* Showcase: altura mobile-first por breakpoint (skill §3E). */}
+        <div className="relative order-first h-[320px] w-full md:order-last md:h-[420px] lg:h-[500px] xl:h-[560px]">
           {/* Halo dourado atrás */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 mx-auto my-auto h-[70%] w-[70%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 mx-auto my-auto h-[75%] w-[75%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.42),rgba(242,160,61,0.18)_38%,transparent_68%)]"
           />
           {PLACES.map((p, i) => (
             <img
               key={p.src}
               src={p.src}
               alt={p.label}
-              className="absolute left-1/2 top-1/2 h-auto w-[160%] max-w-none select-none object-contain transition-all duration-700 ease-out md:w-[170%] lg:w-[176%]"
+              className="absolute left-1/2 top-1/2 h-auto w-[140%] max-w-none select-none object-contain transition-all duration-700 ease-out md:w-[150%] lg:w-[160%]"
               style={{
                 opacity: i === active ? 1 : 0,
                 transform:
