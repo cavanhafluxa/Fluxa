@@ -78,8 +78,10 @@ export function Hero() {
         </div>
 
         {/* Coluna direita — restaurante. Imagem fluida: max-w-full h-auto
-            ocupa 100% da coluna e escala junto com ela (skill §3E/§4.8). */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
+            ocupa 100% da coluna e escala junto com ela (skill §3E/§4.8).
+            justify-start no md+ pra empurrar a imagem pra esquerda,
+            aproximando ela do texto. */}
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-16 md:justify-start lg:-ml-24 xl:-ml-32">
           {/* Halo dourado atrás do restaurante — luz concentrada aqui */}
           <div
             aria-hidden="true"
