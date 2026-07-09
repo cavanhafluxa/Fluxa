@@ -1,43 +1,51 @@
-const pillars = [
+const stack = [
   {
     n: "01",
-    title: "Aquisição",
-    body: "Tráfego pago inteligente em Meta e Google Ads focado em quem realmente tem fome agora.",
-    icon: "/food-pizza.png",
-    wide: true,
+    title: "Fluxa Kitchen",
+    body: "Um sistema que organiza sua cozinha como um relógio e acaba com o caos.",
+    price: "R$ 800/mês",
+    icon: "/icon-kitchens.svg",
     dark: false,
   },
   {
     n: "02",
-    title: "Fluxa Kitchen",
-    body: "Gestão operacional simplificada para máxima eficiência da sua cozinha.",
-    icon: "/food-burger.png",
-    wide: false,
+    title: "Engenharia de Cardápio Digital",
+    body: "Um vendedor silencioso que aumenta seu ticket médio automaticamente.",
+    price: "R$ 500/mês",
+    icon: "/icon-conversao.svg",
     dark: false,
   },
   {
     n: "03",
-    title: "Conversão",
-    body: "Cardápios digitais otimizados para aumentar o ticket médio automaticamente.",
-    icon: "/food-fries.png",
-    wide: false,
+    title: "Gestão de Tráfego (Meta + Google)",
+    body: "Especialistas dominando as pesquisas da sua cidade para atrair clientes prontos para comprar.",
+    price: "R$ 2.500/mês",
+    icon: "/icon-aquisicao.svg",
     dark: false,
   },
   {
     n: "04",
-    title: "Fluxa Points & Database",
-    body: "Retenção ativa. Sua base de dados é sua maior riqueza. Fidelize e venda novamente.",
-    icon: "/food-donut.png",
-    wide: true,
-    dark: true,
+    title: "Assessoria de Conteúdo e Visual",
+    body: "Conteúdos estratégicos e roteiros de Reels que geram desejo imediato.",
+    price: "R$ 1.500/mês",
+    icon: "/icon-comunidade.svg",
+    dark: false,
   },
   {
     n: "05",
-    title: "Comunidade",
-    body: "Engajamento real com consumidores apaixonados pela sua marca.",
-    icon: "/food-drink.png",
-    wide: false,
+    title: "Consultoria Estratégica Mensal",
+    body: "Sessões individuais com especialistas em marketing para ajustar seu lucro e escala.",
+    price: "R$ 2.000/mês",
+    icon: "/icon-consumidor.svg",
     dark: false,
+  },
+  {
+    n: "06",
+    title: "O “Cofre” (Database Marketing)",
+    body: "A construção e gestão da sua base própria de clientes, para você nunca mais alugar audiência de terceiros.",
+    price: "Inestimável",
+    icon: "/fluxa-points.svg",
+    dark: true,
   },
 ];
 
@@ -45,93 +53,111 @@ export function Pillars() {
   return (
     <section
       id="pilares"
-      className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-40"
+      className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32"
     >
-      <div className="mb-16 flex flex-col justify-between gap-8 md:mb-24 md:flex-row md:items-end">
-        <div className="max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
-            Estrutura 360º
-          </span>
-          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-on-surface md:text-6xl">
-            Os 5 Pilares do Ecossistema
-          </h2>
-        </div>
-        <p className="max-w-md text-lg font-medium italic text-on-surface-variant md:text-right md:text-xl">
-          &ldquo;O Marketing saiu da Maximização do Lucro em cada transação
-          para Maximização do Lucro em cada Relacionamento.&rdquo;
+      <div className="mb-14 max-w-4xl md:mb-20">
+        <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-5xl lg:text-[3.25rem]">
+          A infraestrutura que grandes restaurantes levam anos para construir,
+          disponível <span className="text-fluxa-red">hoje</span>.
+        </h2>
+        <p className="mt-5 max-w-2xl text-[1rem] leading-relaxed text-on-surface-variant md:text-[1.1rem]">
+          Se você contratasse separadamente tudo que o Ecossistema Fluxa
+          entrega, este seria o seu custo mensal estimado:
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {pillars.map((p) => (
-          <PillarCard key={p.n} {...p} />
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {stack.map((p) => (
+          <StackCard key={p.n} {...p} />
         ))}
       </div>
+
+      <p className="mt-10 text-center text-[0.95rem] font-medium text-on-surface-variant md:mt-14 md:text-[1.05rem]">
+        Contratado separadamente: mais de{" "}
+        <span className="font-bold text-ink">R$ 7.300 por mês</span>. Com a
+        Fluxa: <span className="font-bold text-fluxa-red">um parceiro só</span>.
+      </p>
     </section>
   );
 }
 
-function PillarCard({
+function StackCard({
   n,
   title,
   body,
+  price,
   icon,
-  wide,
   dark,
 }: {
   n: string;
   title: string;
   body: string;
+  price: string;
   icon: string;
-  wide: boolean;
   dark: boolean;
 }) {
-  const wideCls = wide ? "md:col-span-2 lg:col-span-2" : "";
-
   if (dark) {
     return (
-      <div
-        className={`${wideCls} flex flex-col items-start rounded-[2.5rem] bg-on-surface p-10 text-white shadow-2xl`}
-      >
-        <div className="icon-3d-slot mb-8 h-32 w-32 rounded-full">
-          <img src={icon} alt="" width={128} height={128} />
+      <div className="reveal-on-view relative flex flex-col items-start overflow-hidden rounded-2xl bg-ink p-8 text-white shadow-lift md:p-10">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-fluxa-red/25 blur-3xl"
+        />
+        <div className="relative flex w-full items-baseline gap-3">
+          <span className="font-display text-4xl font-bold leading-none tracking-tight text-white/25 md:text-5xl">
+            {n}
+          </span>
+          <span className="h-px flex-1 bg-white/15" />
         </div>
-        <span className="mb-2 text-sm font-bold text-white/50">{n}</span>
-        <h4 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
+        <div className="relative mt-6 h-16 w-16 overflow-hidden rounded-full md:h-20 md:w-20">
+          <img
+            src={icon}
+            alt=""
+            width={80}
+            height={80}
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <h4 className="relative mt-6 font-display text-xl font-bold tracking-tight md:text-2xl">
           {title}
         </h4>
-        <p className="max-w-lg text-lg leading-relaxed text-white/70">
+        <p className="relative mt-3 text-[0.95rem] leading-relaxed text-white/70">
           {body}
+        </p>
+        <p className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-fluxa-red px-4 py-1.5 text-[0.8rem] font-bold text-white">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+          Valor: {price}
         </p>
       </div>
     );
   }
 
   return (
-    <div
-      className={`${wideCls} glass-card flex flex-col items-start rounded-[2.5rem] p-10`}
-    >
-      <div className="icon-3d-slot mb-8 h-32 w-32 rounded-full">
-        <img src={icon} alt="" width={128} height={128} />
+    <div className="reveal-on-view flex flex-col items-start rounded-2xl border border-black/[0.06] bg-surface p-8 shadow-soft transition-transform duration-500 hover:-translate-y-0.5 md:p-10">
+      <div className="flex w-full items-baseline gap-3">
+        <span className="font-display text-4xl font-bold leading-none tracking-tight text-ink/15 md:text-5xl">
+          {n}
+        </span>
+        <span className="h-px flex-1 bg-black/10" />
       </div>
-      <span className="mb-2 text-sm font-bold text-on-surface-variant">
-        {n}
-      </span>
-      <h4
-        className={
-          "mb-4 font-bold tracking-tight text-on-surface " +
-          (wide ? "text-3xl" : "text-2xl")
-        }
-      >
+      <div className="mt-6 h-16 w-16 overflow-hidden rounded-full md:h-20 md:w-20">
+        <img
+          src={icon}
+          alt=""
+          width={80}
+          height={80}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <h4 className="mt-6 font-display text-xl font-bold tracking-tight text-ink md:text-2xl">
         {title}
       </h4>
-      <p
-        className={
-          "leading-relaxed text-on-surface-variant " +
-          (wide ? "max-w-lg text-lg" : "")
-        }
-      >
+      <p className="mt-3 text-[0.95rem] leading-relaxed text-on-surface-variant">
         {body}
+      </p>
+      <p className="mt-6 text-[0.8rem] font-bold text-on-surface-muted">
+        Valor de mercado:{" "}
+        <span className="text-fluxa-red">{price}</span>
       </p>
     </div>
   );

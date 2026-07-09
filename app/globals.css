@@ -1,23 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  /* Fluxa accent */
+  /* Fluxa brand */
   --color-fluxa-red: #d6201f;
   --color-fluxa-red-hover: #b01817;
+  --color-fluxa-red-deep: #8a1211;
 
-  /* Apple-inspired neutrals */
+  /* Editorial neutrals — Apple ink + Airbnb warmth */
   --color-surface: #ffffff;
-  --color-on-surface: #1d1d1f;
+  --color-surface-warm: #faf6f1;
   --color-surface-variant: #f5f5f7;
-  --color-on-surface-variant: #86868b;
-  --color-outline: #d2d2d7;
+  --color-ink: #0a0a0b;
+  --color-on-surface: #1d1d1f;
+  --color-on-surface-variant: #6e6e73;
+  --color-on-surface-muted: #a1a1a6;
+  --color-outline: #e5e5ea;
+  --color-outline-strong: #d2d2d7;
 
   --font-sans:
-    var(--font-inter), -apple-system, BlinkMacSystemFont, "San Francisco",
+    var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "San Francisco",
     "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
   --font-display:
-    var(--font-inter), -apple-system, BlinkMacSystemFont, "San Francisco",
+    var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "San Francisco",
     "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Radii system */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
 }
 
 @layer base {
@@ -35,39 +47,292 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
   }
 
   ::selection {
-    background-color: rgba(214, 32, 31, 0.2);
+    background-color: rgba(214, 32, 31, 0.16);
     color: var(--color-fluxa-red);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-fluxa-red);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-  }
-  .tracking-tightest {
-    letter-spacing: -0.04em;
+    letter-spacing: -0.035em;
+    font-feature-settings: "ss01", "cv11";
   }
 
+  .tracking-tightest {
+    letter-spacing: -0.045em;
+  }
+
+  /* Fluid display type — Apple-scale, mobile-first */
+  .text-display-1 {
+    font-size: clamp(2.25rem, 5vw + 0.4rem, 4.5rem);
+    line-height: 1.03;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+  .text-display-2 {
+    font-size: clamp(2.25rem, 5.5vw + 0.5rem, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+  .text-display-3 {
+    font-size: clamp(1.75rem, 3vw + 0.75rem, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+  .text-lead {
+    font-size: clamp(1.05rem, 0.9vw + 0.85rem, 1.35rem);
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  /* Elevation — directional light (top) */
+  .shadow-soft {
+    box-shadow:
+      0 1px 2px rgba(10, 10, 11, 0.04),
+      0 8px 24px -8px rgba(10, 10, 11, 0.08);
+  }
+  .shadow-lift {
+    box-shadow:
+      0 2px 4px rgba(10, 10, 11, 0.04),
+      0 24px 48px -16px rgba(10, 10, 11, 0.14);
+  }
+  .shadow-hero {
+    box-shadow:
+      0 4px 8px rgba(10, 10, 11, 0.04),
+      0 40px 80px -24px rgba(10, 10, 11, 0.18);
+  }
+  .shadow-brand {
+    box-shadow:
+      0 1px 2px rgba(214, 32, 31, 0.24),
+      0 12px 32px -8px rgba(214, 32, 31, 0.35);
+  }
+
+  /* Glass surfaces */
   .glass-nav {
     background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(10, 10, 11, 0.06);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(40px) saturate(160%);
     -webkit-backdrop-filter: blur(40px) saturate(160%);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(10, 10, 11, 0.05);
+    box-shadow:
+      0 1px 2px rgba(10, 10, 11, 0.03),
+      0 20px 40px -12px rgba(10, 10, 11, 0.06);
   }
 
-  /* Slot pra imagens que virão do usuário */
+  /* Motion */
+  .anim-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .anim-fade-up-slow {
+    animation: fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .anim-delay-1 { animation-delay: 80ms; }
+  .anim-delay-2 { animation-delay: 160ms; }
+  .anim-delay-3 { animation-delay: 260ms; }
+  .anim-delay-4 { animation-delay: 380ms; }
+  .anim-delay-5 { animation-delay: 520ms; }
+
+  .anim-marquee {
+    animation: marquee 45s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-fade-up,
+    .anim-fade-up-slow,
+    .anim-marquee {
+      animation: none !important;
+    }
+  }
+
+  /* Scroll-linked reveal — native CSS animation-timeline (Chromium 115+).
+     Elementos com .reveal-on-view somem+deslizam pra baixo antes de entrar
+     no viewport e assentam quando entram. Fallback: opacity 1 (Safari/FF). */
+  .reveal-on-view {
+    opacity: 1;
+    transform: none;
+  }
+  @supports (animation-timeline: view()) {
+    .reveal-on-view {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on-view {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* Editorial background patterns */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(10, 10, 11, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 10, 11, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: -1px -1px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(rgba(10, 10, 11, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-radial-warm {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(214, 32, 31, 0.06), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(250, 220, 200, 0.5), transparent 70%),
+      var(--color-surface);
+  }
+
+  /* Chip / eyebrow */
+  .chip-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(10, 10, 11, 0.045);
+    border: 1px solid rgba(10, 10, 11, 0.06);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-on-surface);
+  }
+  .chip-live .dot {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-fluxa-red);
+  }
+  .chip-live .dot::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 999px;
+    background: var(--color-fluxa-red);
+    opacity: 0.35;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.6rem;
+    border-radius: 999px;
+    background: var(--color-fluxa-red);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.005em;
+    transition:
+      transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.2s,
+      box-shadow 0.2s;
+    box-shadow:
+      0 1px 2px rgba(214, 32, 31, 0.24),
+      0 12px 32px -8px rgba(214, 32, 31, 0.35);
+  }
+  .btn-primary:hover {
+    background: var(--color-fluxa-red-hover);
+    transform: translateY(-1px);
+    box-shadow:
+      0 2px 4px rgba(214, 32, 31, 0.28),
+      0 20px 44px -10px rgba(214, 32, 31, 0.45);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.6rem;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-on-surface);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid rgba(10, 10, 11, 0.12);
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      transform 0.2s;
+  }
+  .btn-ghost:hover {
+    background: rgba(10, 10, 11, 0.04);
+    border-color: rgba(10, 10, 11, 0.22);
+    transform: translateY(-1px);
+  }
+
+  /* Underline hover — nav links */
+  .link-underline {
+    position: relative;
+    transition: color 0.2s;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 1.5px;
+    background: currentColor;
+    transform-origin: right center;
+    transform: scaleX(0);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover {
+    color: var(--color-on-surface);
+  }
+  .link-underline:hover::after {
+    transform-origin: left center;
+    transform: scaleX(1);
+  }
+
+  /* Logo pill — placeholder for restaurant logos strip */
+  .logo-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 1.25rem;
+    border-radius: 999px;
+    border: 1px solid rgba(10, 10, 11, 0.08);
+    color: var(--color-on-surface-variant);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Asset slots (mantidos pra fotos reais que virão depois) */
   .asset-slot {
     position: relative;
     isolation: isolate;
@@ -99,7 +364,6 @@
     opacity: 0.55;
   }
 
-  /* Slot pra PNG 3D transparente (comidas) — sem bg, spotlight morno */
   .icon-3d-slot {
     position: relative;
     isolation: isolate;
@@ -117,5 +381,93 @@
     display: block;
     object-fit: contain;
     background: transparent;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-pizza-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(2deg);
+  }
+}
+/* Pizza como background do hero — bleed suave, não um card isolado */
+@keyframes hero-pizza-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.015);
+  }
+}
+.hero-pizza-bg {
+  animation: hero-pizza-drift 10s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-pizza-bg {
+    animation: none !important;
+  }
+}
+
+/* Orbiting circles — usado no OrbitingCircles primitive */
+@keyframes orbit {
+  0% {
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px))
+      rotate(calc(var(--angle) * -1deg));
+  }
+  100% {
+    transform: rotate(calc(var(--angle) * 1deg + 360deg))
+      translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
+  }
+}
+.animate-orbit {
+  animation: orbit calc(var(--duration) * 1s) linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

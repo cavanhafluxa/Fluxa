@@ -1,49 +1,64 @@
 export function DualAudience() {
   return (
-    <section id="diferencial" className="bg-surface-variant/30 py-24 md:py-40">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2 md:px-8">
+    <section id="diferencial" className="bg-surface-variant/30 py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 md:grid-cols-2 md:gap-16 md:px-8">
         {/* Imagem */}
-        <div className="asset-slot relative order-2 h-[520px] overflow-hidden rounded-[3rem] shadow-2xl md:order-1 md:h-[600px]">
+        <div className="reveal-on-view relative order-2 h-[480px] overflow-hidden rounded-2xl shadow-lift md:order-1 md:h-[560px]">
           <img
-            src="/dual-audience.jpg"
-            alt="Consumidor satisfeito e dono do restaurante"
+            src="/consumidor.svg"
+            alt="Consumidor Fluxa-Lover"
             className="h-full w-full object-cover"
           />
-          <span className="asset-slot-label">/public/dual-audience.jpg</span>
         </div>
 
         {/* Conteúdo */}
-        <div className="order-1 space-y-10 md:order-2 md:space-y-12">
-          <h2 className="font-display tracking-tightest text-4xl font-bold leading-tight text-on-surface md:text-6xl">
-            O Poder da Dupla Audiência
+        <div className="reveal-on-view order-1 md:order-2">
+          <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-5xl lg:text-[3.5rem]">
+            O poder da dupla audiência.
           </h2>
+          <p className="mt-5 max-w-lg text-[1rem] leading-relaxed text-on-surface-variant md:text-[1.1rem]">
+            Um único ecossistema, dois lados servidos. Consumidor engajado de um
+            lado, restaurante no controle do outro.
+          </p>
 
-          <div className="space-y-8">
+          <div className="mt-10 space-y-8">
             <div>
-              <div className="icon-3d-slot mb-4 h-16 w-16 rounded-full">
-                <img src="/food-drink.png" alt="" width={64} height={64} />
+              <div className="mb-4 h-14 w-14 overflow-hidden rounded-full">
+                <img
+                  src="/icon-consumidor.svg"
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <h5 className="mb-2 text-xl font-bold text-on-surface">
-                Para o Consumidor (Fluxa-Lovers)
+              <h5 className="text-lg font-bold text-ink md:text-xl">
+                Para o consumidor (Fluxa-Lovers)
               </h5>
-              <p className="text-lg leading-relaxed text-on-surface-variant">
-                Uma experiência de pedido fluida, recompensas reais e conexão
-                com as melhores marcas locais.
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-on-surface-variant md:text-[1rem]">
+                Pedido fluido, recompensas reais, conexão com as marcas locais
+                que ele já ama.
               </p>
             </div>
 
-            <div className="h-px w-full bg-outline/40" />
+            <div className="h-px w-full bg-outline/50" />
 
             <div>
-              <div className="icon-3d-slot mb-4 h-16 w-16 rounded-full">
-                <img src="/food-burger.png" alt="" width={64} height={64} />
+              <div className="mb-4 h-14 w-14 overflow-hidden rounded-full">
+                <img
+                  src="/icon-restaurante.svg"
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <h5 className="mb-2 text-xl font-bold text-on-surface">
-                Para o Restaurante
+              <h5 className="text-lg font-bold text-ink md:text-xl">
+                Para o restaurante
               </h5>
-              <p className="text-lg leading-relaxed text-on-surface-variant">
-                Dados proprietários, autonomia total, custos reduzidos e
-                crescimento escalável.
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-on-surface-variant md:text-[1rem]">
+                Dado proprietário, autonomia total, custo reduzido, crescimento
+                escalável.
               </p>
             </div>
           </div>
