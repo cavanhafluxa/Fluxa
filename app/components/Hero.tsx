@@ -17,9 +17,33 @@ export function Hero() {
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1fr_1.1fr] md:gap-4 md:pb-6 lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.25fr]">
-        {/* Coluna esquerda — copy */}
-        <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
+      {/* Restaurante como BACKGROUND: absolute, colado à direita,
+          centralizado verticalmente. z-0 pra ficar atrás da copy.
+          Escondido no mobile (aparece só como imagem inline dentro
+          da copy) porque em telas pequenas não sobra espaço à direita. */}
+      <img
+        src="/hero-estabelecimento.svg"
+        alt=""
+        aria-hidden="true"
+        className="hero-pizza-bg pointer-events-none absolute right-0 top-1/2 z-0 hidden -translate-y-1/2 select-none object-contain md:block"
+        style={{
+          height: "clamp(560px, min(96vh, 82vw), 1800px)",
+          maxHeight: "calc(100svh - 80px)",
+        }}
+        draggable={false}
+        fetchPriority="high"
+        loading="eager"
+      />
+      {/* Halo dourado suave atrás pra dar profundidade ao restaurante */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-1/2 z-0 hidden aspect-square h-[70vh] max-h-[70svh] -translate-y-1/2 translate-x-[10%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)] md:block"
+      />
+
+      <div className="container-fluxa relative z-10 w-full pb-8 pt-2 md:pb-6">
+        {/* Copy — sempre à esquerda, com max de largura pra deixar o
+            restaurante respirar do lado direito. */}
+        <div className="anim-fade-up max-w-[34rem] lg:max-w-[38rem]">
           <span className="chip-live">
             <span className="dot" />
             <span>Te entendemos</span>
@@ -53,6 +77,16 @@ export function Hero() {
             controle pra suas mãos.
           </p>
 
+          {/* Restaurante inline pro mobile — no md+ aparece só o de
+              background. */}
+          <img
+            src="/hero-estabelecimento.svg"
+            alt=""
+            className="hero-pizza-bg mx-auto mt-8 block h-auto w-full max-w-[380px] select-none object-contain md:hidden"
+            draggable={false}
+            loading="eager"
+          />
+
           <div className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-6">
             <a href="#parceria" className="btn-primary">
               Quero recuperar o controle
@@ -76,32 +110,6 @@ export function Hero() {
               Ver ecossistema
             </a>
           </div>
-        </div>
-
-        {/* Coluna direita — pizza extra grande, puxada bem pra esquerda pra
-            crescer em direção ao centro sem sangrar pela direita.
-            min-w-0 impede que a imagem gigante (overflow) expanda a coluna
-            e roube largura do texto (grid item tem min-width:auto por padrão). */}
-        {/* Imagem travada por ALTURA e puxada pra esquerda no md+
-            pra ganhar presença sem sangrar pra direita. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-64 lg:-ml-96 xl:-ml-[32rem] 2xl:-ml-[42rem]">
-          {/* Halo dourado suave atrás pra dar profundidade */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[85%] w-[85%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
-          />
-          <img
-            src="/hero-estabelecimento.svg"
-            alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[560px] select-none object-contain md:w-auto md:max-w-none"
-            style={{
-              height: "clamp(560px, min(96vh, 85vw), 1800px)",
-              maxHeight: "calc(100svh - 88px)",
-            }}
-            draggable={false}
-            fetchPriority="high"
-            loading="eager"
-          />
         </div>
       </div>
     </section>
