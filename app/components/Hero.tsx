@@ -78,27 +78,23 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Coluna direita — restaurante alinhado à direita do container,
-            centralizado verticalmente. Fica dentro dos limites do container
-            (junto com a copy da esquerda) pra que o conjunto texto+imagem
-            esteja centralizado como bloco na largura da página.
+        {/* Coluna direita — restaurante alinhado à direita do container.
             pointer-events-none no md+ pra que os CTAs da copy sigam
             clicáveis mesmo quando a imagem invade a coluna do texto. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-end md:pointer-events-none md:order-2 md:-ml-12 lg:-ml-16 xl:-ml-24">
+        <div className="relative order-1 flex min-w-0 items-center justify-end md:pointer-events-none md:order-2">
           {/* Halo dourado — reforçado atrás do restaurante pra dar
               profundidade sem depender do bg da seção. */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[85%] w-[85%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.42),rgba(242,160,61,0.18)_38%,transparent_68%)]"
           />
+          {/* Imagem: no md+ usamos max-width (vw) + max-height (vh) que
+              trabalham juntos e o browser shrinca mantendo aspect. Assim
+              a imagem NUNCA extrapola a coluna, seja qual for o viewport. */}
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[420px] select-none object-contain md:w-auto md:max-w-none"
-            style={{
-              height: "clamp(460px, min(88vh, 60vw), 1200px)",
-              maxHeight: "calc(100svh - 96px)",
-            }}
+            className="hero-pizza-bg h-auto w-full max-w-[420px] select-none object-contain md:w-auto md:max-h-[min(calc(100svh-96px),720px)] md:max-w-[min(46vw,640px)]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
