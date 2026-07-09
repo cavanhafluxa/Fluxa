@@ -15,7 +15,6 @@ export function Footer() {
             </span>
             <span className="font-display text-2xl font-black tracking-tightest text-on-surface">
               Fluxa
-              <span className="text-fluxa-red">.</span>
             </span>
           </div>
           <p className="text-sm font-medium text-on-surface-variant">
