@@ -256,11 +256,11 @@
       radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.22), rgba(250, 220, 200, 0.14) 60%, rgba(250, 220, 200, 0.08) 100%),
       var(--color-surface);
   }
-  /* Em PC de tela grande, luz de fundo bem mais suave */
-  @media (min-width: 1800px) {
+  /* Em PC de tela grande (2xl+), luz de fundo bem mais suave */
+  @media (min-width: 1536px) {
     .bg-radial-warm {
       background:
-        radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.045), rgba(250, 220, 200, 0.025) 60%, rgba(250, 220, 200, 0.01) 100%),
+        radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.09), rgba(250, 220, 200, 0.05) 60%, rgba(250, 220, 200, 0.02) 100%),
         var(--color-surface);
     }
   }

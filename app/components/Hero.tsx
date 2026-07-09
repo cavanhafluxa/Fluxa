@@ -16,15 +16,15 @@ export function Hero() {
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-[1fr_1.15fr] md:gap-4 lg:grid-cols-[1fr_1.25fr] min-[1800px]:grid-cols-[1.1fr_1fr]">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-[1fr_1.15fr] md:gap-4 lg:grid-cols-[1fr_1.25fr] 2xl:grid-cols-[1.1fr_1fr] 2xl:gap-8">
         {/* Coluna esquerda — copy */}
-        <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
+        <div className="anim-fade-up order-2 max-w-[34rem] md:order-1 2xl:max-w-[38rem]">
           <span className="chip-live">
             <span className="dot" />
             <span>Te entendemos</span>
           </span>
 
-          <h1 className="font-display mt-4 text-[1.7rem] font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5 md:text-[2.1rem] lg:text-[2.15rem] xl:text-[2.2rem] 2xl:text-[3rem] min-[1800px]:mt-4 min-[1800px]:text-[4.2rem] min-[1800px]:leading-[1.04] min-[1800px]:tracking-[-0.035em]">
+          <h1 className="font-display mt-4 text-[1.7rem] font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5 md:text-[2.1rem] lg:text-[2.15rem] xl:text-[2.2rem] 2xl:text-[3.4rem] 2xl:leading-[1.05] min-[1800px]:text-[4rem] min-[1800px]:leading-[1.04]">
             Você abriu um restaurante para ser{" "}
             <span className="relative inline-block">
               <span className="text-fluxa-red">dono</span>
@@ -46,13 +46,13 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p className="mt-5 max-w-lg text-[0.9rem] leading-[1.55] text-on-surface-variant md:mt-6 md:text-[0.95rem] lg:text-[0.88rem] xl:text-[0.9rem] 2xl:text-[1.1rem] min-[1800px]:mt-4 min-[1800px]:max-w-xl min-[1800px]:text-[1.26rem] min-[1800px]:leading-[1.5]">
+          <p className="mt-5 max-w-lg text-[0.9rem] leading-[1.55] text-on-surface-variant md:mt-6 md:text-[0.95rem] lg:text-[0.88rem] xl:text-[0.9rem] 2xl:mt-5 2xl:max-w-xl 2xl:text-[1.15rem] 2xl:leading-[1.55] min-[1800px]:text-[1.26rem]">
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
-          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8 min-[1800px]:mt-6">
+          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8 2xl:mt-8">
             <a href="#parceria" className="btn-primary !px-5 !py-3 !text-[0.8rem] lg:!px-5 lg:!py-2.5 lg:!text-[0.78rem] xl:!py-2.5 xl:!text-[0.78rem] 2xl:!px-6 2xl:!py-3.5 2xl:!text-[0.95rem] min-[1800px]:!px-[1.9rem] min-[1800px]:!py-[1.1rem] min-[1800px]:!text-[1.14rem]">
               Quero recuperar o controle
               <svg
@@ -81,17 +81,17 @@ export function Hero() {
             No mobile a imagem é 100% da largura (nunca corta).
             No md+ ela cresce até 115% pra ganhar presença, mas
             centralizada — não vaza pros lados de forma agressiva. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 min-[1800px]:-ml-[12rem]">
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
           {/* Halo dourado atrás do restaurante — cresce e fica mais
               brilhante nos desktops maiores (xl/2xl). */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] 2xl:h-[112%] 2xl:w-[112%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.7),rgba(242,160,61,0.32)_40%,transparent_72%)] min-[1800px]:h-[92%] min-[1800px]:w-[92%] min-[1800px]:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.05),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] 2xl:h-[95%] 2xl:w-[95%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.12),transparent_62%)]"
           />
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[200%] min-[1800px]:w-[35vw] min-[1800px]:max-w-[600px] min-[1800px]:translate-x-0"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-full 2xl:max-w-[620px] 2xl:translate-x-0 min-[1800px]:max-w-[660px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
