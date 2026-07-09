@@ -26,7 +26,7 @@ export function Hero() {
 
           <h1
             className="font-display mt-4 font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5"
-            style={{ fontSize: "clamp(2rem, 1.5rem + 2.4vw, 3.5rem)" }}
+            style={{ fontSize: "clamp(1.7rem, 1.3rem + 2vw, 2.95rem)" }}
           >
             Você abriu um restaurante para ser{" "}
             <span className="relative inline-block">
@@ -51,7 +51,7 @@ export function Hero() {
 
           <p
             className="mt-5 max-w-lg leading-[1.55] text-on-surface-variant md:mt-6"
-            style={{ fontSize: "clamp(1rem, 0.9rem + 0.4vw, 1.2rem)" }}
+            style={{ fontSize: "clamp(0.85rem, 0.77rem + 0.34vw, 1.02rem)" }}
           >
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
@@ -59,7 +59,7 @@ export function Hero() {
           </p>
 
           <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8">
-            <a href="#parceria" className="btn-primary !px-6 !py-3.5 !text-[0.95rem]">
+            <a href="#parceria" className="btn-primary !px-5 !py-3 !text-[0.8rem]">
               Quero recuperar o controle
               <svg
                 width="16"
@@ -77,7 +77,7 @@ export function Hero() {
                 />
               </svg>
             </a>
-            <a href="#pilares" className="btn-ghost !px-6 !py-3.5 !text-[0.95rem]">
+            <a href="#pilares" className="btn-ghost !px-5 !py-3 !text-[0.8rem]">
               Ver ecossistema
             </a>
           </div>
@@ -96,7 +96,7 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] select-none object-contain md:w-[172%] md:max-w-none lg:w-[180%]"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[180%]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
