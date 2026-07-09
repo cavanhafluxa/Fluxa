@@ -260,7 +260,7 @@
   @media (min-width: 1800px) {
     .bg-radial-warm {
       background:
-        radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.1), rgba(250, 220, 200, 0.06) 60%, rgba(250, 220, 200, 0.03) 100%),
+        radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.045), rgba(250, 220, 200, 0.025) 60%, rgba(250, 220, 200, 0.01) 100%),
         var(--color-surface);
     }
   }

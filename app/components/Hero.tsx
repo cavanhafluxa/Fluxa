@@ -86,7 +86,7 @@ export function Hero() {
               brilhante nos desktops maiores (xl/2xl). */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] 2xl:h-[112%] 2xl:w-[112%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.7),rgba(242,160,61,0.32)_40%,transparent_72%)] min-[1800px]:h-[92%] min-[1800px]:w-[92%] min-[1800px]:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.12),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] 2xl:h-[112%] 2xl:w-[112%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.7),rgba(242,160,61,0.32)_40%,transparent_72%)] min-[1800px]:h-[92%] min-[1800px]:w-[92%] min-[1800px]:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.05),transparent_62%)]"
           />
           <img
             src="/hero-estabelecimento.svg"
