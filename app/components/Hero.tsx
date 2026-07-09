@@ -86,14 +86,14 @@ export function Hero() {
           {/* Halo dourado atrás da pizza pra dar depth */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto h-full w-full max-w-[560px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.28),transparent_60%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto h-full w-full max-w-[620px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.2),transparent_62%)]"
           />
           <img
-            src="/pizza.svg"
+            src="/hero-pizza.png"
             alt=""
-            width={560}
-            height={560}
-            className="hero-pizza h-auto w-[80%] max-w-[520px] select-none object-contain md:w-full md:max-w-[560px]"
+            width={1366}
+            height={768}
+            className="hero-pizza h-auto w-full max-w-[620px] select-none object-contain mix-blend-multiply md:max-w-[680px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
