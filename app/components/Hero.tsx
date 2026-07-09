@@ -81,8 +81,10 @@ export function Hero() {
         {/* Coluna direita — restaurante alinhado à direita do container,
             centralizado verticalmente. Fica dentro dos limites do container
             (junto com a copy da esquerda) pra que o conjunto texto+imagem
-            esteja centralizado como bloco na largura da página. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-end md:order-2 md:-ml-12 lg:-ml-16 xl:-ml-24">
+            esteja centralizado como bloco na largura da página.
+            pointer-events-none no md+ pra que os CTAs da copy sigam
+            clicáveis mesmo quando a imagem invade a coluna do texto. */}
+        <div className="relative order-1 flex min-w-0 items-center justify-end md:pointer-events-none md:order-2 md:-ml-12 lg:-ml-16 xl:-ml-24">
           {/* Halo dourado — reforçado atrás do restaurante pra dar
               profundidade sem depender do bg da seção. */}
           <div

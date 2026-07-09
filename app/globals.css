@@ -2,22 +2,14 @@
 
 :root {
   /* Geometria da nav pill — usada pelo .container-fluxa pra alinhar
-     o conteúdo com o "Fluxa" da nav em qualquer viewport. Cresce em
-     breakpoints grandes pra LP não ficar vazia em monitores amplos. */
-  --pill-max: 64rem;   /* 1024 */
-  --pill-pad: 1rem;    /* 16 */
+     o conteúdo com o "Fluxa" da nav em qualquer viewport. Fixa em
+     max-w-5xl porque a nav mantém esse tamanho — assim conteúdo e
+     pill sempre casam. */
+  --pill-max: 64rem;   /* 1024 = nav max-w-5xl */
+  --pill-pad: 1rem;    /* 16 = nav px-4 */
 }
 @media (min-width: 768px) {
-  :root { --pill-pad: 1.25rem; /* 20 */ }
-}
-@media (min-width: 1280px) {
-  :root { --pill-max: 74rem; /* 1184 */ --pill-pad: 1.5rem; /* 24 */ }
-}
-@media (min-width: 1536px) {
-  :root { --pill-max: 84rem; /* 1344 */ --pill-pad: 1.75rem; /* 28 */ }
-}
-@media (min-width: 1920px) {
-  :root { --pill-max: 96rem; /* 1536 */ --pill-pad: 2rem; /* 32 */ }
+  :root { --pill-pad: 1.25rem; /* 20 = nav md:px-5 */ }
 }
 
 @theme {
