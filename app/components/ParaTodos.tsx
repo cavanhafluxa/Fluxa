@@ -27,7 +27,7 @@ export function ParaTodos() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-radial-warm py-20 md:py-24 xl:py-28 2xl:py-32">
+    <section className="relative overflow-hidden bg-radial-warm py-16 md:py-20 xl:py-24 2xl:py-28">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,black,transparent_75%)]" />
 
       <div className="container-fluxa relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-6">

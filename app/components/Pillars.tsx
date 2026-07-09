@@ -53,7 +53,7 @@ export function Pillars() {
   return (
     <section
       id="pilares"
-      className="container-fluxa py-20 md:py-24 xl:py-28 2xl:py-32"
+      className="container-fluxa py-16 md:py-20 xl:py-24 2xl:py-28"
     >
       <div className="mb-12 max-w-3xl md:mb-16">
         <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-4xl lg:text-5xl xl:text-[3.25rem] 2xl:text-[3.75rem]">

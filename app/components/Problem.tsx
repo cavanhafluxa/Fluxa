@@ -15,7 +15,7 @@ export function Problem() {
   return (
     <section
       id="problema"
-      className="relative z-10 bg-surface-warm py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:py-24 xl:py-28 2xl:py-32"
+      className="relative z-10 bg-surface-warm py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:py-20 xl:py-24 2xl:py-28"
     >
       <div className="container-fluxa">
         <div className="mb-12 max-w-3xl md:mb-16">

@@ -57,18 +57,18 @@
     color: var(--color-on-surface);
     font-family: var(--font-sans);
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.55;
     font-feature-settings: "ss01", "cv11";
   }
   @media (min-width: 1024px) {
-    body { font-size: 16px; line-height: 1.6; }
+    body { font-size: 14.5px; line-height: 1.6; }
   }
   @media (min-width: 1536px) {
-    body { font-size: 17px; }
+    body { font-size: 15px; }
   }
   @media (min-width: 1920px) {
-    body { font-size: 18px; }
+    body { font-size: 15.5px; }
   }
 
   ::selection {
@@ -99,28 +99,27 @@
      (1366×768) sem sacrificar monitor grande. Em telas amplas os dois
      eixos crescem juntos, então o max real fica limitado pelo clamp,
      não pelo vh. */
-  /* Fluid type mobile-first. clamp(min, fluid, max) — cresce com o
-     viewport dentro de bounds, sem hits abruptos por breakpoint. */
+  /* Fluid type -20% mobile-first. clamp(min, fluid, max). */
   .text-display-1 {
-    font-size: clamp(2rem, 1.4rem + 2.4vw, 3.5rem);
-    line-height: 1.08;
+    font-size: clamp(1.6rem, 1.15rem + 1.9vw, 2.8rem);
+    line-height: 1.1;
     letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-2 {
-    font-size: clamp(2rem, 1.4rem + 2.6vw, 3.75rem);
-    line-height: 1.06;
+    font-size: clamp(1.6rem, 1.15rem + 2.05vw, 3rem);
+    line-height: 1.08;
     letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-3 {
-    font-size: clamp(1.5rem, 1.15rem + 1.5vw, 2.5rem);
-    line-height: 1.1;
+    font-size: clamp(1.2rem, 0.95rem + 1.2vw, 2rem);
+    line-height: 1.12;
     letter-spacing: -0.03em;
     font-weight: 700;
   }
   .text-lead {
-    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
+    font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1.05rem);
     line-height: 1.55;
     font-weight: 400;
   }
@@ -241,8 +240,8 @@
 
   .bg-radial-warm {
     background:
-      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(214, 32, 31, 0.04), transparent 65%),
-      radial-gradient(ellipse 140% 120% at 70% 55%, rgba(250, 220, 200, 0.32), rgba(250, 220, 200, 0.12) 55%, transparent 85%),
+      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(214, 32, 31, 0.03), transparent 65%),
+      radial-gradient(ellipse 100% 90% at 72% 55%, rgba(250, 220, 200, 0.2), transparent 75%),
       var(--color-surface);
   }
 
@@ -283,12 +282,12 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.95rem 1.6rem;
+    padding: 0.75rem 1.3rem;
     border-radius: 999px;
     background: var(--color-fluxa-red);
     color: #fff;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
     letter-spacing: -0.005em;
     transition:
       transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
@@ -311,12 +310,12 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.95rem 1.6rem;
+    padding: 0.75rem 1.3rem;
     border-radius: 999px;
     background: transparent;
     color: var(--color-on-surface);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
     border: 1px solid rgba(10, 10, 11, 0.12);
     transition:
       background-color 0.2s,

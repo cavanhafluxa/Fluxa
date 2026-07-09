@@ -32,7 +32,7 @@ function Satellite({ label, icon }: { label: string; icon: string }) {
 
 export function EcosystemOrbit() {
   return (
-    <section className="relative overflow-hidden bg-surface-warm py-20 md:py-24 xl:py-28 2xl:py-32">
+    <section className="relative overflow-hidden bg-surface-warm py-16 md:py-20 xl:py-24 2xl:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(ellipse_65%_60%_at_50%_45%,black,transparent_75%)]"

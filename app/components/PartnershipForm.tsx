@@ -32,7 +32,7 @@ export function PartnershipForm() {
   return (
     <section
       id="parceria"
-      className="border-t border-outline/30 bg-surface py-20 md:py-24 xl:py-28 2xl:py-32"
+      className="border-t border-outline/30 bg-surface py-16 md:py-20 xl:py-24 2xl:py-28"
     >
       <div className="container-fluxa mb-10 md:mb-12">
         <div className="mx-auto max-w-3xl text-center">

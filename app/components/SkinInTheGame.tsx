@@ -1,6 +1,6 @@
 export function SkinInTheGame() {
   return (
-    <section className="relative overflow-hidden bg-ink py-20 text-white md:py-24 xl:py-28 2xl:py-32">
+    <section className="relative overflow-hidden bg-ink py-20 text-white md:py-20 xl:py-24 2xl:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-24 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-fluxa-red/20 blur-3xl"

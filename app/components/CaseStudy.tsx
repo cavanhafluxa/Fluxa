@@ -1,6 +1,6 @@
 export function CaseStudy() {
   return (
-    <section id="case" className="container-fluxa py-20 md:py-24 xl:py-28 2xl:py-32">
+    <section id="case" className="container-fluxa py-16 md:py-20 xl:py-24 2xl:py-28">
       <div className="reveal-on-view relative grid grid-cols-1 gap-10 overflow-hidden rounded-2xl bg-surface-warm p-8 shadow-soft md:grid-cols-[1.15fr_1fr] md:items-center md:gap-12 md:p-10 lg:p-14">
         {/* Conteúdo */}
         <div>

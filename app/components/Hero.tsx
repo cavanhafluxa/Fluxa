@@ -16,7 +16,7 @@ export function Hero() {
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-6">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-[1fr_1.15fr] md:gap-4 lg:grid-cols-[1fr_1.25fr]">
         {/* Coluna esquerda — copy */}
         <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
           <span className="chip-live">
@@ -80,15 +80,15 @@ export function Hero() {
         {/* Coluna direita — restaurante. Imagem fluida: max-w-full h-auto
             ocupa 100% da coluna e escala junto com ela (skill §3E/§4.8). */}
         <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
-          {/* Halo dourado atrás do restaurante */}
+          {/* Halo dourado atrás do restaurante — luz concentrada aqui */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[85%] w-[85%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.42),rgba(242,160,61,0.18)_38%,transparent_68%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)]"
           />
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[520px] select-none object-contain md:max-w-full"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[600px] select-none object-contain md:max-w-full"
             draggable={false}
             fetchPriority="high"
             loading="eager"
