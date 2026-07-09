@@ -1,53 +1,73 @@
 export function CaseStudy() {
   return (
-    <section
-      id="case"
-      className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32"
-    >
-      <div className="relative flex flex-col items-center gap-12 overflow-hidden rounded-[3rem] bg-surface-variant/50 p-10 md:flex-row md:gap-16 md:p-16 lg:p-24">
+    <section id="case" className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
+      <div className="reveal-on-view relative grid grid-cols-1 gap-12 overflow-hidden rounded-2xl bg-surface-warm p-10 shadow-soft md:grid-cols-[1.15fr_1fr] md:items-center md:gap-16 md:p-14 lg:p-20">
         {/* Conteúdo */}
-        <div className="flex-1">
-          <h2 className="font-display mb-8 text-3xl font-bold leading-tight tracking-tight text-on-surface md:text-5xl">
-            Lanas Burguer decidiu{" "}
-            <span className="text-fluxa-red">MUDAR O JOGO</span>.
-          </h2>
-          <p className="mb-10 text-lg font-medium leading-relaxed text-on-surface-variant md:mb-12 md:text-xl">
-            &ldquo;Com a implementação do ecossistema Fluxa, não apenas
-            digitalizamos nosso atendimento, mas passamos a entender exatamente
-            quem é nosso cliente. O faturamento em canais próprios cresceu 3x
-            em menos de 6 meses, reduzindo nossa dependência de marketplaces
-            externos.&rdquo;
-          </p>
+        <div>
           <div className="flex items-center gap-4">
-            <div className="asset-slot h-14 w-14 overflow-hidden rounded-full">
+            <div className="h-14 w-14 overflow-hidden rounded-full ring-2 ring-fluxa-red/20">
               <img
-                src="/lanas-owner.jpg"
+                src="/logo-lanas.svg"
                 alt=""
+                width={56}
+                height={56}
                 className="h-full w-full object-cover"
               />
-              <span className="asset-slot-label !text-[0.5rem]">owner</span>
             </div>
             <div>
-              <p className="font-bold text-on-surface">
-                Fundador Lanas Burguer
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-on-surface-muted">
+                Case de sucesso
               </p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-on-surface-variant">
-                Case de Sucesso
+              <p className="mt-0.5 text-[0.95rem] font-bold text-ink">
+                Lanas Burguer
               </p>
             </div>
           </div>
+
+          <h2 className="font-display mt-8 text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-5xl">
+            Histórias de quem{" "}
+            <span className="text-fluxa-red">já passou por isso</span>.
+          </h2>
+
+          <p className="mt-5 text-[1.05rem] font-semibold text-ink md:text-[1.15rem]">
+            O Lanas Burguer decidiu que era hora de mudar o jogo.
+          </p>
+
+          <p className="mt-4 max-w-xl text-[1rem] leading-relaxed text-on-surface-variant md:text-[1.1rem]">
+            Eles também estavam cansados das taxas e do anonimato dos clientes.
+            Hoje, a cozinha parou de travar, o restaurante não fecha “do nada”,
+            o faturamento subiu e eles são donos da própria audiência.
+          </p>
+
+          <div className="mt-10 grid grid-cols-3 gap-6 border-t border-black/10 pt-8">
+            <Kpi label="Cozinha travando no pico" value="Zero" />
+            <Kpi label="Faturamento" value="Em alta" />
+            <Kpi label="Audiência" value="Própria" />
+          </div>
         </div>
 
-        {/* Foto do burger */}
-        <div className="asset-slot aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl md:w-2/5">
+        {/* Foto do produto */}
+        <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lift">
           <img
-            src="/lanas.jpg"
+            src="/foto-lanas.svg"
             alt="Lanas Burguer"
             className="h-full w-full object-cover"
           />
-          <span className="asset-slot-label">/public/lanas.jpg</span>
         </div>
       </div>
     </section>
+  );
+}
+
+function Kpi({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
+        {value}
+      </p>
+      <p className="mt-1 text-[0.7rem] font-medium leading-tight text-on-surface-variant md:text-[0.75rem]">
+        {label}
+      </p>
+    </div>
   );
 }
