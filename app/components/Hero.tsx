@@ -10,7 +10,7 @@
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-28 pb-16 md:pt-28 md:pb-20"
+      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-28 pb-16 md:pt-28 md:pb-20 min-[1800px]:pt-24 min-[1800px]:pb-10"
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
@@ -24,7 +24,7 @@ export function Hero() {
             <span>Te entendemos</span>
           </span>
 
-          <h1 className="font-display mt-4 text-[1.7rem] font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5 md:text-[2.1rem] lg:text-[2.15rem] xl:text-[2.2rem] 2xl:text-[3rem] min-[1800px]:mt-5 min-[1800px]:text-[4.5rem] min-[1800px]:leading-[1.03] min-[1800px]:tracking-[-0.04em]">
+          <h1 className="font-display mt-4 text-[1.7rem] font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5 md:text-[2.1rem] lg:text-[2.15rem] xl:text-[2.2rem] 2xl:text-[3rem] min-[1800px]:mt-4 min-[1800px]:text-[3.5rem] min-[1800px]:leading-[1.04] min-[1800px]:tracking-[-0.035em]">
             Você abriu um restaurante para ser{" "}
             <span className="relative inline-block">
               <span className="text-fluxa-red">dono</span>
@@ -46,13 +46,13 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p className="mt-5 max-w-lg text-[0.9rem] leading-[1.55] text-on-surface-variant md:mt-6 md:text-[0.95rem] lg:text-[0.88rem] xl:text-[0.9rem] 2xl:text-[1.1rem] min-[1800px]:mt-5 min-[1800px]:max-w-xl min-[1800px]:text-[1.2rem] min-[1800px]:leading-relaxed">
+          <p className="mt-5 max-w-lg text-[0.9rem] leading-[1.55] text-on-surface-variant md:mt-6 md:text-[0.95rem] lg:text-[0.88rem] xl:text-[0.9rem] 2xl:text-[1.1rem] min-[1800px]:mt-4 min-[1800px]:max-w-xl min-[1800px]:text-[1.05rem] min-[1800px]:leading-[1.5]">
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
-          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8">
+          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8 min-[1800px]:mt-6">
             <a href="#parceria" className="btn-primary !px-5 !py-3 !text-[0.8rem] lg:!px-5 lg:!py-2.5 lg:!text-[0.78rem] xl:!py-2.5 xl:!text-[0.78rem] 2xl:!px-6 2xl:!py-3.5 2xl:!text-[0.95rem] min-[1800px]:!px-[1.6rem] min-[1800px]:!py-[0.95rem] min-[1800px]:!text-[0.95rem]">
               Quero recuperar o controle
               <svg
@@ -91,7 +91,7 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[200%] min-[1800px]:w-[62vw] min-[1800px]:max-w-[1050px] min-[1800px]:translate-x-0"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[200%] min-[1800px]:w-[50vw] min-[1800px]:max-w-[840px] min-[1800px]:translate-x-0"
             draggable={false}
             fetchPriority="high"
             loading="eager"
