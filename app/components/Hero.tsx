@@ -10,7 +10,7 @@
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-28 pb-16 md:pt-28 md:pb-20 min-[1800px]:items-start min-[1800px]:pt-[7.5rem] min-[1800px]:pb-10"
+      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-28 pb-16 md:pt-28 md:pb-20 min-[1800px]:!items-start min-[1800px]:!min-h-[auto] min-[1800px]:pt-32 min-[1800px]:pb-16"
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
