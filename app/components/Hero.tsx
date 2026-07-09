@@ -84,7 +84,7 @@ export function Hero() {
             e roube largura do texto (grid item tem min-width:auto por padrão). */}
         {/* Imagem travada por ALTURA e puxada pra esquerda no md+
             pra ganhar presença sem sangrar pra direita. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-16 lg:-ml-24 xl:-ml-32">
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-32 lg:-ml-56 xl:-ml-72 2xl:-ml-96">
           {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
@@ -93,8 +93,8 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[480px] select-none object-contain md:w-auto md:max-w-none"
-            style={{ height: "clamp(400px, min(85vh, 55vw), 1280px)" }}
+            className="hero-pizza-bg h-auto w-full max-w-[520px] select-none object-contain md:w-auto md:max-w-none"
+            style={{ height: "clamp(460px, min(95vh, 70vw), 1600px)" }}
             draggable={false}
             fetchPriority="high"
             loading="eager"
