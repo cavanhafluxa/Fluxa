@@ -81,7 +81,7 @@ export function Hero() {
             No mobile a imagem é 100% da largura (nunca corta).
             No md+ ela cresce até 115% pra ganhar presença, mas
             centralizada — não vaza pros lados de forma agressiva. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 min-[1800px]:-ml-[28rem]">
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 min-[1800px]:-ml-[12rem]">
           {/* Halo dourado atrás do restaurante — cresce e fica mais
               brilhante nos desktops maiores (xl/2xl). */}
           <div
@@ -91,7 +91,7 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[200%] min-[1800px]:w-[88vw] min-[1800px]:max-w-[1500px] min-[1800px]:translate-x-0"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[200%] min-[1800px]:w-[62vw] min-[1800px]:max-w-[1050px] min-[1800px]:translate-x-0"
             draggable={false}
             fetchPriority="high"
             loading="eager"
