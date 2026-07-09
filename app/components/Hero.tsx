@@ -10,7 +10,7 @@
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-24 pb-12 md:pt-24 md:pb-16"
+      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-28 pb-16 md:pt-28 md:pb-20"
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
@@ -24,7 +24,10 @@ export function Hero() {
             <span>Te entendemos</span>
           </span>
 
-          <h1 className="font-display mt-4 text-display-1 text-ink md:mt-5">
+          <h1
+            className="font-display mt-4 font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5"
+            style={{ fontSize: "clamp(2rem, 1.5rem + 2.4vw, 3.5rem)" }}
+          >
             Você abriu um restaurante para ser{" "}
             <span className="relative inline-block">
               <span className="text-fluxa-red">dono</span>
@@ -46,14 +49,17 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p className="mt-4 max-w-lg text-lead text-on-surface-variant">
+          <p
+            className="mt-5 max-w-lg leading-[1.55] text-on-surface-variant md:mt-6"
+            style={{ fontSize: "clamp(1rem, 0.9rem + 0.4vw, 1.2rem)" }}
+          >
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
-          <div className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-6">
-            <a href="#parceria" className="btn-primary">
+          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8">
+            <a href="#parceria" className="btn-primary !px-6 !py-3.5 !text-[0.95rem]">
               Quero recuperar o controle
               <svg
                 width="16"
@@ -71,17 +77,17 @@ export function Hero() {
                 />
               </svg>
             </a>
-            <a href="#pilares" className="btn-ghost">
+            <a href="#pilares" className="btn-ghost !px-6 !py-3.5 !text-[0.95rem]">
               Ver ecossistema
             </a>
           </div>
         </div>
 
-        {/* Coluna direita — restaurante. Imagem fluida: max-w-full h-auto
-            ocupa 100% da coluna e escala junto com ela (skill §3E/§4.8).
-            justify-start no md+ pra empurrar a imagem pra esquerda,
-            aproximando ela do texto. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-16 md:justify-start lg:-ml-24 xl:-ml-32">
+        {/* Coluna direita — restaurante centralizado na sua coluna.
+            No mobile a imagem é 100% da largura (nunca corta).
+            No md+ ela cresce até 115% pra ganhar presença, mas
+            centralizada — não vaza pros lados de forma agressiva. */}
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
           {/* Halo dourado atrás do restaurante — luz concentrada aqui */}
           <div
             aria-hidden="true"
@@ -90,7 +96,7 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[600px] select-none object-contain md:w-[135%] md:max-w-none lg:w-[145%] xl:w-[150%]"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[560px] select-none object-contain md:w-[115%] md:max-w-none lg:w-[120%]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
