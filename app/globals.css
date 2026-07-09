@@ -111,39 +111,48 @@
     font-weight: 400;
   }
 
-  /* Container padrão — mesma margem lateral em toda a página,
-     crescendo em passos consistentes até monitores grandes. */
+  /* Container padrão — mesma margem lateral em toda a página, alinhado
+     com o pill de nav pra que "Fluxa" e o título do hero comecem no
+     mesmo eixo. Padding cresce em passos consistentes por breakpoint. */
   .container-fluxa {
     width: 100%;
-    max-width: 72rem; /* 1152px */
+    max-width: 72rem; /* 1152px = 6xl */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.5rem;  /* 24px */
+    padding-right: 1.5rem;
   }
   @media (min-width: 768px) {
     .container-fluxa {
-      padding-left: 2rem;
+      padding-left: 2rem; /* 32px */
       padding-right: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-fluxa {
+      padding-left: 3rem; /* 48px */
+      padding-right: 3rem;
     }
   }
   @media (min-width: 1280px) {
     .container-fluxa {
       max-width: 80rem; /* 1280px */
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
+      padding-left: 4rem; /* 64px */
+      padding-right: 4rem;
     }
   }
   @media (min-width: 1536px) {
     .container-fluxa {
       max-width: 88rem; /* 1408px */
-      padding-left: 3rem;
-      padding-right: 3rem;
+      padding-left: 5rem; /* 80px */
+      padding-right: 5rem;
     }
   }
   @media (min-width: 1920px) {
     .container-fluxa {
       max-width: 96rem; /* 1536px */
+      padding-left: 6rem;
+      padding-right: 6rem;
     }
   }
 

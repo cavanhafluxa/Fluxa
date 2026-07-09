@@ -17,7 +17,7 @@ export function Hero() {
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1.05fr_1fr] md:gap-8 md:pb-6">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1fr_1.1fr] md:gap-6 md:pb-6 lg:grid-cols-[1fr_1.15fr]">
         {/* Coluna esquerda — copy */}
         <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
           <span className="chip-live">
@@ -94,8 +94,8 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[360px] select-none object-contain md:w-auto md:max-w-none"
-            style={{ height: "clamp(260px, min(58vh, 42vw), 780px)" }}
+            className="hero-pizza-bg h-auto w-full max-w-[420px] select-none object-contain md:w-auto md:max-w-none"
+            style={{ height: "clamp(320px, min(72vh, 55vw), 960px)" }}
             draggable={false}
             fetchPriority="high"
             loading="eager"
@@ -117,7 +117,7 @@ export function Hero() {
  */
 export function OQueMuda() {
   return (
-    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-surface py-8 md:py-10">
+    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-start overflow-hidden bg-surface pt-24 pb-6 md:pt-28 md:pb-8 lg:justify-center lg:pt-10">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_35%,black,transparent_75%)]" />
 
       <div className="container-fluxa relative z-10 flex flex-col items-center">
@@ -126,12 +126,12 @@ export function OQueMuda() {
           <span>Dashboard real do Kitchens</span>
         </span>
 
-        <h3 className="font-display mt-5 max-w-3xl text-center text-display-3 text-ink md:mt-7">
+        <h3 className="font-display mt-4 max-w-3xl text-center text-display-3 text-ink md:mt-5">
           O que muda quando o cliente é{" "}
           <em className="not-italic text-fluxa-red">seu</em>.
         </h3>
 
-        <div className="relative mt-6 w-full max-w-4xl md:mt-8 xl:max-w-5xl 2xl:max-w-6xl">
+        <div className="relative mt-4 w-full max-w-2xl md:mt-6 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl">
           <div className="pointer-events-none absolute inset-x-8 -top-4 bottom-0 rounded-[2rem] bg-gradient-to-b from-black/5 to-transparent blur-2xl" />
           <ProductPreview />
         </div>
@@ -167,7 +167,7 @@ function ProductPreview() {
       <div className="flex bg-white">
         <KitchensSidebar />
 
-        <div className="min-w-0 flex-1 p-4 md:p-5">
+        <div className="min-w-0 flex-1 p-3 md:p-4">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-[1.35fr_1fr]">
             {/* Coluna esquerda: header + KPIs + chart */}
             <div className="min-w-0">
@@ -362,7 +362,7 @@ function KitchensChart() {
 
       <svg
         viewBox="0 0 320 80"
-        className="mt-3 h-20 w-full"
+        className="mt-3 h-14 w-full md:h-16 lg:h-20"
         role="img"
         aria-label="Comparativo de faturamento semanal"
       >
