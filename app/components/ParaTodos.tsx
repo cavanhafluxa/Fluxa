@@ -75,7 +75,7 @@ export function ParaTodos() {
           {/* Halo dourado atrás */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 mx-auto my-auto h-[70%] w-[70%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 mx-auto my-auto h-[75%] w-[75%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.42),rgba(242,160,61,0.18)_38%,transparent_68%)]"
           />
           {PLACES.map((p, i) => (
             <img
