@@ -17,7 +17,7 @@ export function Hero() {
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1fr_1.1fr] md:gap-4 md:pb-6 lg:grid-cols-[1fr_1.15fr]">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1fr_1fr] md:gap-0 md:pb-6 lg:grid-cols-[1fr_1.05fr]">
         {/* Coluna esquerda — copy */}
         <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
           <span className="chip-live">
@@ -82,7 +82,7 @@ export function Hero() {
             centralizado verticalmente. Fica dentro dos limites do container
             (junto com a copy da esquerda) pra que o conjunto texto+imagem
             esteja centralizado como bloco na largura da página. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-end md:order-2">
+        <div className="relative order-1 flex min-w-0 items-center justify-end md:order-2 md:-ml-12 lg:-ml-16 xl:-ml-24">
           {/* Halo dourado — reforçado atrás do restaurante pra dar
               profundidade sem depender do bg da seção. */}
           <div
