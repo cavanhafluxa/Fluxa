@@ -24,10 +24,7 @@ export function Hero() {
             <span>Te entendemos</span>
           </span>
 
-          <h1
-            className="font-display mt-4 font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5"
-            style={{ fontSize: "clamp(1.7rem, 1.3rem + 2vw, 2.95rem)" }}
-          >
+          <h1 className="font-display mt-4 text-[1.7rem] font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5 md:text-[2.1rem] lg:text-[2.25rem] xl:text-[3.1rem] 2xl:text-[3.75rem]">
             Você abriu um restaurante para ser{" "}
             <span className="relative inline-block">
               <span className="text-fluxa-red">dono</span>
@@ -49,17 +46,14 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p
-            className="mt-5 max-w-lg leading-[1.55] text-on-surface-variant md:mt-6"
-            style={{ fontSize: "clamp(0.85rem, 0.77rem + 0.34vw, 1.02rem)" }}
-          >
+          <p className="mt-5 max-w-lg text-[0.9rem] leading-[1.55] text-on-surface-variant md:mt-6 md:text-[0.95rem] lg:text-[0.9rem] xl:text-[1.1rem] 2xl:text-[1.25rem]">
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
           <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8">
-            <a href="#parceria" className="btn-primary !px-5 !py-3 !text-[0.8rem]">
+            <a href="#parceria" className="btn-primary !px-5 !py-3 !text-[0.8rem] lg:!px-5 lg:!py-2.5 lg:!text-[0.78rem] xl:!px-6 xl:!py-3.5 xl:!text-[0.95rem] 2xl:!px-7 2xl:!py-4 2xl:!text-[1.05rem]">
               Quero recuperar o controle
               <svg
                 width="16"
@@ -77,7 +71,7 @@ export function Hero() {
                 />
               </svg>
             </a>
-            <a href="#pilares" className="btn-ghost !px-5 !py-3 !text-[0.8rem]">
+            <a href="#pilares" className="btn-ghost !px-5 !py-3 !text-[0.8rem] lg:!px-5 lg:!py-2.5 lg:!text-[0.78rem] xl:!px-6 xl:!py-3.5 xl:!text-[0.95rem] 2xl:!px-7 2xl:!py-4 2xl:!text-[1.05rem]">
               Ver ecossistema
             </a>
           </div>
@@ -88,15 +82,16 @@ export function Hero() {
             No md+ ela cresce até 115% pra ganhar presença, mas
             centralizada — não vaza pros lados de forma agressiva. */}
         <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
-          {/* Halo dourado atrás do restaurante — luz concentrada aqui */}
+          {/* Halo dourado atrás do restaurante — cresce e fica mais
+              brilhante nos desktops maiores (xl/2xl). */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] xl:h-[110%] xl:w-[110%] xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.7),rgba(242,160,61,0.32)_40%,transparent_72%)] 2xl:h-[120%] 2xl:w-[120%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.8),rgba(242,160,61,0.38)_42%,transparent_75%)]"
           />
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[180%]"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[172%] xl:w-[200%] 2xl:w-[220%]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
