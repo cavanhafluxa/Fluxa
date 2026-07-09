@@ -93,8 +93,8 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[640px] select-none object-contain md:w-auto md:max-w-none"
-            style={{ height: "clamp(640px, min(130vh, 95vw), 2240px)" }}
+            className="hero-pizza-bg h-auto w-full max-w-[520px] select-none object-contain md:w-auto md:max-w-none"
+            style={{ height: "clamp(500px, min(88vh, 72vw), 1600px)", maxHeight: "92svh" }}
             draggable={false}
             fetchPriority="high"
             loading="eager"
