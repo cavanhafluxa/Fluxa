@@ -88,7 +88,7 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[600px] select-none object-contain md:max-w-full"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[600px] select-none object-contain md:w-[135%] md:max-w-none lg:w-[145%] xl:w-[150%]"
             draggable={false}
             fetchPriority="high"
             loading="eager"

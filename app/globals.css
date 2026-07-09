@@ -240,8 +240,10 @@
 
   .bg-radial-warm {
     background:
-      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(214, 32, 31, 0.03), transparent 65%),
-      radial-gradient(ellipse 100% 90% at 72% 55%, rgba(250, 220, 200, 0.2), transparent 75%),
+      /* Luz suave cobrindo TODA a seção (opacidade baixa) */
+      radial-gradient(ellipse 160% 140% at 50% 50%, rgba(250, 220, 200, 0.18), rgba(250, 220, 200, 0.08) 60%, transparent 100%),
+      /* Halo mais brilhante concentrado atrás do restaurante */
+      radial-gradient(circle 45% at 75% 50%, rgba(242, 200, 140, 0.42), rgba(242, 200, 140, 0.18) 40%, transparent 75%),
       var(--color-surface);
   }
 
