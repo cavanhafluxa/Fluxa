@@ -10,14 +10,13 @@
 export function Hero() {
   return (
     <section
-      className="relative flex w-full items-center overflow-hidden bg-radial-warm pt-24 pb-10 md:pt-[5.5rem] md:pb-0"
-      style={{ minHeight: "min(100svh, 1080px)" }}
+      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-24 pb-12 md:pt-24 md:pb-16"
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1fr_1fr] md:gap-0 md:pb-6 lg:grid-cols-[1fr_1.05fr]">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-6">
         {/* Coluna esquerda — copy */}
         <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
           <span className="chip-live">
@@ -78,23 +77,18 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Coluna direita — restaurante alinhado à direita do container.
-            pointer-events-none no md+ pra que os CTAs da copy sigam
-            clicáveis mesmo quando a imagem invade a coluna do texto. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-end md:pointer-events-none md:order-2">
-          {/* Halo dourado — reforçado atrás do restaurante pra dar
-              profundidade sem depender do bg da seção. */}
+        {/* Coluna direita — restaurante. Imagem fluida: max-w-full h-auto
+            ocupa 100% da coluna e escala junto com ela (skill §3E/§4.8). */}
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
+          {/* Halo dourado atrás do restaurante */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[85%] w-[85%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.42),rgba(242,160,61,0.18)_38%,transparent_68%)]"
           />
-          {/* Imagem escala em % da própria coluna (que é % do container).
-              Assim mantém proporção constante com a tipografia — quando
-              o container é menor, imagem e texto encolhem juntos. */}
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[460px] select-none object-contain md:w-full md:max-w-none md:max-h-[calc(100svh-96px)]"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[520px] select-none object-contain md:max-w-full"
             draggable={false}
             fetchPriority="high"
             loading="eager"

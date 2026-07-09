@@ -30,7 +30,7 @@ export function ParaTodos() {
     <section className="relative overflow-hidden bg-radial-warm py-20 md:py-24 xl:py-28 2xl:py-32">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_1.1fr] md:gap-2 lg:gap-4">
+      <div className="container-fluxa relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-6">
         {/* Coluna esquerda — texto */}
         <div className="reveal-on-view max-w-[36rem]">
           <span className="chip-live">
@@ -71,10 +71,8 @@ export function ParaTodos() {
         {/* Coluna direita — showcase que alterna. Os SVGs têm bastante respiro
             interno à esquerda, então a arte precisa crescer e ser puxada para
             o centro visual da coluna. */}
-        {/* Altura escala em % da largura do container (cqi) pra ficar
-            proporcional ao texto em qualquer monitor. Bounded por
-            min/max pra não estourar em telas extremas. */}
-        <div className="relative order-first h-[320px] w-full md:order-last md:-ml-8 md:h-[60cqi] md:min-h-[420px] md:max-h-[700px] lg:-ml-12 xl:-ml-16">
+        {/* Showcase: altura mobile-first por breakpoint (skill §3E). */}
+        <div className="relative order-first h-[320px] w-full md:order-last md:h-[420px] lg:h-[500px] xl:h-[560px]">
           {/* Halo dourado atrás */}
           <div
             aria-hidden="true"
