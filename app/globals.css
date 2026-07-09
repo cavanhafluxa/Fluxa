@@ -49,8 +49,14 @@
     line-height: 1.55;
     font-feature-settings: "ss01", "cv11";
   }
-  @media (min-width: 1280px) {
-    body { font-size: 16px; }
+  @media (min-width: 1024px) {
+    body { font-size: 16px; line-height: 1.6; }
+  }
+  @media (min-width: 1536px) {
+    body { font-size: 17px; }
+  }
+  @media (min-width: 1920px) {
+    body { font-size: 18px; }
   }
 
   ::selection {
@@ -77,33 +83,36 @@
   }
 
   /* Fluid display type — Apple-scale, mobile-first.
-     Escala com vw E vh (min) pra evitar títulos gigantes em notebooks
-     de tela larga porém baixa (1366×768, 1440×900). */
+     Escala com vw E vh (min) pra proteger notebook widescreen curto
+     (1366×768) sem sacrificar monitor grande. Em telas amplas os dois
+     eixos crescem juntos, então o max real fica limitado pelo clamp,
+     não pelo vh. */
   .text-display-1 {
-    font-size: clamp(1.85rem, min(2.8vw + 0.55rem, 6.5vh + 0.4rem), 3.25rem);
-    line-height: 1.06;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.85rem, min(3.6vw + 0.5rem, 8.5vh + 0.4rem), 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
     font-weight: 700;
   }
   .text-display-2 {
-    font-size: clamp(1.85rem, min(3vw + 0.55rem, 6.5vh + 0.4rem), 3.25rem);
-    line-height: 1.05;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.85rem, min(3.8vw + 0.5rem, 8.5vh + 0.4rem), 5rem);
+    line-height: 1.04;
+    letter-spacing: -0.04em;
     font-weight: 700;
   }
   .text-display-3 {
-    font-size: clamp(1.5rem, min(1.9vw + 0.65rem, 5vh + 0.3rem), 2.25rem);
-    line-height: 1.1;
+    font-size: clamp(1.5rem, min(2.4vw + 0.65rem, 6vh + 0.3rem), 3.25rem);
+    line-height: 1.08;
     letter-spacing: -0.03em;
     font-weight: 700;
   }
   .text-lead {
-    font-size: clamp(0.95rem, 0.55vw + 0.8rem, 1.1rem);
+    font-size: clamp(0.95rem, 0.75vw + 0.75rem, 1.35rem);
     line-height: 1.55;
     font-weight: 400;
   }
 
-  /* Container padrão — mesma margem lateral em toda a página */
+  /* Container padrão — mesma margem lateral em toda a página,
+     crescendo em passos consistentes até monitores grandes. */
   .container-fluxa {
     width: 100%;
     max-width: 72rem; /* 1152px */
@@ -120,8 +129,21 @@
   }
   @media (min-width: 1280px) {
     .container-fluxa {
+      max-width: 80rem; /* 1280px */
       padding-left: 2.5rem;
       padding-right: 2.5rem;
+    }
+  }
+  @media (min-width: 1536px) {
+    .container-fluxa {
+      max-width: 88rem; /* 1408px */
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+  @media (min-width: 1920px) {
+    .container-fluxa {
+      max-width: 96rem; /* 1536px */
     }
   }
 

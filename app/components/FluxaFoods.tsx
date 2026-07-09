@@ -2,14 +2,14 @@ export function FluxaFoods() {
   return (
     <section
       id="fluxa-foods"
-      className="relative overflow-hidden bg-surface-warm py-20 text-center md:py-24"
+      className="relative overflow-hidden bg-surface-warm py-20 text-center md:py-24 xl:py-28 2xl:py-32"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent_75%)]"
       />
       <div className="reveal-on-view container-fluxa relative max-w-4xl">
-        <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-4xl lg:text-[2.75rem]">
+        <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-4xl lg:text-5xl xl:text-[3.25rem] 2xl:text-[3.5rem]">
           Pare de alugar clientes com apps de delivery.{" "}
           <span className="text-fluxa-red">
             Construa sua própria base

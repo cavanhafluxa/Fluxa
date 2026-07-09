@@ -1,6 +1,6 @@
 export function SkinInTheGame() {
   return (
-    <section className="relative overflow-hidden bg-ink py-20 text-white md:py-24">
+    <section className="relative overflow-hidden bg-ink py-20 text-white md:py-24 xl:py-28 2xl:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-24 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-fluxa-red/20 blur-3xl"
@@ -13,7 +13,7 @@ export function SkinInTheGame() {
       />
       <div className="container-fluxa relative">
         <div className="reveal-on-view max-w-3xl">
-          <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight md:text-4xl lg:text-[2.75rem]">
+          <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight md:text-4xl lg:text-5xl xl:text-[3.25rem] 2xl:text-[3.5rem]">
             Nós não somos uma assessoria fria. Somos seus{" "}
             <span className="text-fluxa-red">parceiros de crescimento</span>.
           </h2>

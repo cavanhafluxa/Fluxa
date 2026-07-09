@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       className="relative flex w-full items-center overflow-hidden bg-radial-warm pt-24 pb-10 md:pt-[5.5rem] md:pb-0"
-      style={{ minHeight: "min(100svh, 820px)" }}
+      style={{ minHeight: "min(100svh, 1080px)" }}
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
@@ -95,7 +95,7 @@ export function Hero() {
             src="/hero-estabelecimento.svg"
             alt=""
             className="hero-pizza-bg h-auto w-full max-w-[360px] select-none object-contain md:w-auto md:max-w-none"
-            style={{ height: "clamp(260px, 52vh, 520px)" }}
+            style={{ height: "clamp(260px, min(58vh, 42vw), 780px)" }}
             draggable={false}
             fetchPriority="high"
             loading="eager"
@@ -131,7 +131,7 @@ export function OQueMuda() {
           <em className="not-italic text-fluxa-red">seu</em>.
         </h3>
 
-        <div className="relative mt-6 w-full max-w-4xl md:mt-8">
+        <div className="relative mt-6 w-full max-w-4xl md:mt-8 xl:max-w-5xl 2xl:max-w-6xl">
           <div className="pointer-events-none absolute inset-x-8 -top-4 bottom-0 rounded-[2rem] bg-gradient-to-b from-black/5 to-transparent blur-2xl" />
           <ProductPreview />
         </div>
