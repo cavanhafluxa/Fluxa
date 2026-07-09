@@ -2,124 +2,110 @@
 
 import { useState } from "react";
 
-type Status = "idle" | "loading" | "success" | "error";
+const WHATSAPP_NUMBER = "554788371498"; // 47 8837-1498
 
 export function PartnershipForm() {
-  const [status, setStatus] = useState<Status>("idle");
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [sent, setSent] = useState(false);
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
-    setErrorMsg(null);
+    const data = new FormData(e.currentTarget);
 
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const msg = [
+      "Olá! Quero recuperar o controle do meu restaurante.",
+      "",
+      `Nome: ${data.get("nome")}`,
+      `WhatsApp: ${data.get("telefone")}`,
+      `Restaurante: ${data.get("restaurante")}`,
+      `Tipo de negócio: ${data.get("tipo")}`,
+      `Faturamento mensal: ${data.get("faturamento")}`,
+    ].join("\n");
 
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) {
-        const j = (await res.json().catch(() => ({}))) as { error?: string };
-        throw new Error(j.error ?? "Falha ao enviar. Tente novamente.");
-      }
-      setStatus("success");
-      form.reset();
-    } catch (err) {
-      setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Erro inesperado.");
-    }
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+    setSent(true);
   }
 
   return (
     <section
       id="parceria"
-      className="border-t border-outline/30 bg-surface px-6 py-24 md:px-8 md:py-40"
+      className="border-t border-outline/30 bg-surface px-6 py-24 md:px-8 md:py-32"
     >
-      <div className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
-        <h2 className="font-display mb-4 text-3xl font-bold tracking-tight text-on-surface md:text-5xl">
-          Vamos Fechar a Parceria?
+      <div className="mx-auto mb-12 max-w-3xl text-center md:mb-14">
+        <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-[2.75rem]">
+          “Isso é incrível, mas é caro demais para a minha realidade agora.”
         </h2>
-        <p className="text-lg font-medium text-on-surface-variant md:text-xl">
-          Preencha os dados e receba uma análise estratégica gratuita do seu
-          negócio.
+        <p className="mt-5 text-[1rem] leading-relaxed text-on-surface-variant md:text-[1.1rem]">
+          A Fluxa não é um fornecedor. Nós somos seus parceiros. Preencha o
+          formulário e fale com nossos especialistas em até 5 minutos.
         </p>
       </div>
 
-      {status === "success" ? (
-        <SuccessCard onReset={() => setStatus("idle")} />
+      {sent ? (
+        <SuccessCard onReset={() => setSent(false)} />
       ) : (
-        <form
-          onSubmit={onSubmit}
-          className="mx-auto max-w-2xl space-y-6"
-          noValidate
-        >
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <form onSubmit={onSubmit} className="mx-auto max-w-2xl space-y-5">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <Field label="Nome" name="nome" type="text" required full autoComplete="name" />
             <Field
-              label="Nome Completo"
-              name="nome"
-              type="text"
-              required
-              autoComplete="name"
-              full
-            />
-            <Field
-              label="Nome do Restaurante"
-              name="restaurante"
-              type="text"
-              required
-              autoComplete="organization"
-            />
-            <Field
-              label="WhatsApp / Número"
+              label="WhatsApp"
               name="telefone"
               type="tel"
               required
               autoComplete="tel"
-              placeholder="(11) 90000-0000"
-            />
-            <Select
-              label="Faturamento Mensal"
-              name="faturamento"
-              required
-              options={[
-                "Até R$ 20k",
-                "R$ 20k – R$ 50k",
-                "R$ 50k – R$ 100k",
-                "Acima de R$ 100k",
-              ]}
+              placeholder="(47) 90000-0000"
             />
             <Field
-              label="Tipo de Negócio"
+              label="Nome do restaurante"
+              name="restaurante"
+              type="text"
+              required
+              autoComplete="organization"
+              placeholder="Ex.: Casa Brasa"
+            />
+            <Field
+              label="Tipo de negócio"
               name="tipo"
               type="text"
               required
               placeholder="Ex.: Hamburgueria"
             />
+            <Select
+              label="Faturamento mensal"
+              name="faturamento"
+              required
+              options={[
+                "Até R$ 20 mil",
+                "R$ 20 mil a R$ 50 mil",
+                "R$ 50 mil a R$ 100 mil",
+                "Acima de R$ 100 mil",
+              ]}
+            />
           </div>
-
-          {status === "error" && errorMsg && (
-            <p
-              role="alert"
-              className="rounded-2xl border border-fluxa-red/30 bg-fluxa-red/10 px-4 py-3 text-sm text-fluxa-red"
-            >
-              {errorMsg}
-            </p>
-          )}
 
           <div className="pt-2">
             <button
               type="submit"
-              disabled={status === "loading"}
-              className="w-full rounded-full bg-fluxa-red py-5 text-base font-bold text-white shadow-lg transition-colors hover:bg-fluxa-red-hover disabled:cursor-not-allowed disabled:opacity-70 md:text-lg"
+              className="btn-primary w-full !py-4 !text-base md:!text-lg"
             >
-              {status === "loading"
-                ? "Enviando..."
-                : "Enviar e Solicitar Análise"}
+              Quero recuperar o controle
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.03c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z" />
+              </svg>
             </button>
+            <p className="mt-3 text-center text-[0.8rem] text-on-surface-variant">
+              Você será direcionado ao WhatsApp da Fluxa com seus dados já
+              preenchidos.
+            </p>
           </div>
         </form>
       )}
@@ -146,15 +132,16 @@ function Field({
 }) {
   return (
     <label className={full ? "block md:col-span-2" : "block"}>
-      <span className="sr-only">{label}</span>
+      <span className="mb-1.5 block text-[0.8rem] font-semibold text-ink">
+        {label}
+      </span>
       <input
         name={name}
         type={type}
         required={required}
-        placeholder={placeholder ?? label}
+        placeholder={placeholder}
         autoComplete={autoComplete}
-        aria-label={label}
-        className="w-full rounded-2xl border-none bg-surface-variant/70 p-5 font-medium text-on-surface outline-none transition-shadow placeholder:text-on-surface-variant/70 focus:ring-2 focus:ring-fluxa-red"
+        className="w-full rounded-xl border border-black/10 bg-surface p-3.5 font-medium text-on-surface outline-none transition-shadow placeholder:text-on-surface-muted focus:ring-2 focus:ring-fluxa-red"
       />
     </label>
   );
@@ -173,16 +160,17 @@ function Select({
 }) {
   return (
     <label className="block">
-      <span className="sr-only">{label}</span>
+      <span className="mb-1.5 block text-[0.8rem] font-semibold text-ink">
+        {label}
+      </span>
       <select
         name={name}
         required={required}
         defaultValue=""
-        aria-label={label}
-        className="w-full appearance-none rounded-2xl border-none bg-surface-variant/70 p-5 font-medium text-on-surface outline-none transition-shadow focus:ring-2 focus:ring-fluxa-red"
+        className="w-full appearance-none rounded-xl border border-black/10 bg-surface p-3.5 font-medium text-on-surface outline-none transition-shadow focus:ring-2 focus:ring-fluxa-red"
       >
         <option value="" disabled>
-          {label}
+          Selecione
         </option>
         {options.map((o) => (
           <option key={o} value={o}>
@@ -196,25 +184,25 @@ function Select({
 
 function SuccessCard({ onReset }: { onReset: () => void }) {
   return (
-    <div className="mx-auto max-w-2xl rounded-[2.5rem] border border-outline/40 bg-surface-variant/50 p-10 text-center md:p-14">
+    <div className="mx-auto max-w-2xl rounded-2xl border border-outline/40 bg-surface-warm p-10 text-center shadow-soft md:p-14">
       <span
         aria-hidden="true"
         className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-fluxa-red text-white"
       >
         ✓
       </span>
-      <h3 className="font-display mt-6 text-3xl font-bold tracking-tight text-on-surface md:text-4xl">
-        Recebemos. Já estamos te ligando.
+      <h3 className="font-display mt-6 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+        Abrimos o WhatsApp pra você.
       </h3>
-      <p className="mx-auto mt-4 max-w-md text-lg font-medium text-on-surface-variant">
-        Um especialista da Fluxa vai entrar em contato pelo WhatsApp em até 5
-        minutos.
+      <p className="mx-auto mt-4 max-w-md text-[1rem] leading-relaxed text-on-surface-variant">
+        É só enviar a mensagem que já está pronta. Um especialista da Fluxa
+        responde em até 5 minutos.
       </p>
       <button
         onClick={onReset}
         className="mt-8 text-sm font-semibold text-fluxa-red underline underline-offset-4 hover:text-fluxa-red-hover"
       >
-        Enviar outro contato
+        Preencher novamente
       </button>
     </div>
   );

@@ -4,17 +4,18 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-12 px-6 md:flex-row md:px-8">
         <div className="max-w-xs">
           <div className="mb-4 flex items-center gap-2.5">
-            <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-surface ring-2 ring-fluxa-red">
+            <span className="inline-flex h-10 w-10 overflow-hidden rounded-full">
               <img
-                src="/logo-mark.svg"
+                src="/fluxa-logo.svg"
                 alt=""
-                width={22}
-                height={22}
-                className="h-5 w-5 object-contain"
+                width={40}
+                height={40}
+                className="h-full w-full object-cover"
               />
             </span>
             <span className="font-display text-2xl font-black tracking-tightest text-on-surface">
-              Fluxa.
+              Fluxa
+              <span className="text-fluxa-red">.</span>
             </span>
           </div>
           <p className="text-sm font-medium text-on-surface-variant">
@@ -54,12 +55,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://flxa.space/"
+                  href="https://fluxafoods.com.br/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-on-surface"
+                  className="font-semibold text-fluxa-red transition-colors hover:text-fluxa-red-hover"
                 >
-                  Fluxa Foods ↗
+                  Conheça o Fluxa Food&apos;s ↗
                 </a>
               </li>
             </ul>
@@ -75,6 +76,16 @@ export function Footer() {
                   className="transition-colors hover:text-on-surface"
                 >
                   Seja Parceiro
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/554788371498"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-on-surface"
+                >
+                  WhatsApp: (47) 8837-1498
                 </a>
               </li>
               <li>
