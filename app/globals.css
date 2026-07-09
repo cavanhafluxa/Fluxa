@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+:root {
+  /* Geometria da nav pill — usada pelo .container-fluxa pra alinhar
+     o conteúdo com o "Fluxa" da nav em qualquer viewport. Fixa em
+     max-w-5xl porque a nav mantém esse tamanho — assim conteúdo e
+     pill sempre casam. */
+  --pill-max: 64rem;   /* 1024 = nav max-w-5xl */
+  --pill-pad: 1rem;    /* 16 = nav px-4 */
+}
+@media (min-width: 768px) {
+  :root { --pill-pad: 1.25rem; /* 20 = nav md:px-5 */ }
+}
+
 @theme {
   /* Fluxa brand */
   --color-fluxa-red: #d6201f;
@@ -45,9 +57,18 @@
     color: var(--color-on-surface);
     font-family: var(--font-sans);
     font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.55;
     font-feature-settings: "ss01", "cv11";
+  }
+  @media (min-width: 1024px) {
+    body { font-size: 14.5px; line-height: 1.6; }
+  }
+  @media (min-width: 1536px) {
+    body { font-size: 15px; }
+  }
+  @media (min-width: 1920px) {
+    body { font-size: 15.5px; }
   }
 
   ::selection {
@@ -73,29 +94,59 @@
     letter-spacing: -0.045em;
   }
 
-  /* Fluid display type — Apple-scale, mobile-first */
+  /* Fluid display type — Apple-scale, mobile-first.
+     Escala com vw E vh (min) pra proteger notebook widescreen curto
+     (1366×768) sem sacrificar monitor grande. Em telas amplas os dois
+     eixos crescem juntos, então o max real fica limitado pelo clamp,
+     não pelo vh. */
+  /* Fluid type -20% mobile-first. clamp(min, fluid, max). */
   .text-display-1 {
-    font-size: clamp(2.25rem, 5vw + 0.4rem, 4.5rem);
-    line-height: 1.03;
-    letter-spacing: -0.04em;
+    font-size: clamp(1.6rem, 1.15rem + 1.9vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-2 {
-    font-size: clamp(2.25rem, 5.5vw + 0.5rem, 4.5rem);
-    line-height: 1.02;
-    letter-spacing: -0.04em;
+    font-size: clamp(1.6rem, 1.15rem + 2.05vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-3 {
-    font-size: clamp(1.75rem, 3vw + 0.75rem, 3rem);
-    line-height: 1.08;
+    font-size: clamp(1.2rem, 0.95rem + 1.2vw, 2rem);
+    line-height: 1.12;
     letter-spacing: -0.03em;
     font-weight: 700;
   }
   .text-lead {
-    font-size: clamp(1.05rem, 0.9vw + 0.85rem, 1.35rem);
+    font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1.05rem);
     line-height: 1.55;
     font-weight: 400;
+  }
+
+  /* Container padrão — alinha o conteúdo com o pill de nav.
+     A nav é max-w-5xl (64rem) + outer px-4 (1rem) + inner px-4/md:px-5
+     (1/1.25rem). Aqui o padding é construído com a mesma fórmula:
+       padding = max(outer, (100% - pillMax) / 2) + innerPill
+     Isso faz o content-left do container bater EXATAMENTE com o "Fluxa"
+     em qualquer viewport, e a largura útil do conteúdo bater com a
+     largura útil do pill. */
+  .container-fluxa {
+    width: 100%;
+    padding-left: calc(max(1rem, (100% - var(--pill-max)) / 2) + var(--pill-pad));
+    padding-right: calc(max(1rem, (100% - var(--pill-max)) / 2) + var(--pill-pad));
+  }
+  /* Em PC de tela grande (≥1800px), o container solta pra 80rem
+     (=max-w-7xl do Hero original) — dá mais respiro pro conjunto
+     texto + restaurante como no develop. */
+  @media (min-width: 1800px) {
+    .container-fluxa {
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
 
   /* Elevation — directional light (top) */
@@ -201,9 +252,17 @@
 
   .bg-radial-warm {
     background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(214, 32, 31, 0.06), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(250, 220, 200, 0.5), transparent 70%),
+      /* Luz warm cobrindo TODA a seção, opacidade baixa e uniforme */
+      radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.22), rgba(250, 220, 200, 0.14) 60%, rgba(250, 220, 200, 0.08) 100%),
       var(--color-surface);
+  }
+  /* Em PC de tela grande (2xl+), luz de fundo bem mais suave */
+  @media (min-width: 1536px) {
+    .bg-radial-warm {
+      background:
+        radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.09), rgba(250, 220, 200, 0.05) 60%, rgba(250, 220, 200, 0.02) 100%),
+        var(--color-surface);
+    }
   }
 
   /* Chip / eyebrow */
@@ -243,12 +302,12 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.95rem 1.6rem;
+    padding: 0.75rem 1.3rem;
     border-radius: 999px;
     background: var(--color-fluxa-red);
     color: #fff;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
     letter-spacing: -0.005em;
     transition:
       transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
@@ -271,12 +330,12 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.95rem 1.6rem;
+    padding: 0.75rem 1.3rem;
     border-radius: 999px;
     background: transparent;
     color: var(--color-on-surface);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
     border: 1px solid rgba(10, 10, 11, 0.12);
     transition:
       background-color 0.2s,

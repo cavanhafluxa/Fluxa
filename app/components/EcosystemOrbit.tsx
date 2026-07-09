@@ -32,14 +32,14 @@ function Satellite({ label, icon }: { label: string; icon: string }) {
 
 export function EcosystemOrbit() {
   return (
-    <section className="relative overflow-hidden bg-surface-warm px-6 py-24 md:px-8 md:py-32">
+    <section className="relative overflow-hidden bg-surface-warm py-16 md:py-20 xl:py-24 2xl:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-dots opacity-30 [mask-image:radial-gradient(ellipse_65%_60%_at_50%_45%,black,transparent_75%)]"
       />
 
-      <div className="reveal-on-view relative mx-auto flex max-w-7xl flex-col items-center">
-        <h2 className="font-display max-w-2xl text-center text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-5xl">
+      <div className="reveal-on-view container-fluxa relative flex flex-col items-center">
+        <h2 className="font-display max-w-3xl text-center text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-4xl lg:text-5xl xl:text-[3.25rem] 2xl:text-[3.5rem]">
           Não é um app a mais.{" "}
           <span className="text-fluxa-red">É um ecossistema</span> girando em
           torno do seu negócio.

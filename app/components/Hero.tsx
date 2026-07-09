@@ -10,22 +10,21 @@
 export function Hero() {
   return (
     <section
-      className="relative flex w-full items-center overflow-hidden bg-radial-warm pt-[5.5rem]"
-      style={{ minHeight: "100svh" }}
+      className="relative flex min-h-[100dvh] w-full items-center overflow-hidden bg-radial-warm pt-28 pb-16 md:pt-28 md:pb-20 2xl:pt-20 2xl:pb-12"
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto grid w-full grid-cols-1 items-center gap-6 px-6 pb-10 pt-4 md:grid-cols-[1.1fr_1fr] md:gap-4 md:px-8 md:pb-8 md:pt-2 max-w-7xl">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-[1fr_1.15fr] md:gap-4 lg:grid-cols-[1fr_1.25fr] 2xl:grid-cols-[1.1fr_1fr] 2xl:gap-8">
         {/* Coluna esquerda — copy */}
-        <div className="anim-fade-up order-2 max-w-[36rem] md:order-1 md:max-w-[40rem]">
+        <div className="anim-fade-up order-2 max-w-[34rem] md:order-1 2xl:max-w-[38rem]">
           <span className="chip-live">
             <span className="dot" />
             <span>Te entendemos</span>
           </span>
 
-          <h1 className="font-display mt-5 text-display-1 text-ink">
+          <h1 className="font-display mt-4 text-[1.7rem] font-bold leading-[1.06] tracking-[-0.035em] text-ink md:mt-5 md:text-[2.1rem] lg:text-[2.15rem] xl:text-[2.2rem] 2xl:text-[3.4rem] 2xl:leading-[1.05] min-[1800px]:text-[4rem] min-[1800px]:leading-[1.04]">
             Você abriu um restaurante para ser{" "}
             <span className="relative inline-block">
               <span className="text-fluxa-red">dono</span>
@@ -47,14 +46,14 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-on-surface-variant md:text-[1.2rem]">
+          <p className="mt-5 max-w-lg text-[0.9rem] leading-[1.55] text-on-surface-variant md:mt-6 md:text-[0.95rem] lg:text-[0.88rem] xl:text-[0.9rem] 2xl:mt-5 2xl:max-w-xl 2xl:text-[1.15rem] 2xl:leading-[1.55] min-[1800px]:text-[1.26rem]">
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
-          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
-            <a href="#parceria" className="btn-primary">
+          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-8 2xl:mt-8">
+            <a href="#parceria" className="btn-primary !px-5 !py-3 !text-[0.8rem] lg:!px-5 lg:!py-2.5 lg:!text-[0.78rem] xl:!py-2.5 xl:!text-[0.78rem] 2xl:!px-6 2xl:!py-3.5 2xl:!text-[0.95rem] min-[1800px]:!px-[1.9rem] min-[1800px]:!py-[1.1rem] min-[1800px]:!text-[1.14rem]">
               Quero recuperar o controle
               <svg
                 width="16"
@@ -72,26 +71,27 @@ export function Hero() {
                 />
               </svg>
             </a>
-            <a href="#pilares" className="btn-ghost">
+            <a href="#pilares" className="btn-ghost !px-5 !py-3 !text-[0.8rem] lg:!px-5 lg:!py-2.5 lg:!text-[0.78rem] xl:!py-2.5 xl:!text-[0.78rem] 2xl:!px-6 2xl:!py-3.5 2xl:!text-[0.95rem] min-[1800px]:!px-[1.9rem] min-[1800px]:!py-[1.1rem] min-[1800px]:!text-[1.14rem]">
               Ver ecossistema
             </a>
           </div>
         </div>
 
-        {/* Coluna direita — pizza extra grande, puxada bem pra esquerda pra
-            crescer em direção ao centro sem sangrar pela direita.
-            min-w-0 impede que a imagem gigante (overflow) expanda a coluna
-            e roube largura do texto (grid item tem min-width:auto por padrão). */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-64 lg:-ml-[28rem]">
-          {/* Halo dourado suave atrás pra dar profundidade */}
+        {/* Coluna direita — restaurante centralizado na sua coluna.
+            No mobile a imagem é 100% da largura (nunca corta).
+            No md+ ela cresce até 115% pra ganhar presença, mas
+            centralizada — não vaza pros lados de forma agressiva. */}
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
+          {/* Halo dourado atrás do restaurante — cresce e fica mais
+              brilhante nos desktops maiores (xl/2xl). */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[92%] w-[92%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] 2xl:h-[95%] 2xl:w-[95%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.12),transparent_62%)]"
           />
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg w-[150%] max-w-[1000px] select-none object-contain md:w-[88vw] md:max-w-[1500px]"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[220%] 2xl:max-w-[1370px] 2xl:translate-x-0 min-[1800px]:max-w-[1460px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
@@ -113,21 +113,21 @@ export function Hero() {
  */
 export function OQueMuda() {
   return (
-    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-surface px-6 py-8 md:px-8 md:py-12">
+    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-start overflow-hidden bg-surface pt-20 pb-4 md:pt-24 md:pb-6 2xl:justify-center 2xl:pt-8">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_35%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center">
+      <div className="container-fluxa relative z-10 flex flex-col items-center">
         <span className="chip-live">
           <span className="dot" />
           <span>Dashboard real do Kitchens</span>
         </span>
 
-        <h3 className="font-display mt-5 max-w-3xl text-center text-display-3 text-ink md:mt-7">
+        <h3 className="font-display mt-3 max-w-3xl text-center text-display-3 text-ink md:mt-4">
           O que muda quando o cliente é{" "}
           <em className="not-italic text-fluxa-red">seu</em>.
         </h3>
 
-        <div className="relative mt-7 w-full max-w-5xl md:mt-9">
+        <div className="relative mt-4 w-full max-w-xl md:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
           <div className="pointer-events-none absolute inset-x-8 -top-4 bottom-0 rounded-[2rem] bg-gradient-to-b from-black/5 to-transparent blur-2xl" />
           <ProductPreview />
         </div>
@@ -163,7 +163,7 @@ function ProductPreview() {
       <div className="flex bg-white">
         <KitchensSidebar />
 
-        <div className="min-w-0 flex-1 p-4 md:p-5">
+        <div className="min-w-0 flex-1 p-3 md:p-4">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-[1.35fr_1fr]">
             {/* Coluna esquerda: header + KPIs + chart */}
             <div className="min-w-0">
@@ -358,7 +358,7 @@ function KitchensChart() {
 
       <svg
         viewBox="0 0 320 80"
-        className="mt-3 h-20 w-full"
+        className="mt-3 h-14 w-full md:h-16 lg:h-20"
         role="img"
         aria-label="Comparativo de faturamento semanal"
       >
