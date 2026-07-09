@@ -18,10 +18,10 @@
   --color-outline-strong: #d2d2d7;
 
   --font-sans:
-    var(--font-inter), -apple-system, BlinkMacSystemFont, "San Francisco",
+    var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "San Francisco",
     "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
   --font-display:
-    var(--font-inter), -apple-system, BlinkMacSystemFont, "San Francisco",
+    var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "San Francisco",
     "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
 
   /* Radii system */

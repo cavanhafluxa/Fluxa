@@ -16,12 +16,15 @@ export function Nav() {
           aria-label="Fluxa, página inicial"
           className="group flex items-center gap-3"
         >
-          <span className="relative inline-flex h-12 w-12 overflow-hidden rounded-full transition-transform duration-500 group-hover:scale-[1.03]">
-            <img
-              src="/fluxa-logo.svg"
-              alt=""
-              width={48}
-              height={48}
+          <span className="relative inline-flex h-12 w-12 overflow-hidden rounded-full bg-surface transition-transform duration-500 group-hover:scale-[1.03]">
+            <video
+              src="/fluxa-logo-animada.mp4"
+              aria-hidden="true"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
               className="h-full w-full object-cover"
             />
           </span>
