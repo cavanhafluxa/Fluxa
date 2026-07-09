@@ -247,8 +247,8 @@
 
   .bg-radial-warm {
     background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(214, 32, 31, 0.06), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(250, 220, 200, 0.5), transparent 70%),
+      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(214, 32, 31, 0.05), transparent 65%),
+      radial-gradient(ellipse 140% 120% at 70% 55%, rgba(250, 220, 200, 0.7), rgba(250, 220, 200, 0.28) 55%, transparent 85%),
       var(--color-surface);
   }
 
