@@ -17,7 +17,7 @@ export function Hero() {
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1fr_1.1fr] md:gap-6 md:pb-6 lg:grid-cols-[1fr_1.15fr]">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1fr_1.1fr] md:gap-4 md:pb-6 lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.25fr]">
         {/* Coluna esquerda — copy */}
         <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
           <span className="chip-live">
@@ -93,8 +93,8 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[460px] select-none object-contain md:w-auto md:max-w-none"
-            style={{ height: "clamp(380px, min(88vh, 68vw), 1200px)" }}
+            className="hero-pizza-bg h-auto w-full max-w-[480px] select-none object-contain md:w-auto md:max-w-none"
+            style={{ height: "clamp(400px, min(85vh, 55vw), 1280px)" }}
             draggable={false}
             fetchPriority="high"
             loading="eager"

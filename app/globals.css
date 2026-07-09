@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+:root {
+  /* Geometria da nav pill — usada pelo .container-fluxa pra alinhar
+     o conteúdo com o "Fluxa" da nav em qualquer viewport. Cresce em
+     breakpoints grandes pra LP não ficar vazia em monitores amplos. */
+  --pill-max: 64rem;   /* 1024 */
+  --pill-pad: 1rem;    /* 16 */
+}
+@media (min-width: 768px) {
+  :root { --pill-pad: 1.25rem; /* 20 */ }
+}
+@media (min-width: 1280px) {
+  :root { --pill-max: 74rem; /* 1184 */ --pill-pad: 1.5rem; /* 24 */ }
+}
+@media (min-width: 1536px) {
+  :root { --pill-max: 84rem; /* 1344 */ --pill-pad: 1.75rem; /* 28 */ }
+}
+@media (min-width: 1920px) {
+  :root { --pill-max: 96rem; /* 1536 */ --pill-pad: 2rem; /* 32 */ }
+}
+
 @theme {
   /* Fluxa brand */
   --color-fluxa-red: #d6201f;
@@ -88,26 +108,26 @@
      eixos crescem juntos, então o max real fica limitado pelo clamp,
      não pelo vh. */
   .text-display-1 {
-    font-size: clamp(1.6rem, min(2.4vw + 0.35rem, 5.8vh + 0.25rem), 2.75rem);
+    font-size: clamp(1.65rem, min(3vw + 0.3rem, 7vh + 0.25rem), 4rem);
     line-height: 1.06;
     letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-2 {
-    font-size: clamp(1.65rem, min(2.6vw + 0.4rem, 6vh + 0.25rem), 3rem);
+    font-size: clamp(1.65rem, min(3.2vw + 0.35rem, 7.2vh + 0.25rem), 4.25rem);
     line-height: 1.05;
     letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-3 {
-    font-size: clamp(1.4rem, min(2vw + 0.55rem, 5vh + 0.25rem), 2.5rem);
+    font-size: clamp(1.4rem, min(2.2vw + 0.5rem, 5.5vh + 0.25rem), 3rem);
     line-height: 1.1;
     letter-spacing: -0.03em;
     font-weight: 700;
   }
   .text-lead {
-    font-size: clamp(0.9rem, min(0.55vw + 0.75rem, 1.8vh + 0.55rem), 1.15rem);
-    line-height: 1.5;
+    font-size: clamp(0.95rem, min(0.85vw + 0.7rem, 2.2vh + 0.55rem), 1.3rem);
+    line-height: 1.55;
     font-weight: 400;
   }
 
@@ -120,14 +140,8 @@
      largura útil do pill. */
   .container-fluxa {
     width: 100%;
-    padding-left: calc(max(1rem, (100% - 64rem) / 2) + 1rem);
-    padding-right: calc(max(1rem, (100% - 64rem) / 2) + 1rem);
-  }
-  @media (min-width: 768px) {
-    .container-fluxa {
-      padding-left: calc(max(1rem, (100% - 64rem) / 2) + 1.25rem);
-      padding-right: calc(max(1rem, (100% - 64rem) / 2) + 1.25rem);
-    }
+    padding-left: calc(max(1rem, (100% - var(--pill-max)) / 2) + var(--pill-pad));
+    padding-right: calc(max(1rem, (100% - var(--pill-max)) / 2) + var(--pill-pad));
   }
 
   /* Elevation — directional light (top) */
