@@ -78,8 +78,11 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Coluna direita — pizza grande, centralizada e puxada bem pra esquerda */}
-        <div className="relative order-1 flex items-center justify-center md:order-2 md:-ml-20 lg:-ml-32">
+        {/* Coluna direita — pizza extra grande, puxada bem pra esquerda pra
+            crescer em direção ao centro sem sangrar pela direita.
+            min-w-0 impede que a imagem gigante (overflow) expanda a coluna
+            e roube largura do texto (grid item tem min-width:auto por padrão). */}
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-44 lg:-ml-72">
           {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
@@ -88,7 +91,7 @@ export function Hero() {
           <img
             src="/pizza-bg.svg"
             alt=""
-            className="hero-pizza-bg w-[92%] max-w-[560px] select-none object-contain md:w-[46vw] md:max-w-[760px]"
+            className="hero-pizza-bg w-[130%] max-w-[840px] select-none object-contain md:w-[70vw] md:max-w-[1180px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"

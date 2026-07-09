@@ -30,7 +30,6 @@ export function Nav() {
           </span>
           <span className="font-display text-[1.75rem] font-bold tracking-tightest leading-none text-on-surface">
             Fluxa
-            <span className="text-fluxa-red">.</span>
           </span>
         </Link>
 
