@@ -117,7 +117,7 @@ export function Hero() {
  */
 export function OQueMuda() {
   return (
-    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-start overflow-hidden bg-surface pt-24 pb-6 md:pt-28 md:pb-8 lg:justify-center lg:pt-10">
+    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-start overflow-hidden bg-surface pt-20 pb-4 md:pt-24 md:pb-6 2xl:justify-center 2xl:pt-8">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_35%,black,transparent_75%)]" />
 
       <div className="container-fluxa relative z-10 flex flex-col items-center">
@@ -126,12 +126,12 @@ export function OQueMuda() {
           <span>Dashboard real do Kitchens</span>
         </span>
 
-        <h3 className="font-display mt-4 max-w-3xl text-center text-display-3 text-ink md:mt-5">
+        <h3 className="font-display mt-3 max-w-3xl text-center text-display-3 text-ink md:mt-4">
           O que muda quando o cliente é{" "}
           <em className="not-italic text-fluxa-red">seu</em>.
         </h3>
 
-        <div className="relative mt-4 w-full max-w-2xl md:mt-6 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl">
+        <div className="relative mt-4 w-full max-w-xl md:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
           <div className="pointer-events-none absolute inset-x-8 -top-4 bottom-0 rounded-[2rem] bg-gradient-to-b from-black/5 to-transparent blur-2xl" />
           <ProductPreview />
         </div>

@@ -111,48 +111,22 @@
     font-weight: 400;
   }
 
-  /* Container padrão — mesma margem lateral em toda a página, alinhado
-     com o pill de nav pra que "Fluxa" e o título do hero comecem no
-     mesmo eixo. Padding cresce em passos consistentes por breakpoint. */
+  /* Container padrão — alinha o conteúdo com o pill de nav.
+     A nav é max-w-5xl (64rem) + outer px-4 (1rem) + inner px-4/md:px-5
+     (1/1.25rem). Aqui o padding é construído com a mesma fórmula:
+       padding = max(outer, (100% - pillMax) / 2) + innerPill
+     Isso faz o content-left do container bater EXATAMENTE com o "Fluxa"
+     em qualquer viewport, e a largura útil do conteúdo bater com a
+     largura útil do pill. */
   .container-fluxa {
     width: 100%;
-    max-width: 72rem; /* 1152px = 6xl */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;  /* 24px */
-    padding-right: 1.5rem;
+    padding-left: calc(max(1rem, (100% - 64rem) / 2) + 1rem);
+    padding-right: calc(max(1rem, (100% - 64rem) / 2) + 1rem);
   }
   @media (min-width: 768px) {
     .container-fluxa {
-      padding-left: 2rem; /* 32px */
-      padding-right: 2rem;
-    }
-  }
-  @media (min-width: 1024px) {
-    .container-fluxa {
-      padding-left: 3rem; /* 48px */
-      padding-right: 3rem;
-    }
-  }
-  @media (min-width: 1280px) {
-    .container-fluxa {
-      max-width: 80rem; /* 1280px */
-      padding-left: 4rem; /* 64px */
-      padding-right: 4rem;
-    }
-  }
-  @media (min-width: 1536px) {
-    .container-fluxa {
-      max-width: 88rem; /* 1408px */
-      padding-left: 5rem; /* 80px */
-      padding-right: 5rem;
-    }
-  }
-  @media (min-width: 1920px) {
-    .container-fluxa {
-      max-width: 96rem; /* 1536px */
-      padding-left: 6rem;
-      padding-right: 6rem;
+      padding-left: calc(max(1rem, (100% - 64rem) / 2) + 1.25rem);
+      padding-right: calc(max(1rem, (100% - 64rem) / 2) + 1.25rem);
     }
   }
 

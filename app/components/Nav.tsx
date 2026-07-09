@@ -9,11 +9,11 @@ const links = [
 
 export function Nav() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 pt-4 md:pt-5">
-      {/* Pill flutuante centralizada. max-width e paddings casam com
-          .container-fluxa pra que "Fluxa" e o título do hero comecem
-          exatamente no mesmo eixo horizontal em qualquer viewport. */}
-      <nav className="mx-auto flex w-full max-w-[72rem] items-center justify-between gap-4 rounded-full border border-black/[0.06] bg-white/85 px-6 py-2 shadow-[0_8px_30px_-8px_rgba(10,10,11,0.12)] backdrop-blur-xl md:gap-6 md:px-8 md:py-2.5 lg:px-12 xl:max-w-[80rem] xl:px-16 xl:py-3 2xl:max-w-[88rem] 2xl:px-20">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:pt-5">
+      {/* Pill flutuante centralizada. Geometria (max-w-5xl + px-4/md:px-5)
+          casa com a fórmula do .container-fluxa, então "Fluxa" e o título
+          do hero começam exatamente no mesmo eixo horizontal. */}
+      <nav className="mx-auto flex w-full max-w-5xl items-center justify-between gap-6 rounded-full border border-black/[0.06] bg-white/85 px-4 py-2.5 shadow-[0_8px_30px_-8px_rgba(10,10,11,0.12)] backdrop-blur-xl md:px-5 md:py-3">
         <Link
           href="/"
           aria-label="Fluxa, página inicial"
