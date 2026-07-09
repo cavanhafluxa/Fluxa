@@ -88,26 +88,26 @@
      eixos crescem juntos, então o max real fica limitado pelo clamp,
      não pelo vh. */
   .text-display-1 {
-    font-size: clamp(1.85rem, min(3.6vw + 0.5rem, 8.5vh + 0.4rem), 5rem);
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    font-size: clamp(1.6rem, min(2.4vw + 0.35rem, 5.8vh + 0.25rem), 2.75rem);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-2 {
-    font-size: clamp(1.85rem, min(3.8vw + 0.5rem, 8.5vh + 0.4rem), 5rem);
-    line-height: 1.04;
-    letter-spacing: -0.04em;
+    font-size: clamp(1.65rem, min(2.6vw + 0.4rem, 6vh + 0.25rem), 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-3 {
-    font-size: clamp(1.5rem, min(2.4vw + 0.65rem, 6vh + 0.3rem), 3.25rem);
-    line-height: 1.08;
+    font-size: clamp(1.4rem, min(2vw + 0.55rem, 5vh + 0.25rem), 2.5rem);
+    line-height: 1.1;
     letter-spacing: -0.03em;
     font-weight: 700;
   }
   .text-lead {
-    font-size: clamp(0.95rem, 0.75vw + 0.75rem, 1.35rem);
-    line-height: 1.55;
+    font-size: clamp(0.9rem, min(0.55vw + 0.75rem, 1.8vh + 0.55rem), 1.15rem);
+    line-height: 1.5;
     font-weight: 400;
   }
 

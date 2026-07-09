@@ -47,13 +47,13 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p className="mt-4 max-w-xl text-lead text-on-surface-variant">
+          <p className="mt-4 max-w-lg text-lead text-on-surface-variant">
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
-          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-7">
+          <div className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-6">
             <a href="#parceria" className="btn-primary">
               Quero recuperar o controle
               <svg
@@ -82,10 +82,9 @@ export function Hero() {
             crescer em direção ao centro sem sangrar pela direita.
             min-w-0 impede que a imagem gigante (overflow) expanda a coluna
             e roube largura do texto (grid item tem min-width:auto por padrão). */}
-        {/* Imagem travada por ALTURA pra ficar proporcional ao bloco de texto:
-            usa clamp(vh) então cresce com a tela mas nunca vira um monstro
-            no notebook. w-auto deixa o SVG manter proporção natural. */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
+        {/* Imagem travada por ALTURA e puxada pra esquerda no md+
+            pra ganhar presença sem sangrar pra direita. */}
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-16 lg:-ml-24 xl:-ml-32">
           {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
@@ -94,8 +93,8 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[420px] select-none object-contain md:w-auto md:max-w-none"
-            style={{ height: "clamp(320px, min(72vh, 55vw), 960px)" }}
+            className="hero-pizza-bg h-auto w-full max-w-[460px] select-none object-contain md:w-auto md:max-w-none"
+            style={{ height: "clamp(380px, min(88vh, 68vw), 1200px)" }}
             draggable={false}
             fetchPriority="high"
             loading="eager"
