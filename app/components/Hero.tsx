@@ -10,14 +10,14 @@
 export function Hero() {
   return (
     <section
-      className="relative flex w-full items-center overflow-hidden bg-radial-warm"
-      style={{ minHeight: "calc(100svh - 4.75rem)" }}
+      className="relative flex w-full items-center overflow-hidden bg-radial-warm pt-[5.5rem]"
+      style={{ minHeight: "100svh" }}
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto grid w-full grid-cols-1 items-center gap-6 px-6 py-10 md:grid-cols-[1.1fr_1fr] md:gap-4 md:px-8 md:py-8 max-w-7xl">
+      <div className="relative z-10 mx-auto grid w-full grid-cols-1 items-center gap-6 px-6 pb-10 pt-4 md:grid-cols-[1.1fr_1fr] md:gap-4 md:px-8 md:pb-8 md:pt-2 max-w-7xl">
         {/* Coluna esquerda — copy */}
         <div className="anim-fade-up order-2 max-w-[36rem] md:order-1 md:max-w-[40rem]">
           <span className="chip-live">
@@ -82,16 +82,16 @@ export function Hero() {
             crescer em direção ao centro sem sangrar pela direita.
             min-w-0 impede que a imagem gigante (overflow) expanda a coluna
             e roube largura do texto (grid item tem min-width:auto por padrão). */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-44 lg:-ml-72">
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-64 lg:-ml-[28rem]">
           {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[92%] w-[92%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
           />
           <img
-            src="/pizza-bg.svg"
+            src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg w-[130%] max-w-[840px] select-none object-contain md:w-[70vw] md:max-w-[1180px]"
+            className="hero-pizza-bg w-[150%] max-w-[1000px] select-none object-contain md:w-[88vw] md:max-w-[1500px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
