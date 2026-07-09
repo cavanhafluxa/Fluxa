@@ -10,14 +10,8 @@ const links = [
 export function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:pt-5">
-      {/* Pill flutuante centralizada. max-width e padding vêm das CSS
-          vars --pill-max/--pill-pad, que também governam .container-fluxa
-          — assim "Fluxa" e o conteúdo das seções ficam sempre alinhados,
-          e ambos crescem juntos em monitores grandes. */}
-      <nav
-        style={{ maxWidth: "var(--pill-max)", paddingLeft: "var(--pill-pad)", paddingRight: "var(--pill-pad)" }}
-        className="mx-auto flex w-full items-center justify-between gap-6 rounded-full border border-black/[0.06] bg-white/85 py-2.5 shadow-[0_8px_30px_-8px_rgba(10,10,11,0.12)] backdrop-blur-xl md:py-3 xl:py-3.5"
-      >
+      {/* Pill flutuante centralizada — tamanho fixo original. */}
+      <nav className="mx-auto flex w-full max-w-5xl items-center justify-between gap-6 rounded-full border border-black/[0.06] bg-white/85 px-4 py-2.5 shadow-[0_8px_30px_-8px_rgba(10,10,11,0.12)] backdrop-blur-xl md:px-5 md:py-3">
         <Link
           href="/"
           aria-label="Fluxa, página inicial"
