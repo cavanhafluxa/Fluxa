@@ -32,9 +32,9 @@ export function PartnershipForm() {
   return (
     <section
       id="parceria"
-      className="border-t border-outline/30 bg-surface px-6 py-20 md:px-8 md:py-24"
+      className="border-t border-outline/30 bg-surface py-20 md:py-24"
     >
-      <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
+      <div className="container-fluxa mb-10 max-w-3xl text-center md:mb-12">
         <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight text-ink md:text-[2.25rem] lg:text-[2.5rem]">
           “Isso é incrível, mas é caro demais para a minha realidade agora.”
         </h2>

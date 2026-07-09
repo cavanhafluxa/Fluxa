@@ -27,10 +27,10 @@ export function ParaTodos() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-radial-warm px-6 py-20 md:px-8 md:py-24">
+    <section className="relative overflow-hidden bg-radial-warm py-20 md:py-24">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 md:grid-cols-[0.9fr_1.15fr] md:gap-4">
+      <div className="container-fluxa relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-[0.9fr_1.15fr] md:gap-6">
         {/* Coluna esquerda — texto */}
         <div className="reveal-on-view max-w-[36rem]">
           <span className="chip-live">
@@ -71,7 +71,7 @@ export function ParaTodos() {
         {/* Coluna direita — showcase que alterna. Os SVGs têm bastante respiro
             interno à esquerda, então a arte precisa crescer e ser puxada para
             o centro visual da coluna. */}
-        <div className="relative order-first h-[380px] w-full md:order-last md:h-[520px] lg:h-[620px]">
+        <div className="relative order-first h-[320px] w-full md:order-last md:h-[440px] lg:h-[520px]">
           {/* Halo dourado atrás */}
           <div
             aria-hidden="true"
@@ -82,7 +82,7 @@ export function ParaTodos() {
               key={p.src}
               src={p.src}
               alt={p.label}
-              className="absolute left-1/2 top-1/2 h-auto w-[160%] max-w-none select-none object-contain transition-all duration-700 ease-out md:w-[170%] lg:w-[176%]"
+              className="absolute left-1/2 top-1/2 h-auto w-[140%] max-w-none select-none object-contain transition-all duration-700 ease-out md:w-[150%] lg:w-[160%]"
               style={{
                 opacity: i === active ? 1 : 0,
                 transform:

@@ -15,10 +15,10 @@ export function Problem() {
   return (
     <section
       id="problema"
-      className="relative z-10 bg-surface-warm px-6 py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:px-8 md:py-24"
+      className="relative z-10 bg-surface-warm py-20 shadow-[0_-24px_48px_-24px_rgba(10,10,11,0.12)] md:py-24"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-14 max-w-4xl md:mb-20">
+      <div className="container-fluxa">
+        <div className="mb-12 max-w-3xl md:mb-16">
           <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-4xl lg:text-[2.75rem]">
             O custo de não fazer nada.
           </h2>

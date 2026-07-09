@@ -53,9 +53,9 @@ export function Pillars() {
   return (
     <section
       id="pilares"
-      className="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24"
+      className="container-fluxa py-20 md:py-24"
     >
-      <div className="mb-12 max-w-4xl md:mb-16">
+      <div className="mb-12 max-w-3xl md:mb-16">
         <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-4xl lg:text-[2.75rem]">
           A infraestrutura que grandes restaurantes levam anos para construir,
           disponível <span className="text-fluxa-red">hoje</span>.

@@ -11,21 +11,21 @@ export function Hero() {
   return (
     <section
       className="relative flex w-full items-center overflow-hidden bg-radial-warm pt-24 pb-10 md:pt-[5.5rem] md:pb-0"
-      style={{ minHeight: "min(100svh, 860px)" }}
+      style={{ minHeight: "min(100svh, 820px)" }}
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto grid w-full grid-cols-1 items-center gap-6 px-6 pb-10 pt-4 md:grid-cols-[1.1fr_1fr] md:gap-4 md:px-8 md:pb-8 md:pt-2 max-w-7xl">
+      <div className="container-fluxa relative z-10 grid w-full grid-cols-1 items-center gap-6 pb-8 pt-2 md:grid-cols-[1.05fr_1fr] md:gap-8 md:pb-6">
         {/* Coluna esquerda — copy */}
-        <div className="anim-fade-up order-2 max-w-[36rem] md:order-1 md:max-w-[40rem]">
+        <div className="anim-fade-up order-2 max-w-[34rem] md:order-1">
           <span className="chip-live">
             <span className="dot" />
             <span>Te entendemos</span>
           </span>
 
-          <h1 className="font-display mt-5 text-display-1 text-ink">
+          <h1 className="font-display mt-4 text-display-1 text-ink md:mt-5">
             Você abriu um restaurante para ser{" "}
             <span className="relative inline-block">
               <span className="text-fluxa-red">dono</span>
@@ -47,13 +47,13 @@ export function Hero() {
             dele, não para ser empregado.
           </h1>
 
-          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-on-surface-variant md:text-[1.2rem]">
+          <p className="mt-4 max-w-xl text-lead text-on-surface-variant">
             A cozinha vira caos no pico, as taxas comem sua margem e você nem
             sabe quem comeu sua comida. Nós não vendemos um app: devolvemos o
             controle pra suas mãos.
           </p>
 
-          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
+          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 md:mt-7">
             <a href="#parceria" className="btn-primary">
               Quero recuperar o controle
               <svg
@@ -82,16 +82,20 @@ export function Hero() {
             crescer em direção ao centro sem sangrar pela direita.
             min-w-0 impede que a imagem gigante (overflow) expanda a coluna
             e roube largura do texto (grid item tem min-width:auto por padrão). */}
-        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2 md:-ml-24 lg:-ml-40 xl:-ml-56">
+        {/* Imagem travada por ALTURA pra ficar proporcional ao bloco de texto:
+            usa clamp(vh) então cresce com a tela mas nunca vira um monstro
+            no notebook. w-auto deixa o SVG manter proporção natural. */}
+        <div className="relative order-1 flex min-w-0 items-center justify-center md:order-2">
           {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[92%] w-[92%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[85%] w-[85%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
           />
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg w-[130%] max-w-[520px] select-none object-contain md:w-[55vw] md:max-w-[720px] lg:w-[52vw] lg:max-w-[820px] xl:w-[50vw] xl:max-w-[960px]"
+            className="hero-pizza-bg h-auto w-full max-w-[360px] select-none object-contain md:w-auto md:max-w-none"
+            style={{ height: "clamp(260px, 52vh, 520px)" }}
             draggable={false}
             fetchPriority="high"
             loading="eager"
@@ -113,10 +117,10 @@ export function Hero() {
  */
 export function OQueMuda() {
   return (
-    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-surface px-6 py-8 md:px-8 md:py-12">
+    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-surface py-8 md:py-10">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_35%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center">
+      <div className="container-fluxa relative z-10 flex flex-col items-center">
         <span className="chip-live">
           <span className="dot" />
           <span>Dashboard real do Kitchens</span>
@@ -127,7 +131,7 @@ export function OQueMuda() {
           <em className="not-italic text-fluxa-red">seu</em>.
         </h3>
 
-        <div className="relative mt-7 w-full max-w-5xl md:mt-9">
+        <div className="relative mt-6 w-full max-w-4xl md:mt-8">
           <div className="pointer-events-none absolute inset-x-8 -top-4 bottom-0 rounded-[2rem] bg-gradient-to-b from-black/5 to-transparent blur-2xl" />
           <ProductPreview />
         </div>
