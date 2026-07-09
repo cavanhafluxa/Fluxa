@@ -86,12 +86,12 @@ export function Hero() {
               brilhante nos desktops maiores (xl/2xl). */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] 2xl:h-[112%] 2xl:w-[112%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.7),rgba(242,160,61,0.32)_40%,transparent_72%)] min-[1800px]:h-[92%] min-[1800px]:w-[92%] min-[1800px]:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[95%] w-[95%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.55),rgba(242,160,61,0.24)_38%,transparent_70%)] 2xl:h-[112%] 2xl:w-[112%] 2xl:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.7),rgba(242,160,61,0.32)_40%,transparent_72%)] min-[1800px]:h-[92%] min-[1800px]:w-[92%] min-[1800px]:bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.12),transparent_62%)]"
           />
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[200%] min-[1800px]:w-[50vw] min-[1800px]:max-w-[840px] min-[1800px]:translate-x-0"
+            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[200%] min-[1800px]:w-[42vw] min-[1800px]:max-w-[715px] min-[1800px]:translate-x-0"
             draggable={false}
             fetchPriority="high"
             loading="eager"

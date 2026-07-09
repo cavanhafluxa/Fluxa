@@ -256,6 +256,14 @@
       radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.22), rgba(250, 220, 200, 0.14) 60%, rgba(250, 220, 200, 0.08) 100%),
       var(--color-surface);
   }
+  /* Em PC de tela grande, luz de fundo bem mais suave */
+  @media (min-width: 1800px) {
+    .bg-radial-warm {
+      background:
+        radial-gradient(ellipse 180% 160% at 50% 50%, rgba(250, 220, 200, 0.1), rgba(250, 220, 200, 0.06) 60%, rgba(250, 220, 200, 0.03) 100%),
+        var(--color-surface);
+    }
+  }
 
   /* Chip / eyebrow */
   .chip-live {
