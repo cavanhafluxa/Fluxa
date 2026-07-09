@@ -71,7 +71,10 @@ export function ParaTodos() {
         {/* Coluna direita — showcase que alterna. Os SVGs têm bastante respiro
             interno à esquerda, então a arte precisa crescer e ser puxada para
             o centro visual da coluna. */}
-        <div className="relative order-first h-[320px] w-full md:order-last md:-ml-8 md:h-[460px] lg:-ml-12 lg:h-[560px] xl:-ml-16 xl:h-[660px] 2xl:h-[760px]">
+        {/* Altura escala em % da largura do container (cqi) pra ficar
+            proporcional ao texto em qualquer monitor. Bounded por
+            min/max pra não estourar em telas extremas. */}
+        <div className="relative order-first h-[320px] w-full md:order-last md:-ml-8 md:h-[60cqi] md:min-h-[420px] md:max-h-[700px] lg:-ml-12 xl:-ml-16">
           {/* Halo dourado atrás */}
           <div
             aria-hidden="true"

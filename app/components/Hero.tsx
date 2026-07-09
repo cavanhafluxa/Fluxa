@@ -88,13 +88,13 @@ export function Hero() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[85%] w-[85%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.42),rgba(242,160,61,0.18)_38%,transparent_68%)]"
           />
-          {/* Imagem: no md+ usamos max-width (vw) + max-height (vh) que
-              trabalham juntos e o browser shrinca mantendo aspect. Assim
-              a imagem NUNCA extrapola a coluna, seja qual for o viewport. */}
+          {/* Imagem escala em % da própria coluna (que é % do container).
+              Assim mantém proporção constante com a tipografia — quando
+              o container é menor, imagem e texto encolhem juntos. */}
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg h-auto w-full max-w-[460px] select-none object-contain md:w-auto md:max-h-[min(calc(100svh-96px),940px)] md:max-w-[min(58vw,830px)]"
+            className="hero-pizza-bg h-auto w-full max-w-[460px] select-none object-contain md:w-full md:max-w-none md:max-h-[calc(100svh-96px)]"
             draggable={false}
             fetchPriority="high"
             loading="eager"

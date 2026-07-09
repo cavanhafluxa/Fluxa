@@ -99,26 +99,31 @@
      (1366×768) sem sacrificar monitor grande. Em telas amplas os dois
      eixos crescem juntos, então o max real fica limitado pelo clamp,
      não pelo vh. */
+  /* Tipografia escala pela LARGURA DO CONTAINER (cqi), não do viewport.
+     Como o container-fluxa tem tamanho fixo (max-w-5xl travado com a
+     nav pill), a tipografia fica visualmente idêntica em qualquer
+     monitor a partir do momento que o container hit o max. Em telas
+     onde o container é menor que o max (mobile), tudo escala junto. */
   .text-display-1 {
-    font-size: clamp(1.65rem, min(3vw + 0.3rem, 7vh + 0.25rem), 4rem);
+    font-size: clamp(1.65rem, 5.6cqi + 0.35rem, 4rem);
     line-height: 1.06;
     letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-2 {
-    font-size: clamp(1.65rem, min(3.2vw + 0.35rem, 7.2vh + 0.25rem), 4.25rem);
+    font-size: clamp(1.65rem, 5.8cqi + 0.4rem, 4.25rem);
     line-height: 1.05;
     letter-spacing: -0.035em;
     font-weight: 700;
   }
   .text-display-3 {
-    font-size: clamp(1.4rem, min(2.2vw + 0.5rem, 5.5vh + 0.25rem), 3rem);
+    font-size: clamp(1.4rem, 4cqi + 0.5rem, 3rem);
     line-height: 1.1;
     letter-spacing: -0.03em;
     font-weight: 700;
   }
   .text-lead {
-    font-size: clamp(0.95rem, min(0.85vw + 0.7rem, 2.2vh + 0.55rem), 1.3rem);
+    font-size: clamp(0.95rem, 1.4cqi + 0.7rem, 1.3rem);
     line-height: 1.55;
     font-weight: 400;
   }
@@ -134,6 +139,11 @@
     width: 100%;
     padding-left: calc(max(1rem, (100% - var(--pill-max)) / 2) + var(--pill-pad));
     padding-right: calc(max(1rem, (100% - var(--pill-max)) / 2) + var(--pill-pad));
+    /* Container query — permite que tipografias e mídias escalem pela
+       largura DO CONTAINER (não do viewport), mantendo proporção
+       consistente em qualquer monitor. */
+    container-type: inline-size;
+    container-name: fluxa;
   }
 
   /* Elevation — directional light (top) */
