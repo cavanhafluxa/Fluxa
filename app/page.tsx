@@ -2,6 +2,7 @@ import { Nav } from "./components/Nav";
 import { Hero, OQueMuda } from "./components/Hero";
 import { Problem } from "./components/Problem";
 import { Pillars } from "./components/Pillars";
+import { ParaTodos } from "./components/ParaTodos";
 import { EcosystemOrbit } from "./components/EcosystemOrbit";
 import { CaseStudy } from "./components/CaseStudy";
 import { SkinInTheGame } from "./components/SkinInTheGame";
@@ -31,6 +32,7 @@ export default function Page() {
           <Problem />
         </div>
         <Pillars />
+        <ParaTodos />
         <EcosystemOrbit />
         <CaseStudy />
         <SkinInTheGame />
