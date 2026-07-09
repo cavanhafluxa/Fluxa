@@ -10,14 +10,14 @@
 export function Hero() {
   return (
     <section
-      className="relative w-full overflow-hidden bg-radial-warm"
-      style={{ minHeight: "100svh" }}
+      className="relative flex w-full items-center overflow-hidden bg-radial-warm"
+      style={{ minHeight: "calc(100svh - 4.75rem)" }}
       aria-label="Fluxa, hero"
     >
       {/* Fundo — grade de pontos suave */}
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center gap-8 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:gap-4 md:px-8 md:py-16">
+      <div className="relative z-10 mx-auto grid w-full grid-cols-1 items-center gap-6 px-6 py-10 md:grid-cols-[1.1fr_1fr] md:gap-4 md:px-8 md:py-8 max-w-7xl">
         {/* Coluna esquerda — copy */}
         <div className="anim-fade-up order-2 max-w-[36rem] md:order-1 md:max-w-[40rem]">
           <span className="chip-live">
@@ -78,17 +78,17 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Coluna direita — pizza maior, centralizada e puxada bem pra esquerda */}
-        <div className="relative order-1 flex items-center justify-center md:order-2 md:-ml-16 lg:-ml-28">
+        {/* Coluna direita — pizza grande, centralizada e puxada bem pra esquerda */}
+        <div className="relative order-1 flex items-center justify-center md:order-2 md:-ml-20 lg:-ml-32">
           {/* Halo dourado suave atrás pra dar profundidade */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[90%] w-[90%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
+            className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-[92%] w-[92%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.24),transparent_62%)]"
           />
           <img
             src="/pizza-bg.svg"
             alt=""
-            className="hero-pizza-bg w-[82%] max-w-[480px] select-none object-contain md:w-full md:max-w-[620px]"
+            className="hero-pizza-bg w-[92%] max-w-[560px] select-none object-contain md:w-[46vw] md:max-w-[760px]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
