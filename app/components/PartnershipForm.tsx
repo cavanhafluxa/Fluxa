@@ -46,6 +46,7 @@ export function PartnershipForm() {
         </div>
       </div>
 
+      <div className="container-fluxa">
       {sent ? (
         <SuccessCard onReset={() => setSent(false)} />
       ) : (
@@ -112,6 +113,7 @@ export function PartnershipForm() {
           </div>
         </form>
       )}
+      </div>
     </section>
   );
 }

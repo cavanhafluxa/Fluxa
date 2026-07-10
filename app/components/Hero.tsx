@@ -91,7 +91,7 @@ export function Hero() {
           <img
             src="/hero-estabelecimento.svg"
             alt=""
-            className="hero-pizza-bg pointer-events-none block h-auto w-full max-w-[840px] -translate-x-0 select-none object-contain md:w-[172%] md:max-w-none md:-translate-x-[20%] lg:w-[170%] xl:w-[170%] 2xl:w-[220%] 2xl:max-w-[1370px] 2xl:-translate-x-[16%] min-[1800px]:max-w-[1460px] min-[1800px]:-translate-x-[20%]"
+            className="hero-pizza-bg pointer-events-none block h-auto w-[86%] max-w-[840px] -translate-x-[14%] select-none object-contain md:w-[172%] md:-translate-x-[20%] md:max-w-none lg:w-[170%] xl:w-[170%] 2xl:w-[220%] 2xl:max-w-[1370px] 2xl:-translate-x-[16%] min-[1800px]:max-w-[1460px] min-[1800px]:-translate-x-[20%]"
             draggable={false}
             fetchPriority="high"
             loading="eager"
@@ -113,7 +113,7 @@ export function Hero() {
  */
 export function OQueMuda() {
   return (
-    <section className="sticky top-0 z-0 flex h-[100svh] w-full flex-col items-center justify-start overflow-hidden bg-surface pt-20 pb-4 md:pt-24 md:pb-6 2xl:justify-center 2xl:pt-8">
+    <section className="relative z-0 flex h-auto w-full flex-col items-center justify-start overflow-visible bg-surface pt-24 pb-14 md:sticky md:top-0 md:h-[100svh] md:overflow-hidden md:pt-24 md:pb-6 2xl:justify-center 2xl:pt-8">
       <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_35%,black,transparent_75%)]" />
 
       <div className="container-fluxa relative z-10 flex flex-col items-center">
