@@ -1,27 +1,49 @@
+/**
+ * Modelo de parceria — fundo cream. H2 + lead + 3 cards brancos alinhados:
+ *   mensalidade transparente / comissão fixa e justa / cobrança sem caixa-preta.
+ */
+const CARDS = [
+  {
+    title: "Mensalidade transparente",
+    body: "Você sabe exatamente quanto vai pagar antes do primeiro pedido.",
+  },
+  {
+    title: "Comissão fixa e justa",
+    body: "Sem fee variável, sem taxa por chargeback.",
+  },
+  {
+    title: "Cobrança sem caixa-preta",
+    body: "Cada linha da fatura tem nome e motivo.",
+  },
+];
+
 export function SkinInTheGame() {
   return (
-    <section className="relative overflow-hidden bg-ink py-20 text-white md:py-20 xl:py-24 2xl:py-28">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-24 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-fluxa-red/20 blur-3xl"
-      />
-      <img
-        src="/fluxa-bg-logo.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-28 top-1/2 hidden h-[34rem] w-[34rem] -translate-y-1/2 select-none object-cover opacity-[0.14] mix-blend-screen [mask-image:radial-gradient(circle_at_50%_50%,black_0%,black_48%,transparent_74%)] md:block lg:-right-16 lg:h-[40rem] lg:w-[40rem]"
-      />
+    <section className="fx-inout relative overflow-hidden bg-surface-cream py-[104px]">
       <div className="container-fluxa relative">
-        <div className="reveal-on-view max-w-3xl">
-          <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight md:text-4xl lg:text-5xl xl:text-[3.25rem] 2xl:text-[3.5rem]">
-            Nós não somos uma assessoria fria. Somos seus{" "}
+        <div className="max-w-[46rem]">
+          <h2 className="text-h2 text-ink text-balance">
+            Não somos uma assessoria fria. Somos seus{" "}
             <span className="text-fluxa-red">parceiros de crescimento</span>.
           </h2>
-          <p className="mt-6 max-w-2xl text-[1.05rem] leading-relaxed text-white/70 md:text-[1.15rem]">
-            A maioria das agências cobra caro para postar fotos que não trazem
-            pedidos. Nós somos diferentes. Nós crescemos com você: nosso modelo
-            é baseado no seu sucesso.
+          <p className="text-lead mt-6 max-w-[40rem] text-on-surface-variant text-pretty">
+            A maioria das agências cobra caro pra postar fotos que não trazem
+            pedido. Nós crescemos com você — nosso modelo é baseado no seu
+            sucesso.
           </p>
+        </div>
+        <div className="mt-11 grid gap-5 md:grid-cols-3">
+          {CARDS.map((c) => (
+            <div
+              key={c.title}
+              className="rounded-[18px] border border-outline bg-surface p-[26px]"
+            >
+              <p className="text-[15px] font-bold text-ink">{c.title}</p>
+              <p className="mt-2 text-[14.5px] leading-[1.6] text-on-surface-variant">
+                {c.body}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

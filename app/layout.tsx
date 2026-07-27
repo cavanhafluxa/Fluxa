@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "./components/SmoothScroll";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600"],
 });
 
 export const metadata: Metadata = {
   title: "Fluxa | Recupere o controle do seu restaurante",
   description:
-    "Você abriu um restaurante para ser dono dele, não para ser empregado. A Fluxa devolve o controle do seu negócio para suas mãos.",
+    "A cozinha vira caos no pico. As taxas comem sua margem. E você nem sabe quem comeu sua comida. A Fluxa não vende um app — devolve o controle pra suas mãos.",
   openGraph: {
     title: "Fluxa | Recupere o controle do seu restaurante",
     description:
@@ -27,7 +34,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={dmSans.variable}>
+    <html
+      lang="pt-BR"
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body>
         <SmoothScroll />
         {children}

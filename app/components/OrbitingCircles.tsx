@@ -4,10 +4,11 @@ import type { ReactNode } from "react";
 import { Children } from "react";
 
 /**
- * OrbitingCircles — primitive adaptado do padrão open-source da magicui.design
- * (dillionverma/orbiting-circles), reimplementado sem dependências externas
- * (sem clsx/tailwind-merge no projeto). Usa CSS custom properties + a keyframe
- * `orbit` definida em globals.css.
+ * OrbitingCircles — primitive baseado em CSS custom props + keyframe `fx-orbit`
+ * definida em globals.css. Sem deps externas.
+ *
+ * `wideIndex` (opcional): índice do slot que precisa ser mais largo (pill).
+ * Usado pelo Fluxa Foods lockup, que não cabe em 62×62.
  */
 export function OrbitingCircles({
   className = "",
@@ -17,6 +18,7 @@ export function OrbitingCircles({
   radius = 160,
   path = true,
   iconSize = 56,
+  wideIndex,
 }: {
   className?: string;
   children?: ReactNode;
@@ -25,6 +27,7 @@ export function OrbitingCircles({
   radius?: number;
   path?: boolean;
   iconSize?: number;
+  wideIndex?: number;
 }) {
   const items = Children.toArray(children);
   const count = items.length || 1;
@@ -38,7 +41,7 @@ export function OrbitingCircles({
           aria-hidden="true"
         >
           <circle
-            className="stroke-black/[0.07]"
+            className="stroke-black/[0.09]"
             cx="50%"
             cy="50%"
             r={radius}
@@ -50,6 +53,8 @@ export function OrbitingCircles({
       )}
       {items.map((child, index) => {
         const angle = (360 / count) * index;
+        const isWide = wideIndex === index;
+        const w = isWide ? 118 : iconSize;
         return (
           <div
             key={index}
@@ -61,13 +66,13 @@ export function OrbitingCircles({
                 position: "absolute",
                 left: "50%",
                 top: "50%",
-                width: iconSize,
+                width: w,
                 height: iconSize,
-                marginLeft: -iconSize / 2,
+                marginLeft: -w / 2,
                 marginTop: -iconSize / 2,
               } as React.CSSProperties
             }
-            className={`flex animate-orbit items-center justify-center ${
+            className={`anim-orbit flex items-center justify-center ${
               reverse ? "[animation-direction:reverse]" : ""
             } ${className}`}
           >

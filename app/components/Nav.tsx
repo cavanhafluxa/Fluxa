@@ -1,40 +1,35 @@
 import Link from "next/link";
 
 const links = [
-  { href: "#problema", label: "Soluções" },
-  { href: "#pilares", label: "Ecossistema" },
-  { href: "#case", label: "Case Lanas" },
-  { href: "https://fluxafoods.com.br/", label: "Fluxa Foods" },
+  { href: "#custo", label: "Soluções" },
+  { href: "#ecossistema", label: "Ecossistema" },
+  { href: "#points", label: "Fluxa Points" },
+  { href: "#case", label: "Cases" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function Nav() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:pt-5">
-      {/* Pill flutuante centralizada — tamanho fixo original. */}
-      <nav className="mx-auto flex w-full max-w-5xl items-center justify-between gap-6 rounded-full border border-black/[0.06] bg-white/85 px-4 py-2.5 shadow-[0_8px_30px_-8px_rgba(10,10,11,0.12)] backdrop-blur-xl md:px-5 md:py-3">
+    <header className="fixed inset-x-0 top-0 z-50 p-4">
+      <nav className="mx-auto flex w-full max-w-[1024px] items-center justify-between gap-6 rounded-full border border-black/[0.06] bg-white/85 py-2.5 pl-4 pr-3.5 shadow-[0_8px_30px_-8px_rgba(26,14,14,0.12)] backdrop-blur-[20px] backdrop-saturate-[180%]">
         <Link
           href="/"
           aria-label="Fluxa, página inicial"
-          className="group flex shrink-0 items-center gap-2.5"
+          className="flex shrink-0 items-center gap-2.5 text-ink"
         >
-          <span className="relative inline-flex h-9 w-9 overflow-hidden rounded-full bg-surface transition-transform duration-500 group-hover:scale-[1.05] md:h-10 md:w-10">
-            <video
-              src="/fluxa-logo-animada.mp4"
-              aria-hidden="true"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="h-full w-full object-cover"
-            />
-          </span>
-          <span className="font-display text-[1.4rem] font-bold tracking-tightest leading-none text-on-surface md:text-[1.5rem]">
+          <img
+            src="/fluxa-carinha.png"
+            alt="Fluxa"
+            width={34}
+            height={34}
+            className="h-[34px] w-[34px] rounded-full object-cover"
+          />
+          <span className="text-[21px] font-bold leading-none tracking-tightest text-ink">
             Fluxa
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-8 text-[0.875rem] font-medium text-on-surface-variant lg:flex">
+        <ul className="hidden items-center gap-6 overflow-hidden whitespace-nowrap text-[14px] font-medium lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a href={l.href} className="link-underline">
@@ -44,10 +39,7 @@ export function Nav() {
           ))}
         </ul>
 
-        <a
-          href="#parceria"
-          className="btn-primary shrink-0 !py-2.5 !px-5 !text-[0.875rem]"
-        >
+        <a href="#parceria" className="btn-nav shrink-0">
           Comece agora
           <svg
             width="14"
@@ -55,7 +47,6 @@ export function Nav() {
             viewBox="0 0 24 24"
             fill="none"
             aria-hidden="true"
-            className="-mr-0.5"
           >
             <path
               d="M5 12h14M13 6l6 6-6 6"
