@@ -113,7 +113,6 @@ export function Hero() {
                 left: "-157.7%",
                 top: "-37.7%",
                 width: "270.4%",
-                filter: "drop-shadow(0 30px 60px rgba(26,14,14,0.16))",
               }}
               draggable={false}
               fetchPriority="high"
