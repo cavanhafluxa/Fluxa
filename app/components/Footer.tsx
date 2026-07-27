@@ -31,22 +31,20 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative border-t border-outline/40 bg-surface-variant/40 text-on-surface">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Coluna 1 — Newsletter */}
+    <footer className="relative border-t border-outline bg-surface-warm text-on-surface">
+      <div className="mx-auto w-full max-w-[1240px] px-8 py-16">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1.1fr_1fr]">
+        {/* Coluna 1 — Newsletter */}
           <div className="relative">
             <div className="mb-5 flex items-center gap-2.5">
-              <span className="inline-flex h-9 w-9 overflow-hidden rounded-full">
-                <img
-                  src="/fluxa-logo.svg"
-                  alt=""
-                  width={36}
-                  height={36}
-                  className="h-full w-full object-cover"
-                />
-              </span>
-              <span className="font-display text-xl font-black tracking-tightest text-on-surface">
+              <img
+                src="/fluxa-carinha.png"
+                alt=""
+                width={34}
+                height={34}
+                className="h-[34px] w-[34px] rounded-full object-cover"
+              />
+              <span className="font-display text-[20px] font-extrabold tracking-tightest text-ink">
                 Fluxa
               </span>
             </div>
@@ -99,11 +97,14 @@ export function Footer() {
               Navegação
             </h3>
             <nav className="space-y-3 text-sm font-medium text-on-surface-variant">
-              <a href="#problema" className="block transition-colors hover:text-fluxa-red">
+              <a href="#custo" className="block transition-colors hover:text-fluxa-red">
                 Soluções
               </a>
-              <a href="#pilares" className="block transition-colors hover:text-fluxa-red">
+              <a href="#ecossistema" className="block transition-colors hover:text-fluxa-red">
                 Ecossistema
+              </a>
+              <a href="#points" className="block transition-colors hover:text-fluxa-red">
+                Fluxa Points
               </a>
               <a href="#case" className="block transition-colors hover:text-fluxa-red">
                 Case Lanas
@@ -158,7 +159,7 @@ export function Footer() {
             <div className="flex gap-3">
               <SocialButton
                 label="Instagram"
-                href="https://instagram.com/"
+                href="https://instagram.com/eatfluxa"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="2" />
@@ -193,9 +194,9 @@ export function Footer() {
         </div>
 
         {/* Barra inferior */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-outline/40 pt-8 text-center md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-outline pt-8 text-center md:flex-row">
           <p className="text-sm text-on-surface-variant">
-            © {new Date().getFullYear()} Fluxa. Todos os direitos reservados.
+            © 2026 Fluxa. Todos os direitos reservados.
           </p>
           <nav className="flex flex-wrap items-center justify-center gap-5 text-sm text-on-surface-variant">
             <a href="#" className="transition-colors hover:text-fluxa-red">
