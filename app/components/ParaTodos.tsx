@@ -3,17 +3,19 @@
 import { useEffect, useState } from "react";
 
 /**
- * "É pra todo tipo de operação" — texto à esquerda, showcase de estabelecimentos
- * à direita que se alternam (cross-fade automático). Cada tipo de comida tem seu
- * próprio SVG flutuando.
+ * "Pra todo tipo de operação" — versão cream centralizada com chips + copy,
+ * mantendo o showcase animado (cross-fade automático) das artes de comida,
+ * como já estava no repo. Os chips clicáveis controlam manualmente o índice.
  */
 const PLACES = [
   { src: "/food-pizzaria.svg", label: "Pizzaria" },
-  { src: "/food-dogao.svg", label: "Hot dog" },
+  { src: "/food-dogao.svg", label: "Hamburgueria" },
   { src: "/food-frango.svg", label: "Frango" },
-  { src: "/food-sushi.svg", label: "Sushi" },
+  { src: "/food-sushi.svg", label: "Japonês" },
   { src: "/food-sorvete.svg", label: "Sorveteria" },
 ];
+
+const EXTRA_CHIPS = ["Churrasco na brasa", "Cafeteria", "Açaí", "Dark kitchen"];
 
 export function ParaTodos() {
   const [active, setActive] = useState(0);
@@ -27,53 +29,24 @@ export function ParaTodos() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-radial-warm py-16 md:py-20 xl:py-24 2xl:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,black,transparent_75%)]" />
+    <section className="fx-inout relative overflow-hidden bg-surface-cream py-[104px]">
+      <div className="container-fluxa relative text-center">
+        <span className="chip-live">
+          <span className="dot" />
+          <span>Pra todo tipo de operação</span>
+        </span>
+        <h2 className="text-h2 mx-auto mt-6 max-w-[24em] text-ink text-balance">
+          Hamburgueria, pizzaria, japonês ou sorveteria.{" "}
+          <span className="text-fluxa-red">É pra todo mundo.</span>
+        </h2>
+        <p className="text-lead mx-auto mt-5 max-w-[40rem] text-on-surface-variant text-pretty">
+          Não importa o que sai da sua cozinha. Se você vende comida, a Fluxa
+          monta o canal próprio do seu jeito, com a cara da sua marca — não com
+          a cara da nossa.
+        </p>
 
-      <div className="container-fluxa relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-6">
-        {/* Coluna esquerda — texto */}
-        <div className="reveal-on-view max-w-[36rem]">
-          <span className="chip-live">
-            <span className="dot" />
-            <span>Pra todo tipo de operação</span>
-          </span>
-
-          <h2 className="font-display mt-5 text-display-2 text-ink">
-            Hamburgueria, pizzaria, japonês ou sorveteria.{" "}
-            <span className="text-fluxa-red">É pra todo mundo.</span>
-          </h2>
-
-          <p className="mt-5 max-w-lg text-[1.05rem] leading-relaxed text-on-surface-variant md:text-[1.15rem]">
-            Não importa o que sai da sua cozinha. Se você vende comida, a Fluxa
-            monta o canal próprio do seu jeito, com a cara da sua marca.
-          </p>
-
-          {/* Chips dos tipos — clicáveis, sincronizam com o showcase */}
-          <div className="mt-8 flex flex-wrap gap-2.5">
-            {PLACES.map((p, i) => (
-              <button
-                key={p.label}
-                type="button"
-                onClick={() => setActive(i)}
-                className={
-                  "rounded-full px-4 py-2 text-[0.8rem] font-semibold transition-all " +
-                  (i === active
-                    ? "bg-fluxa-red text-white shadow-brand"
-                    : "bg-white text-on-surface-variant ring-1 ring-black/[0.06] hover:ring-black/15")
-                }
-              >
-                {p.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Coluna direita — showcase que alterna. Os SVGs têm bastante respiro
-            interno à esquerda, então a arte precisa crescer e ser puxada para
-            o centro visual da coluna. */}
-        {/* Showcase: altura mobile-first por breakpoint (skill §3E). */}
-        <div className="relative order-first h-[320px] w-full md:order-last md:h-[420px] lg:h-[500px] xl:h-[560px]">
-          {/* Halo dourado atrás */}
+        {/* Showcase animado — mantido do repo */}
+        <div className="relative mx-auto mt-10 h-[280px] w-full max-w-[520px] md:h-[340px]">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 mx-auto my-auto h-[75%] w-[75%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(242,160,61,0.42),rgba(242,160,61,0.18)_38%,transparent_68%)]"
@@ -83,19 +56,46 @@ export function ParaTodos() {
               key={p.src}
               src={p.src}
               alt={p.label}
-              className="absolute left-1/2 top-1/2 h-auto w-[140%] max-w-none select-none object-contain transition-all duration-700 ease-out md:w-[150%] lg:w-[160%]"
+              className="absolute left-1/2 top-1/2 h-auto w-[130%] max-w-none select-none object-contain transition-all duration-700 ease-out"
               style={{
                 opacity: i === active ? 1 : 0,
                 transform:
                   i === active
-                    ? "translate(-68%, -50%) scale(1)"
-                    : "translate(-68%, -50%) scale(0.92)",
-                filter: "drop-shadow(0 24px 40px rgba(10,10,11,0.16))",
+                    ? "translate(-50%, -50%) scale(1)"
+                    : "translate(-50%, -50%) scale(0.92)",
+                filter: "drop-shadow(0 24px 40px rgba(26,14,14,0.16))",
               }}
               draggable={false}
               loading="lazy"
               aria-hidden={i !== active}
             />
+          ))}
+        </div>
+
+        {/* Chips */}
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          {PLACES.map((p, i) => (
+            <button
+              key={p.label}
+              type="button"
+              onClick={() => setActive(i)}
+              className={
+                "inline-flex h-11 items-center rounded-full px-[22px] text-[14.5px] font-semibold transition-all " +
+                (i === active
+                  ? "bg-fluxa-red text-white shadow-brand"
+                  : "border border-outline bg-surface text-ink hover:border-outline-strong")
+              }
+            >
+              {p.label}
+            </button>
+          ))}
+          {EXTRA_CHIPS.map((label) => (
+            <span
+              key={label}
+              className="inline-flex h-11 items-center rounded-full border border-outline bg-surface px-[22px] text-[14.5px] font-semibold text-ink"
+            >
+              {label}
+            </span>
           ))}
         </div>
       </div>
