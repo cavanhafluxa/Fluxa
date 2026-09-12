@@ -83,36 +83,69 @@
   --radius-card: 18px;
   --radius-xl: 20px;
   --radius-2xl: 24px;
+
+  /* ─── Fluxa Design System (creme · vinho · terracota) ───────────────────
+     Paleta oficial do brand book. Proporção de uso:
+     Creme 40 · Vinho 30 · Quase-preto 15 · Terracota 10 · Oliva 3.
+     Substitui a paleta vermelha anterior nas telas da landing page. */
+  --color-vinho: #29151e;
+  --color-terracota: #e9683b;
+  --color-terracota-hover: #d95a2e;
+  --color-terracota-press: #c24e26;
+  --color-creme: #f4ebdd;
+  --color-creme-soft: #f7f1e8;
+  --color-quase-preto: #171315;
+  --color-oliva: #a5ad67;
+
+  /* Tons de apoio extraídos do deck */
+  --color-creme-2: #ddd0c0; /* bordas, trilhos, barras sobre creme */
+  --color-creme-3: #eadfcd; /* chips sobre creme */
+  --color-creme-4: #e4d8c8; /* bordas do footer / inputs */
+  --color-vinho-2: #4a2a3e; /* barras secundárias sobre vinho */
+  --color-vinho-3: #4a3a40; /* texto secundário sobre creme */
+  --color-vinho-4: #6b5a60; /* legendas e rótulos sobre creme */
+  --color-vinho-5: #8a7a80; /* texto terciário sobre creme */
+  --color-vinho-elev: #3a1f2b; /* card elevado sobre vinho */
+  --color-rosa-cinza: #c9b8be; /* texto secundário sobre vinho/preto */
+  --color-preto-2: #2a2426; /* divisores sobre quase-preto */
+  --color-foods-vermelho: #e8262b; /* sub-marca Fluxa Foods */
+  --color-foods-vermelho-hover: #c81f24;
+
+  --font-urbanist: var(--font-urbanist-google), "Aeonik", system-ui, sans-serif;
+  --font-manrope: var(--font-manrope-google), "Söhne", system-ui, sans-serif;
+
+  /* Easing da marca — lento no fim, sem bounce */
+  --ease-fluxa: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* auto, não smooth: o Lenis é quem suaviza. Os dois juntos brigam. */
+    scroll-behavior: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
+  /* Base Fluxa DS: o creme substitui o branco como superfície padrão
+     e Manrope é a fonte de corpo (Urbanist fica para display). */
   body {
-    background-color: var(--color-surface);
-    color: var(--color-on-surface);
-    font-family: var(--font-sans);
+    background-color: var(--color-creme);
+    color: var(--color-vinho);
+    font-family: var(--font-manrope);
     font-weight: 400;
-    font-size: 15px;
-    line-height: 1.55;
-  }
-  @media (min-width: 1024px) {
-    body { font-size: 15px; line-height: 1.6; }
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   ::selection {
-    background-color: rgba(213, 4, 49, 0.16);
-    color: var(--color-fluxa-red);
+    background-color: rgba(233, 104, 59, 0.28);
+    color: var(--color-vinho);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-fluxa-red);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-terracota);
+    outline-offset: 2px;
     border-radius: 4px;
   }
 }
@@ -352,6 +385,132 @@
     box-shadow: 0 0 0 3px rgba(213, 4, 49, 0.35);
   }
   .fx-input::placeholder { color: var(--color-on-surface-muted); }
+}
+
+/* ─── Fluxa DS — utilitários da landing page ─────────────────────────────
+   Duas composições convivem no DOM: a de desktop (≥768px) e a de mobile
+   (≤767px), que não é a de desktop empilhada — é outra narrativa visual.
+   A troca é por CSS, não por JS, pra não ter flash de hidratação. O ramo
+   escondido sai da árvore de acessibilidade junto com o display:none. */
+@layer utilities {
+  .fx-desktop { display: none; }
+  .fx-mobile { display: block; }
+  @media (min-width: 768px) {
+    .fx-desktop { display: block; }
+    .fx-mobile { display: none; }
+  }
+
+  /* Ritmo vertical das seções de desktop. A composição de desktop começa
+     em 768px, então entre 768 e 900px ela respira menos. */
+  .fx-section { padding-block: 72px; }
+  .fx-section-lg { padding-block: 72px; }
+  .fx-section-sm { padding-block: 72px; }
+  @media (min-width: 900px) {
+    .fx-section { padding-block: 128px; }
+    .fx-section-lg { padding-block: 144px; }
+    .fx-section-sm { padding-block: 112px; }
+  }
+
+  /* Rótulo em caixa alta espaçada — "O PROBLEMA", "A JORNADA" */
+  .fx-label {
+    font: 600 11px/1 var(--font-manrope);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .fx-label-sm {
+    font: 600 10px/1 var(--font-manrope);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Botões levantam no hover — pedido explícito pra LP não ficar monótona */
+  .fx-lift {
+    transition:
+      transform 420ms var(--ease-fluxa),
+      background-color 420ms var(--ease-fluxa),
+      color 420ms var(--ease-fluxa),
+      border-color 420ms var(--ease-fluxa);
+  }
+  .fx-lift:hover { transform: translateY(-6px); }
+  .fx-lift:active { transform: translateY(-2px) scale(0.99); }
+
+  /* Reveal ao entrar na tela, via scroll-driven animation nativa.
+     Fallback em navegadores sem animation-timeline: conteúdo já visível. */
+  .fx-rise { opacity: 1; transform: none; }
+  @supports (animation-timeline: view()) {
+    .fx-rise {
+      animation: fx-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 26%;
+    }
+  }
+
+  .fx-float { animation: fx-float-pure 10s ease-in-out infinite; will-change: transform; }
+  .fx-float-slow { animation: fx-float-pure 11s ease-in-out infinite; will-change: transform; }
+  .fx-pulse { animation: fx-pulse 9s ease-in-out infinite; }
+
+  /* Linhas do Método e da lista de execução: deslizam e ficam terracota */
+  .fx-row {
+    transition:
+      padding-left 420ms var(--ease-fluxa),
+      color 420ms var(--ease-fluxa),
+      border-color 420ms var(--ease-fluxa);
+  }
+  .fx-row:hover { border-color: var(--color-terracota); }
+
+  /* Campo em pílula dos formulários */
+  .fx-pill-input {
+    height: 52px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid var(--color-creme-2);
+    background: #fff;
+    font: 400 16px/1 var(--font-manrope);
+    color: var(--color-vinho);
+    transition: border-color 240ms var(--ease-fluxa);
+  }
+  .fx-pill-input::placeholder { color: var(--color-vinho-5); }
+  .fx-pill-input:focus {
+    border-color: var(--color-terracota);
+    outline: none;
+  }
+
+  /* Parallax: o transform é escrito por JS (ver Parallax.tsx) */
+  [data-parallax] { will-change: transform; }
+  /* Em tela pequena o efeito atrapalha. O !important também limpa o
+     transform inline que sobra se o usuário reduzir a janela. */
+  @media (max-width: 900px) {
+    [data-parallax] { transform: none !important; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fx-lift:hover,
+    .fx-lift:active { transform: none; }
+    .fx-rise,
+    .fx-float,
+    .fx-float-slow,
+    .fx-pulse,
+    [data-parallax] {
+      animation: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+@keyframes fx-rise {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fx-float-pure {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -14px, 0); }
+}
+
+@keyframes fx-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.9; transform: scale(1.06); }
 }
 
 @keyframes reveal-up {
