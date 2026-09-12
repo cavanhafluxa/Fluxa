@@ -1,30 +1,32 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Urbanist, Manrope } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "./components/SmoothScroll";
 
-const inter = Inter({
-  variable: "--font-inter",
+/** Urbanist 700/800 — display, wordmark e números. */
+const urbanist = Urbanist({
+  variable: "--font-urbanist-google",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["700", "800"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+/** Manrope 400/600/700 — corpo, legendas, dados e UI. */
+const manrope = Manrope({
+  variable: "--font-manrope-google",
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600"],
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Fluxa | Recupere o controle do seu restaurante",
+  title: "Fluxa | Marketing pela jornada do cliente",
   description:
-    "A cozinha vira caos no pico. As taxas comem sua margem. E você nem sabe quem comeu sua comida. A Fluxa não vende um app — devolve o controle pra suas mãos.",
+    "Estruturamos restaurantes para crescer do primeiro contato à próxima compra. Conhecer, desejar, comprar e voltar — a jornada inteira, não ações soltas.",
   openGraph: {
-    title: "Fluxa | Recupere o controle do seu restaurante",
+    title: "Fluxa | Marketing pela jornada do cliente",
     description:
-      "Pare de alugar clientes com apps de delivery. Construa sua própria base com marketing e gestão de negócio.",
+      "Antes da ação, vem o cliente. A Fluxa estrutura a jornada inteira do restaurante: conhecer, desejar, comprar e voltar.",
     type: "website",
     locale: "pt_BR",
   },
@@ -34,10 +36,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
-    >
+    <html lang="pt-BR" className={`${urbanist.variable} ${manrope.variable}`}>
       <body>
         <SmoothScroll />
         {children}
